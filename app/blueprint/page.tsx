@@ -19,7 +19,7 @@ export default function BlueprintPage() {
     <>
 
       <article className="mx-auto max-w-3xl px-4 py-16">
-        <h1 className="">
+        <h1>
           Get Your Free AI Blueprint
         </h1>
         <p className="mt-6 text-brand-gray">Content coming soon.</p>

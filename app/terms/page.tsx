@@ -16,7 +16,7 @@ export default function TermsPage() {
     <>
 
       <article className="mx-auto max-w-3xl px-4 py-16">
-        <h1 className="">
+        <h1>
           Terms of Service
         </h1>
         <p className="mt-6 text-brand-gray">Content coming soon.</p>
