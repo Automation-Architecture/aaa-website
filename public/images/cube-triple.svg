@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Bottom-left cube -->
+  <g transform="translate(50,90)">
+    <path d="M0 -10 L-26 4 L0 18 L26 4 Z" fill="#F3F4F6" stroke="#B0B2B5" stroke-width="1.2"/>
+    <path d="M-26 4 L-26 26 L0 40 L0 18 Z" fill="#E0E1E3" stroke="#B0B2B5" stroke-width="1.2"/>
+    <path d="M26 4 L26 26 L0 40 L0 18 Z" fill="#EEEFF1" stroke="#B0B2B5" stroke-width="1.2"/>
+  </g>
+  <!-- Bottom-right cube -->
+  <g transform="translate(110,90)">
+    <path d="M0 -10 L-26 4 L0 18 L26 4 Z" fill="#F3F4F6" stroke="#B0B2B5" stroke-width="1.2"/>
+    <path d="M-26 4 L-26 26 L0 40 L0 18 Z" fill="#E0E1E3" stroke="#B0B2B5" stroke-width="1.2"/>
+    <path d="M26 4 L26 26 L0 40 L0 18 Z" fill="#EEEFF1" stroke="#B0B2B5" stroke-width="1.2"/>
+  </g>
+  <!-- Top cube -->
+  <g transform="translate(80,54)">
+    <path d="M0 -10 L-26 4 L0 18 L26 4 Z" fill="#F3F4F6" stroke="#004D43" stroke-width="1.2" opacity="0.6"/>
+    <path d="M-26 4 L-26 26 L0 40 L0 18 Z" fill="#E0E1E3" stroke="#004D43" stroke-width="1.2" opacity="0.6"/>
+    <path d="M26 4 L26 26 L0 40 L0 18 Z" fill="#EEEFF1" stroke="#004D43" stroke-width="1.2" opacity="0.6"/>
+  </g>
+</svg>

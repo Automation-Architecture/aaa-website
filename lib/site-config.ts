@@ -10,9 +10,8 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Solution", href: "/solution" },
+  { label: "Philosophy", href: "/about" },
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Use Cases", href: "/use-cases" },
   {
     label: "Industries",
     href: "#",
@@ -23,12 +22,18 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "SaaS", href: "/industries/saas" },
     ],
   },
-  { label: "About", href: "/about" },
+  { label: "Solution", href: "/solution" },
+  { label: "Cases", href: "/use-cases" },
   { label: "FAQ", href: "/faq" },
 ];
 
 export const CTA = {
-  label: "Get Your Free AI Blueprint",
+  label: "APPLY NOW",
+  href: "/blueprint",
+} as const;
+
+export const SECONDARY_CTA = {
+  label: "Our AI Blueprint",
   href: "/blueprint",
 } as const;
 
@@ -39,36 +44,38 @@ export interface FooterColumn {
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "Company",
+    title: "Platform",
     links: [
-      { label: "About", href: "/about" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Glossary", href: "/glossary" },
+      { label: "Our Free AI Blueprint", href: "/blueprint" },
+      { label: "AIOS Solution", href: "/solution" },
+      { label: "How It Works", href: "/how-it-works" },
+      { label: "Use Cases", href: "/use-cases" },
+    ],
+  },
+  {
+    title: "Comparisons",
+    links: [
+      { label: "AIOS vs. chat GPT", href: "/aios-vs-chatgpt" },
+      { label: "AIOS vs. Zapier", href: "/aios-vs-zapier" },
+      { label: "AIOS vs. DIY", href: "/aios-vs-diy" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Value / ROI", href: "/value" },
-      { label: "AIOS vs Zapier", href: "/aios-vs-zapier" },
-      { label: "AIOS vs DIY", href: "/aios-vs-diy" },
-      { label: "AIOS vs ChatGPT", href: "/aios-vs-chatgpt" },
+      { label: "Problem", href: "/problem" },
+      { label: "About Philosophy", href: "/about" },
+      { label: "Glossary", href: "/glossary" },
+      { label: "FAQ", href: "/faq" },
     ],
   },
   {
     title: "Industries",
     links: [
       { label: "Agencies", href: "/industries/agencies" },
-      { label: "Coaching", href: "/industries/coaching" },
-      { label: "Ecommerce", href: "/industries/ecommerce" },
       { label: "SaaS", href: "/industries/saas" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Ecommerce", href: "/industries/ecommerce" },
+      { label: "Coaching", href: "/industries/coaching" },
     ],
   },
 ];

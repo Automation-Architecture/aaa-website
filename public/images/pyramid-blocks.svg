@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" fill="none">
+  <!-- Level 4 (bottom, widest) -->
+  <g transform="translate(200,400)">
+    <!-- Top face -->
+    <path d="M0 0 L-140 -40 L0 -80 L140 -40 Z" fill="#F9F7F2" stroke="#C4C6C9" stroke-width="1.2"/>
+    <!-- Left face -->
+    <path d="M-140 -40 L-140 -10 L0 30 L0 0 Z" fill="#EEEFF1" stroke="#C4C6C9" stroke-width="1.2"/>
+    <!-- Right face -->
+    <path d="M140 -40 L140 -10 L0 30 L0 0 Z" fill="#E5E7EB" stroke="#C4C6C9" stroke-width="1.2"/>
+  </g>
+
+  <!-- Level 3 -->
+  <g transform="translate(200,320)">
+    <path d="M0 0 L-105 -30 L0 -60 L105 -30 Z" fill="#F9F7F2" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M-105 -30 L-105 -4 L0 26 L0 0 Z" fill="#EEEFF1" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M105 -30 L105 -4 L0 26 L0 0 Z" fill="#E5E7EB" stroke="#C4C6C9" stroke-width="1.2"/>
+  </g>
+
+  <!-- Level 2 -->
+  <g transform="translate(200,248)">
+    <path d="M0 0 L-70 -20 L0 -40 L70 -20 Z" fill="#F9F7F2" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M-70 -20 L-70 2 L0 22 L0 0 Z" fill="#EEEFF1" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M70 -20 L70 2 L0 22 L0 0 Z" fill="#E5E7EB" stroke="#C4C6C9" stroke-width="1.2"/>
+  </g>
+
+  <!-- Level 1 (top, smallest platform) -->
+  <g transform="translate(200,188)">
+    <path d="M0 0 L-40 -12 L0 -24 L40 -12 Z" fill="#F9F7F2" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M-40 -12 L-40 4 L0 16 L0 0 Z" fill="#EEEFF1" stroke="#C4C6C9" stroke-width="1.2"/>
+    <path d="M40 -12 L40 4 L0 16 L0 0 Z" fill="#E5E7EB" stroke="#C4C6C9" stroke-width="1.2"/>
+  </g>
+
+  <!-- Top cube -->
+  <g transform="translate(200,146)">
+    <!-- Top -->
+    <path d="M0 0 L-18 -10 L0 -20 L18 -10 Z" fill="#F3F4F6" stroke="#B0B2B5" stroke-width="1.2"/>
+    <!-- Left -->
+    <path d="M-18 -10 L-18 8 L0 18 L0 0 Z" fill="#E0E1E3" stroke="#B0B2B5" stroke-width="1.2"/>
+    <!-- Right -->
+    <path d="M18 -10 L18 8 L0 18 L0 0 Z" fill="#D4D5D8" stroke="#B0B2B5" stroke-width="1.2"/>
+  </g>
+</svg>

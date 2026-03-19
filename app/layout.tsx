@@ -3,6 +3,7 @@ import { Jura } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCTABar } from "@/components/MobileCTABar";
+import { SocialSidebar } from "@/components/SocialSidebar";
 import { GtmScript, GtmNoScript } from "@/components/GtmScript";
 import { CookieYesScript } from "@/components/CookieYesScript";
 import { JsonLd } from "@/components/JsonLd";
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <SocialSidebar />
         <MobileCTABar />
       </body>
     </html>

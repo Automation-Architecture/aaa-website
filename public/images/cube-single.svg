@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <g transform="translate(60,60)">
+    <!-- Top face -->
+    <path d="M0 -10 L-30 6 L0 22 L30 6 Z" fill="#F3F4F6" stroke="#C4C6C9" stroke-width="1.2"/>
+    <!-- Left face -->
+    <path d="M-30 6 L-30 32 L0 48 L0 22 Z" fill="#E0E1E3" stroke="#C4C6C9" stroke-width="1.2"/>
+    <!-- Right face -->
+    <path d="M30 6 L30 32 L0 48 L0 22 Z" fill="#EEEFF1" stroke="#C4C6C9" stroke-width="1.2"/>
+  </g>
+</svg>
