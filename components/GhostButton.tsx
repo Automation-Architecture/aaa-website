@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 
 interface GhostButtonProps {
   href: string;
@@ -6,11 +7,14 @@ interface GhostButtonProps {
   className?: string;
 }
 
-export function GhostButton({ href, children, className = "" }: GhostButtonProps) {
+export function GhostButton({ href, children, className }: GhostButtonProps) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center min-h-[48px] px-6 py-3 border-2 border-brand-teal text-brand-teal font-semibold rounded-lg transition-colors duration-150 hover:bg-brand-lime hover:border-brand-lime hover:text-brand-teal focus:outline-2 focus:outline-offset-2 focus:outline-brand-lime ${className}`}
+      className={cn(
+        "inline-flex items-center justify-center min-h-[48px] px-6 py-3 border-2 border-brand-teal text-brand-teal font-semibold rounded-lg transition-colors duration-150 hover:bg-brand-lime hover:border-brand-lime hover:text-brand-teal focus:outline-2 focus:outline-offset-2 focus:outline-brand-lime",
+        className,
+      )}
     >
       {children}
     </Link>

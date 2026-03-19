@@ -3,6 +3,8 @@ import { Jura } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCTABar } from "@/components/MobileCTABar";
+import { GtmScript, GtmNoScript } from "@/components/GtmScript";
+import { CookieYesScript } from "@/components/CookieYesScript";
 import { JsonLd } from "@/components/JsonLd";
 import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA } from "@/lib/schema-constants";
 import "./globals.css";
@@ -43,6 +45,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jura.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-jura">
+        <GtmNoScript />
+        <GtmScript />
+        <CookieYesScript />
         <JsonLd data={ORGANIZATION_SCHEMA} />
         <JsonLd data={WEBSITE_SCHEMA} />
         <Header />

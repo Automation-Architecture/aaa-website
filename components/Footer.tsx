@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FOOTER_COLUMNS } from "@/lib/site-config";
+import { CookiePreferencesLink } from "@/components/CookiePreferencesLink";
 
 export function Footer() {
   return (
@@ -22,6 +23,11 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                {column.title === "Legal" && (
+                  <li>
+                    <CookiePreferencesLink />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
@@ -29,7 +35,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-brand-gray/20 pt-6">
           <p className="text-center text-xs text-brand-gray">
-            &copy; 2026 Automation Architecture AI. All rights reserved.
+            &copy; {new Date().getFullYear()} Automation Architecture AI. All rights reserved.
           </p>
         </div>
       </div>

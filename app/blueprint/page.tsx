@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageCTA } from "@/components/PageCTA";
+import { TypeformEmbed } from "@/components/TypeformEmbed";
 
 export const metadata: Metadata = {
   title: "Get Your Free AI Blueprint -- Automation Architecture AI",
@@ -24,12 +25,9 @@ export default function BlueprintPage() {
         </h1>
         <p className="mt-6 text-brand-gray">Content coming soon.</p>
 
-        {/* Typeform embed placeholder */}
-        <div
-          className="mt-10 flex min-h-[500px] items-center justify-center rounded-lg border-2 border-dashed border-brand-gray/30"
-          aria-label="Blueprint intake form"
-        >
-          <p className="text-brand-gray">Typeform embed loading here.</p>
+        {/* Typeform embed */}
+        <div className="mt-10">
+          <TypeformEmbed />
         </div>
 
         {/* What to Expect */}

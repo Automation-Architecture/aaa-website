@@ -97,7 +97,7 @@ export default function ProblemPage() {
         </KeyTakeaway>
 
         {/* The Pattern */}
-        <Section id="the-pattern" className="mt-12">
+        <Section id="section-the-pattern" className="mt-12">
           <h2 id="the-pattern" className="text-2xl font-bold">
             The Pattern
           </h2>
@@ -114,7 +114,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The 80/20 Split */}
-        <Section id="the-80-20-split" className="mt-12">
+        <Section id="section-the-80-20-split" className="mt-12">
           <h2 id="the-80-20-split" className="text-2xl font-bold">
             The 80/20 Split
           </h2>
@@ -150,7 +150,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The Trajectory */}
-        <Section id="the-trajectory" className="mt-12">
+        <Section id="section-the-trajectory" className="mt-12">
           <h2 id="the-trajectory" className="text-2xl font-bold">
             The Trajectory
           </h2>
@@ -169,7 +169,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The Margin Pressure */}
-        <Section id="the-margin-pressure" className="mt-12">
+        <Section id="section-the-margin-pressure" className="mt-12">
           <h2 id="the-margin-pressure" className="text-2xl font-bold">
             The Margin Pressure
           </h2>
@@ -194,7 +194,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The Overwhelm Is Real */}
-        <Section id="the-overwhelm-is-real" className="mt-12">
+        <Section id="section-the-overwhelm-is-real" className="mt-12">
           <h2 id="the-overwhelm-is-real" className="text-2xl font-bold">
             The Overwhelm Is Real
           </h2>
@@ -228,7 +228,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The Ceiling */}
-        <Section id="the-ceiling" className="mt-12">
+        <Section id="section-the-ceiling" className="mt-12">
           <h2 id="the-ceiling" className="text-2xl font-bold">
             The Ceiling
           </h2>
@@ -260,7 +260,7 @@ export default function ProblemPage() {
         </Section>
 
         {/* The Bridge */}
-        <Section id="the-bridge" className="mt-12">
+        <Section id="section-the-bridge" className="mt-12">
           <h2 id="the-bridge" className="text-2xl font-bold">
             The Bridge
           </h2>

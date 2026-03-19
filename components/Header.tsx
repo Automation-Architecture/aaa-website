@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { CTA, NAV_ITEMS, type NavItem } from "@/lib/site-config";
+import { trackEvent } from "@/lib/analytics";
 
 function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
@@ -34,7 +36,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       >
         {item.label}
         <svg
-          className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+          className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -51,6 +53,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
               <Link
                 href={child.href!}
                 className="block px-4 py-2 text-sm text-brand-cream hover:text-brand-lime hover:bg-brand-teal/80 transition-colors"
+                onClick={() => trackEvent("nav_click", { nav_item: child.label })}
               >
                 {child.label}
               </Link>
@@ -75,7 +78,7 @@ function MobileDropdown({ item }: { item: NavItem }) {
       >
         {item.label}
         <svg
-          className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`}
+          className={cn("h-5 w-5 transition-transform", open && "rotate-180")}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -92,6 +95,7 @@ function MobileDropdown({ item }: { item: NavItem }) {
               <Link
                 href={child.href!}
                 className="block text-xl text-brand-gray hover:text-brand-lime transition-colors"
+                onClick={() => trackEvent("nav_click", { nav_item: child.label })}
               >
                 {child.label}
               </Link>
@@ -190,6 +194,7 @@ export function Header() {
                 key={item.href}
                 href={item.href!}
                 className="text-brand-cream hover:text-brand-lime transition-colors"
+                onClick={() => trackEvent("nav_click", { nav_item: item.label })}
               >
                 {item.label}
               </Link>
@@ -199,6 +204,7 @@ export function Header() {
           <Link
             href={CTA.href}
             className="ml-2 rounded-md bg-brand-lime px-4 py-2 text-sm font-bold text-brand-teal hover:opacity-90 transition-opacity"
+            onClick={() => trackEvent("cta_click", { cta_location: "header" })}
           >
             {CTA.label}
           </Link>
@@ -214,13 +220,13 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
-            className={`block h-0.5 w-6 bg-brand-cream transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+            className={cn("block h-0.5 w-6 bg-brand-cream transition-transform", menuOpen && "translate-y-2 rotate-45")}
           />
           <span
-            className={`block h-0.5 w-6 bg-brand-cream transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+            className={cn("block h-0.5 w-6 bg-brand-cream transition-opacity", menuOpen && "opacity-0")}
           />
           <span
-            className={`block h-0.5 w-6 bg-brand-cream transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            className={cn("block h-0.5 w-6 bg-brand-cream transition-transform", menuOpen && "-translate-y-2 -rotate-45")}
           />
         </button>
       </div>
@@ -275,7 +281,10 @@ export function Header() {
 
             <Link
               href={CTA.href}
-              onClick={closeMenu}
+              onClick={(e) => {
+                trackEvent("cta_click", { cta_location: "header_mobile" });
+                closeMenu();
+              }}
               className="mt-4 block rounded-md bg-brand-lime px-6 py-3 text-center text-lg font-bold text-brand-teal"
             >
               {CTA.label}

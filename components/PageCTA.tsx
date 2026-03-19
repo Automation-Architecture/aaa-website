@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { CTA } from "@/lib/site-config";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function PageCTA() {
   return (
@@ -15,12 +15,14 @@ export function PageCTA() {
           Get AI automation recommendations tailored to your business. Free, no
           obligation.
         </p>
-        <Link
+        <TrackedLink
           href={CTA.href}
+          event="cta_click"
+          eventParams={{ cta_location: "page_cta" }}
           className="mt-8 inline-block rounded-md bg-brand-lime px-8 py-3 font-bold text-brand-teal hover:opacity-90 transition-opacity"
         >
           {CTA.label}
-        </Link>
+        </TrackedLink>
       </div>
     </section>
   );
