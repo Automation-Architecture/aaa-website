@@ -48,6 +48,26 @@ const checklist = [
   "A finished PNG diagram you needed for a client deck? Sitting in your project folder.",
 ];
 
+function CheckCircleIcon() {
+  return (
+    <svg
+      className="w-6 h-6 text-brand-teal shrink-0 mt-1"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4"
+      />
+      <circle cx="12" cy="12" r="10" strokeWidth={2} />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -57,7 +77,7 @@ export default function HomePage() {
       {/* ─── Hero ─── */}
       <section className="px-4 tablet:px-6 pt-6">
         <div className="bg-brand-lime rounded-2xl px-8 py-16 tablet:px-16 tablet:py-24 desktop:py-32">
-          <h1 className="uppercase text-brand-black max-w-5xl">
+          <h1 className="hero-headline uppercase text-brand-black max-w-5xl">
             How to prepare your business for the agent-to-agent economy
           </h1>
         </div>
@@ -86,6 +106,7 @@ export default function HomePage() {
                   width={520}
                   height={360}
                   className="w-full max-w-md"
+                  priority
                 />
               </div>
             </div>
@@ -104,6 +125,7 @@ export default function HomePage() {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -605,21 +627,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl px-4 tablet:px-6 py-16 tablet:py-24">
           <ul className="space-y-6">
             <li className="flex items-start gap-4">
-              <svg
-                className="w-6 h-6 text-brand-teal shrink-0 mt-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4"
-                />
-                <circle cx="12" cy="12" r="10" strokeWidth={2} />
-              </svg>
+              <CheckCircleIcon />
               <div>
                 <p className="font-bold">
                   Get a personalized AI Blueprint before any commitment.
@@ -631,21 +639,7 @@ export default function HomePage() {
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <svg
-                className="w-6 h-6 text-brand-teal shrink-0 mt-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4"
-                />
-                <circle cx="12" cy="12" r="10" strokeWidth={2} />
-              </svg>
+              <CheckCircleIcon />
               <div>
                 <p className="font-bold">
                   You&rsquo;ll never be stuck alone.
@@ -657,21 +651,7 @@ export default function HomePage() {
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <svg
-                className="w-6 h-6 text-brand-teal shrink-0 mt-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4"
-                />
-                <circle cx="12" cy="12" r="10" strokeWidth={2} />
-              </svg>
+              <CheckCircleIcon />
               <div>
                 <p className="font-bold">
                   You don&rsquo;t need to be technical.

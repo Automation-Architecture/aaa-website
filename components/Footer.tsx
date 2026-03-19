@@ -1,9 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { FOOTER_COLUMNS } from "@/lib/site-config";
 import { CookiePreferencesLink } from "@/components/CookiePreferencesLink";
 import { Logo } from "@/components/Logo";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+
+  // TODO: Wire to newsletter API endpoint
+  function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+  }
   return (
     <footer className="bg-brand-cream text-brand-teal">
       {/* Subscribe section */}
@@ -17,19 +27,23 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider whitespace-nowrap">
               Subscribe to be in touch
             </h3>
-            <div className="flex flex-1 w-full tablet:w-auto gap-3">
+            <form onSubmit={handleSubscribe} className="flex flex-1 w-full tablet:w-auto gap-3">
               <input
                 type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your E-mail"
                 className="flex-1 border-b border-brand-gray/40 bg-transparent px-2 py-2 text-sm outline-none focus:border-brand-teal placeholder:text-brand-gray"
+                required
               />
               <button
-                type="button"
+                type="submit"
                 className="rounded-full bg-brand-teal px-6 py-2.5 text-sm font-bold text-brand-cream uppercase tracking-wide hover:opacity-90 transition-opacity"
               >
                 Subscribe
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

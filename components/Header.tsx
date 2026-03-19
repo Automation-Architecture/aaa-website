@@ -7,6 +7,24 @@ import { CTA, SECONDARY_CTA, NAV_ITEMS, type NavItem } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
 import { Logo } from "@/components/Logo";
 
+function GridIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="0" y="0" width="7" height="7" rx="1.5" />
+      <rect x="9" y="0" width="7" height="7" rx="1.5" />
+      <rect x="0" y="9" width="7" height="7" rx="1.5" />
+      <rect x="9" y="9" width="7" height="7" rx="1.5" />
+    </svg>
+  );
+}
+
 function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -54,7 +72,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
           {item.children.map((child) => (
             <li key={child.href}>
               <Link
-                href={child.href!}
+                href={child.href ?? "#"}
                 className="block px-4 py-2 text-sm text-brand-cream hover:text-brand-lime hover:bg-brand-white/5 transition-colors"
                 onClick={() =>
                   trackEvent("nav_click", { nav_item: child.label })
@@ -103,7 +121,7 @@ function MobileDropdown({ item }: { item: NavItem }) {
           {item.children.map((child) => (
             <li key={child.href}>
               <Link
-                href={child.href!}
+                href={child.href ?? "#"}
                 className="block text-xl text-brand-gray hover:text-brand-lime transition-colors"
                 onClick={() =>
                   trackEvent("nav_click", { nav_item: child.label })
@@ -201,7 +219,7 @@ export function Header() {
             ) : (
               <Link
                 key={item.href}
-                href={item.href!}
+                href={item.href ?? "#"}
                 className="text-brand-cream hover:text-brand-lime transition-colors whitespace-nowrap"
                 onClick={() =>
                   trackEvent("nav_click", { nav_item: item.label })
@@ -226,18 +244,7 @@ export function Header() {
             }
           >
             {/* Grid icon */}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <rect x="0" y="0" width="7" height="7" rx="1.5" />
-              <rect x="9" y="0" width="7" height="7" rx="1.5" />
-              <rect x="0" y="9" width="7" height="7" rx="1.5" />
-              <rect x="9" y="9" width="7" height="7" rx="1.5" />
-            </svg>
+            <GridIcon />
             {SECONDARY_CTA.label}
           </Link>
 
@@ -362,7 +369,7 @@ export function Header() {
               ) : (
                 <Link
                   key={item.href}
-                  href={item.href!}
+                  href={item.href ?? "#"}
                   onClick={closeMenu}
                   className="block text-2xl text-brand-cream hover:text-brand-lime transition-colors"
                 >

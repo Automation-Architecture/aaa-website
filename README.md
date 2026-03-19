@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Create a `.env.local` file with:
 
-```
+```bash
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_GA4_MEASUREMENT_ID=
 NEXT_PUBLIC_GTM_CONTAINER_ID=
