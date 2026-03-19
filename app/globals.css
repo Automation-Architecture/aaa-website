@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-brand-lime: #E6FF2B;
   --color-brand-teal: #004D43;
   --color-brand-cream: #F9F7F2;
   --color-brand-gray: #898A8D;
+  --color-brand-black: #010101;
+  --color-brand-white: #FFFFFF;
 
   --font-jura: var(--font-jura-var);
 
@@ -29,6 +31,7 @@
   --breakpoint-desktop: 1024px;
   --breakpoint-wide: 1280px;
 
+  --z-sidebar: 90;
   --z-header: 100;
   --z-mobile-cta: 200;
   --z-hamburger: 300;

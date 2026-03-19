@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" fill="none">
+  <!-- Laptop body -->
+  <rect x="60" y="40" width="340" height="220" rx="12" fill="#F9F7F2" stroke="#D1D5DB" stroke-width="1.5"/>
+  <!-- Screen -->
+  <rect x="76" y="56" width="308" height="188" rx="4" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  <!-- Screen content - checkmark -->
+  <circle cx="230" cy="140" r="28" fill="#004D43" opacity="0.1"/>
+  <path d="M216 140l8 8 20-20" stroke="#004D43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Laptop base/hinge -->
+  <path d="M40 260 Q40 254 46 254 L414 254 Q420 254 420 260 L430 280 Q432 286 426 286 L34 286 Q28 286 30 280 Z" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1"/>
+  <!-- Trackpad -->
+  <rect x="195" y="262" width="70" height="14" rx="3" fill="#D1D5DB" opacity="0.5"/>
+  <!-- Phone -->
+  <rect x="400" y="120" width="80" height="150" rx="10" fill="#F9F7F2" stroke="#D1D5DB" stroke-width="1.5"/>
+  <!-- Phone screen -->
+  <rect x="408" y="136" width="64" height="118" rx="2" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  <!-- Phone notch -->
+  <rect x="428" y="126" width="24" height="4" rx="2" fill="#D1D5DB"/>
+  <!-- AAA logo on phone -->
+  <path d="M428 185 L440 170 L452 185" stroke="#E6FF2B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M432 185 L440 175 L448 185" stroke="#004D43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Shadow -->
+  <ellipse cx="260" cy="310" rx="200" ry="12" fill="#004D43" opacity="0.06"/>
+</svg>

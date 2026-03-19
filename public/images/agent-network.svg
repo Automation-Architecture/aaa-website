@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" fill="none">
+  <!-- Connection lines -->
+  <line x1="120" y1="110" x2="360" y2="110" stroke="#D1D5DB" stroke-width="1.5"/>
+  <line x1="120" y1="110" x2="120" y2="330" stroke="#D1D5DB" stroke-width="1.5"/>
+  <line x1="360" y1="110" x2="360" y2="330" stroke="#D1D5DB" stroke-width="1.5"/>
+  <line x1="120" y1="330" x2="360" y2="330" stroke="#D1D5DB" stroke-width="1.5"/>
+  <!-- Diagonal connections -->
+  <line x1="120" y1="110" x2="360" y2="330" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="6 4"/>
+  <line x1="360" y1="110" x2="120" y2="330" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="6 4"/>
+  <!-- Central hexagon -->
+  <path d="M240 180 L280 200 L280 240 L240 260 L200 240 L200 200 Z" stroke="#D1D5DB" stroke-width="1" fill="#F9F7F2" opacity="0.5"/>
+
+  <!-- Node 1 - Top Left: Isometric box -->
+  <g transform="translate(120,90)">
+    <path d="M0 10 L-24 -4 L0 -18 L24 -4 Z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M-24 -4 L-24 16 L0 30 L0 10 Z" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M24 -4 L24 16 L0 30 L0 10 Z" fill="#EEEFF1" stroke="#D1D5DB" stroke-width="1.2"/>
+    <!-- Badge -->
+    <rect x="-10" y="-36" width="20" height="20" rx="4" fill="#E6FF2B"/>
+    <path d="M-3 -26 L0 -22 L5 -30" stroke="#004D43" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="0" y="48" text-anchor="middle" font-size="10" fill="#898A8D" font-family="sans-serif">AGENT</text>
+  </g>
+
+  <!-- Node 2 - Top Right: Isometric box -->
+  <g transform="translate(360,90)">
+    <path d="M0 10 L-24 -4 L0 -18 L24 -4 Z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M-24 -4 L-24 16 L0 30 L0 10 Z" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M24 -4 L24 16 L0 30 L0 10 Z" fill="#EEEFF1" stroke="#D1D5DB" stroke-width="1.2"/>
+    <!-- Badge -->
+    <rect x="-10" y="-36" width="20" height="20" rx="4" fill="#004D43"/>
+    <path d="M-3 -26 L0 -22 L5 -30" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="0" y="48" text-anchor="middle" font-size="10" fill="#898A8D" font-family="sans-serif">AGENT</text>
+  </g>
+
+  <!-- Node 3 - Bottom Left: Isometric box -->
+  <g transform="translate(120,330)">
+    <path d="M0 10 L-24 -4 L0 -18 L24 -4 Z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M-24 -4 L-24 16 L0 30 L0 10 Z" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M24 -4 L24 16 L0 30 L0 10 Z" fill="#EEEFF1" stroke="#D1D5DB" stroke-width="1.2"/>
+    <!-- Badge -->
+    <rect x="-10" y="-36" width="20" height="20" rx="4" fill="#004D43"/>
+    <path d="M-3 -26 L0 -22 L5 -30" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="0" y="48" text-anchor="middle" font-size="10" fill="#898A8D" font-family="sans-serif">AGENT</text>
+  </g>
+
+  <!-- Node 4 - Bottom Right: Isometric box -->
+  <g transform="translate(360,330)">
+    <path d="M0 10 L-24 -4 L0 -18 L24 -4 Z" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M-24 -4 L-24 16 L0 30 L0 10 Z" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1.2"/>
+    <path d="M24 -4 L24 16 L0 30 L0 10 Z" fill="#EEEFF1" stroke="#D1D5DB" stroke-width="1.2"/>
+    <!-- Badge -->
+    <rect x="-10" y="-36" width="20" height="20" rx="4" fill="#E6FF2B"/>
+    <path d="M-3 -26 L0 -22 L5 -30" stroke="#004D43" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <text x="0" y="48" text-anchor="middle" font-size="10" fill="#898A8D" font-family="sans-serif">AGENT</text>
+  </g>
+</svg>
