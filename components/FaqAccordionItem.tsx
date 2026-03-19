@@ -1,7 +1,9 @@
 "use client";
 
 import { useContext } from "react";
+import { cn } from "@/lib/cn";
 import { FaqAccordionContext } from "./FaqAccordion";
+import { trackEvent } from "@/lib/analytics";
 
 interface FaqAccordionItemProps {
   id: string;
@@ -23,12 +25,15 @@ export function FaqAccordionItem({ id, question, children }: FaqAccordionItemPro
           type="button"
           aria-expanded={isOpen}
           aria-controls={answerId}
-          onClick={() => toggle(id)}
+          onClick={() => {
+            if (!isOpen) trackEvent("faq_expand", { question: id });
+            toggle(id);
+          }}
           className="flex w-full items-center justify-between py-4 text-left font-semibold text-brand-teal hover:text-brand-lime transition-colors"
         >
           <span>{question}</span>
           <span
-            className={`ml-4 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
+            className={cn("ml-4 shrink-0 transition-transform duration-200", isOpen && "rotate-45")}
             aria-hidden="true"
           >
             +

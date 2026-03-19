@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { CTA } from "@/lib/site-config";
+import { trackEvent } from "@/lib/analytics";
 
 export function MobileCTABar() {
   const [visible, setVisible] = useState(false);
@@ -68,9 +70,10 @@ export function MobileCTABar() {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed inset-x-0 bottom-0 tablet:hidden transition-transform duration-300 ${
-        visible ? "translate-y-0" : "translate-y-full"
-      }`}
+      className={cn(
+        "fixed inset-x-0 bottom-0 tablet:hidden transition-transform duration-300",
+        visible ? "translate-y-0" : "translate-y-full",
+      )}
       style={{
         zIndex: "var(--z-mobile-cta)",
         paddingBottom: "env(safe-area-inset-bottom)",
@@ -81,6 +84,7 @@ export function MobileCTABar() {
           href={CTA.href}
           tabIndex={visible ? 0 : -1}
           className="flex min-h-[48px] items-center justify-center bg-brand-lime px-4 py-3 text-center font-bold text-brand-teal"
+          onClick={() => trackEvent("cta_click", { cta_location: "mobile_sticky" })}
         >
           {CTA.label}
         </Link>

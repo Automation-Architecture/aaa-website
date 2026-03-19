@@ -116,6 +116,13 @@ h6 {
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
+/* CookieYes consent bar — above header, hamburger, and mobile CTA bar.
+   Uses !important because CookieYes sets inline z-index on its elements. */
+#cky-consent-bar,
+.cky-consent-container {
+  z-index: 400 !important;
+}
+
 /* Quotable statement */
 .quotable {
   border-left: 4px solid var(--color-brand-lime);

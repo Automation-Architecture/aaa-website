@@ -6,9 +6,11 @@ import { KeyTakeaway } from "@/components/KeyTakeaway";
 import { QuotableStatement } from "@/components/QuotableStatement";
 import { Section } from "@/components/Section";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { generateBreadcrumbSchema } from "@/lib/breadcrumbs";
-import { SITE_URL } from "@/lib/site-config";
-import { AUTHOR_SCHEMA, PUBLISHER_SCHEMA } from "@/lib/schema-constants";
+import {
+  articleSchema,
+  serviceSchema,
+  solutionBreadcrumbSchema,
+} from "./schema";
 
 export const metadata: Metadata = {
   title: "AIOS: The AI Operating System Built for Your Business",
@@ -23,122 +25,13 @@ export const metadata: Metadata = {
   },
 };
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline:
-    "What an AIOS Actually Is \u2014 AI Operating System for Your Business",
-  description:
-    "An AIOS (AI Operating System) is an autonomous infrastructure layer that wraps around an entire business \u2014 operations, data, intelligence, and communications \u2014 and runs whether the founder is at their desk or not.",
-  url: `${SITE_URL}/solution`,
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/solution`,
-  },
-  image: {
-    "@type": "ImageObject",
-    url: `${SITE_URL}/images/solution-og.jpg`,
-    width: 1200,
-    height: 630,
-  },
-  datePublished: "2026-01-01",
-  dateModified: "2026-03-09",
-  author: AUTHOR_SCHEMA,
-  publisher: PUBLISHER_SCHEMA,
-  about: [
-    {
-      "@type": "Thing",
-      name: "AI Operating System",
-      description:
-        "An autonomous infrastructure layer that wraps around an entire business \u2014 operations, data, intelligence, and communications \u2014 and runs whether the founder is at their desk or not.",
-    },
-    {
-      "@type": "Thing",
-      name: "Business Context Data Engine",
-      description:
-        "The structured knowledge foundation that gives AI full business-specific intelligence \u2014 team, products, financials, priorities, and decisions.",
-    },
-    {
-      "@type": "Thing",
-      name: "Dashboard Intelligence",
-      description:
-        "Real-time, AI-powered visibility into business operations delivered as a daily brief before the founder opens their laptop.",
-    },
-    {
-      "@type": "Thing",
-      name: "Automated Task Management",
-      description:
-        "AI-driven task orchestration and execution that handles 60-70% of recurring operational tasks.",
-    },
-  ],
-  articleSection: "Solution",
-  keywords: [
-    "AI operating system",
-    "AIOS",
-    "business automation",
-    "compound intelligence",
-    "AI infrastructure",
-    "done-for-you AI",
-  ],
-};
-
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AIOS \u2014 AI Operating System Implementation",
-  provider: {
-    "@type": "Organization",
-    name: "Automation Architecture AI",
-    url: SITE_URL,
-  },
-  url: `${SITE_URL}/solution`,
-  description:
-    "An AIOS (AI Operating System) is an autonomous infrastructure layer that wraps around an entire business \u2014 operations, data, intelligence, and communications \u2014 and runs whether the founder is at their desk or not.",
-  serviceType: "AI Operating System Implementation",
-  areaServed: {
-    "@type": "Place",
-    name: "Worldwide",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Service Tiers",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "AI Automation",
-          description:
-            "A single workflow automation for a specific bottleneck. Typically delivered in approximately one week.",
-          serviceType: "AI Automation",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Full AIOS",
-          description:
-            "Complete AI Operating System \u2014 context, data, intelligence, and automation across your entire business. Three pillars: Business Context Data Engine, Dashboard Intelligence, and Automated Task Management. Typically delivered in approximately three weeks.",
-          serviceType: "AI Operating System Implementation",
-        },
-      },
-    ],
-  },
-  termsOfService: `${SITE_URL}/faq`,
-};
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: "Home", path: "/" },
-  { name: "AIOS", path: "/solution" },
-]);
 
 export default function SolutionPage() {
   return (
     <>
       <JsonLd data={articleSchema} />
       <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={solutionBreadcrumbSchema} />
 
       <article className="mx-auto max-w-3xl px-4 py-16">
         <h1>AIOS: The AI Operating System Built Around Your Business</h1>
@@ -154,7 +47,7 @@ export default function SolutionPage() {
         </KeyTakeaway>
 
         {/* What an AIOS Actually Is */}
-        <Section id="what-an-aios-actually-is" className="mt-12">
+        <Section id="section-what-an-aios-actually-is" className="mt-12">
           <h2 id="what-an-aios-actually-is" className="text-2xl font-bold">
             What an AIOS Actually Is
           </h2>
@@ -180,7 +73,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* Pillar 1 */}
-        <Section id="pillar-1-business-context-data-engine" className="mt-12">
+        <Section id="section-pillar-1" className="mt-12">
           <h2
             id="pillar-1-business-context-data-engine"
             className="text-2xl font-bold"
@@ -234,7 +127,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* Pillar 2 */}
-        <Section id="pillar-2-dashboard-intelligence" className="mt-12">
+        <Section id="section-pillar-2" className="mt-12">
           <h2
             id="pillar-2-dashboard-intelligence"
             className="text-2xl font-bold"
@@ -278,7 +171,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* Pillar 3 */}
-        <Section id="pillar-3-automated-task-management" className="mt-12">
+        <Section id="section-pillar-3" className="mt-12">
           <h2
             id="pillar-3-automated-task-management"
             className="text-2xl font-bold"
@@ -324,7 +217,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* The Outcome */}
-        <Section id="the-outcome" className="mt-12">
+        <Section id="section-the-outcome" className="mt-12">
           <h2 id="the-outcome" className="text-2xl font-bold">
             The Outcome
           </h2>
@@ -360,7 +253,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* Compound Intelligence */}
-        <Section id="compound-intelligence" className="mt-12">
+        <Section id="section-compound-intelligence" className="mt-12">
           <h2 id="compound-intelligence" className="text-2xl font-bold">
             Compound Intelligence
           </h2>
@@ -390,7 +283,7 @@ export default function SolutionPage() {
         </Section>
 
         {/* Scope and Expectations */}
-        <Section id="scope-and-expectations" className="mt-12">
+        <Section id="section-scope-and-expectations" className="mt-12">
           <h3 id="scope-and-expectations" className="text-xl font-bold">
             Scope and Expectations
           </h3>
