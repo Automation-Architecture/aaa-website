@@ -52,3 +52,16 @@ SVG illustrations in `public/images/` are recreations from Figma screenshots. Re
 - After building, screenshot your output and compare with the `.figma/*.png` reference. Fix differences.
 - Keep implementations minimal — only build what the spec describes.
 - **Summary**: After completing the build, list: what was built and file location, any placeholder images/icons used (with the original `instance_of` or element name so the user can replace them), and any assumptions or deviations.
+
+## Remaining tasks
+
+### Done
+- [x] **Privacy policy** (`/privacy`) — full content live
+- [x] **Terms of service** (`/terms`) — full content live
+- [x] **SEO infrastructure** — `robots.ts`, `sitemap.ts`, OG default image all in place
+- [x] **Vercel deployment config** — `vercel.json` with security + cache headers
+
+### Remaining
+- [ ] **Production deployment** — environment variables, domain setup, DNS
+- [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports when API rate limits allow
+- [ ] **Testing** — no test suite yet (unit, integration, or E2E)

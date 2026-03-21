@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/industries/coaching`, lastModified: new Date("2026-03-18"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/industries/ecommerce`, lastModified: new Date("2026-03-18"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/industries/saas`, lastModified: new Date("2026-03-18"), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/privacy`, lastModified: new Date("2026-03-18"), changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE_URL}/terms`, lastModified: new Date("2026-03-18"), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/privacy`, lastModified: new Date("2026-03-21"), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/terms`, lastModified: new Date("2026-03-21"), changeFrequency: "yearly", priority: 0.3 },
   ];
 }
