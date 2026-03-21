@@ -36,7 +36,11 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 - Buttons use `rounded-[10px]`, not `rounded-full`. Hover states use color transitions (cream, black, or lime fills) — never `opacity` dim.
 - Desktop nav links have corner-bracket hover decorations (lime, 2px) via `NavBracketLink` in `Header.tsx`.
 - Footer is a server component. Newsletter form state lives in `components/NewsletterForm.tsx`.
-- Integrations: Typeform (Blueprint form), GTM/GA4 (analytics), CookieYes (consent), HubSpot (CRM).
+- Integrations: Typeform (Blueprint form), GTM/GA4 (analytics), CookieYes (consent), HubSpot (CRM + newsletter).
+- Newsletter form posts to `POST /api/subscribe` → creates HubSpot contacts. Rate-limited (5/min per IP), 10s timeout.
+- `QuotableStatement` renders `schema.org/Quotation` JSON-LD with `data-cite="true"`. Pass a `text` prop for the citation.
+- `id="footer-cta"` is shared between `PageCTA.tsx` and homepage — `MobileCTABar` depends on it via IntersectionObserver.
+- `.hero-headline` class on homepage H1 is a `SpeakableSpecification` schema selector — do not remove.
 
 ## Figma specs
 
@@ -58,8 +62,7 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Remaining tasks
 
-- [x] ~~Newsletter API~~ — wired to HubSpot via `POST /api/subscribe`
-- [x] ~~Production deployment~~ — live on Vercel (`automation-architecture/aaa-website`), GitHub auto-deploy connected
 - [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports
-- [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific images when ready
-- [ ] **Testing** — no test suite yet
+- [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific 1200x630 images
+- [x] **Testing** — Vitest + React Testing Library (56 tests across 8 files)
+- [ ] **Custom domain** — `automationarchitecture.ai` DNS not yet pointed to Vercel
