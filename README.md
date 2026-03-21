@@ -18,6 +18,8 @@ AIOS wraps around a business in three layers:
 - **Forms:** Typeform (embedded)
 - **Analytics:** Google Tag Manager / GA4
 - **Consent:** CookieYes
+- **CRM:** HubSpot
+- **Hosting:** Vercel
 
 ## Getting Started
 
@@ -30,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment Variables
 
-Create a `.env.local` file with:
+Copy `.env.local.example` to `.env.local` and fill in values:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
@@ -42,13 +44,25 @@ NEXT_PUBLIC_COOKIEYES_ID=
 
 ## Scripts
 
-| Command         | Description              |
-| --------------- | ------------------------ |
-| `npm run dev`   | Start dev server         |
-| `npm run build` | Production build         |
-| `npm run start` | Serve production build   |
-| `npm run lint`  | Run ESLint               |
+| Command         | Description            |
+| --------------- | ---------------------- |
+| `npm run dev`   | Start dev server       |
+| `npm run build` | Production build       |
+| `npm run start` | Serve production build |
+| `npm run lint`  | Run ESLint             |
+
+## Project Structure
+
+```
+app/            Routes and pages (Next.js App Router)
+components/     Shared UI components
+lib/            Utilities, config, and schema helpers
+public/         Static assets (images, icons, OG image)
+types/          TypeScript type declarations
+```
 
 ## Site Structure
 
-The site includes pages for the core narrative flow (problem, solution, how-it-works, value), comparison pages (AIOS vs ChatGPT, Zapier, DIY), industry verticals, use cases, a glossary, FAQ, and a free Blueprint intake form.
+19 pages covering the core narrative flow (problem, solution, how-it-works, value), comparison pages (AIOS vs ChatGPT, Zapier, DIY), industry verticals (agencies, coaching, ecommerce, SaaS), use cases, glossary, FAQ, privacy policy, terms of service, and a free Blueprint intake form.
+
+See `CLAUDE.md` for full sitemap and development conventions.
