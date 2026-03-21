@@ -1,8 +1,6 @@
-<!-- PLACEHOLDER — Requires legal review before launch -->
-
 # Privacy Policy
 
-*Last updated: [DATE]*
+*Last updated: March 21, 2026*
 
 ---
 
@@ -117,5 +115,5 @@ We may update this Privacy Policy from time to time. Changes will be posted on t
 
 For privacy questions or data requests:
 
-**Email:** [CONTACT_EMAIL]
+**Email:** hello@automationarchitecture.ai
 **Website:** `https://automationarchitecture.ai`

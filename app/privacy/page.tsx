@@ -24,6 +24,7 @@ const THIRD_PARTY_SERVICES = [
   { service: "HubSpot", purpose: "CRM — stores form submissions, manages follow-up", data: "Form responses, contact info", url: "https://legal.hubspot.com/privacy-policy", label: "HubSpot Privacy" },
   { service: "Google Analytics 4", purpose: "Website analytics", data: "Anonymized usage data", url: "https://policies.google.com/privacy", label: "Google Privacy" },
   { service: "Google Tag Manager", purpose: "Tag management (loads GA4)", data: "No data collected directly", url: "https://marketingplatform.google.com/about/analytics/tag-manager/use-policy/", label: "GTM Terms" },
+  { service: "CookieYes", purpose: "Cookie consent management", data: "Consent preferences", url: "https://www.cookieyes.com/privacy-policy/", label: "CookieYes Privacy" },
   { service: "Vercel", purpose: "Website hosting", data: "Server logs (IP, user agent)", url: "https://vercel.com/legal/privacy-policy", label: "Vercel Privacy" },
 ] as const;
 
@@ -207,10 +208,10 @@ export default function PrivacyPage() {
               headers={["Cookie", "Purpose", "Duration", "Set By"]}
               rows={[
                 [
-                  "aaa_consent",
+                  "cookieyes-consent",
                   "Remembers your cookie consent choice",
                   "365 days",
-                  "Our site",
+                  "CookieYes",
                 ],
                 [
                   "_ga, _ga_*",

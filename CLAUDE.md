@@ -55,12 +55,13 @@ SVG illustrations in `public/images/` are recreations from Figma screenshots. Re
 
 ## Remaining tasks
 
-### Unblocked — can start now
-- [ ] **Privacy policy** (`/privacy`) — stub page, needs real legal content
-- [ ] **Terms of service** (`/terms`) — stub page, needs real legal content
-- [ ] **SEO infrastructure** — `robots.txt`, `sitemap.xml` generation, OG images
-- [ ] **Production deployment** — Vercel config, environment variables, domain setup
+### Done
+- [x] **Privacy policy** (`/privacy`) — full content live
+- [x] **Terms of service** (`/terms`) — full content live
+- [x] **SEO infrastructure** — `robots.ts`, `sitemap.ts`, OG default image all in place
+- [x] **Vercel deployment config** — `vercel.json` with security + cache headers
 
-### Blocked — waiting on external input
+### Remaining
+- [ ] **Production deployment** — environment variables, domain setup, DNS
 - [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports when API rate limits allow
 - [ ] **Testing** — no test suite yet (unit, integration, or E2E)

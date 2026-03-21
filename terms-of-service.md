@@ -1,8 +1,6 @@
-<!-- PLACEHOLDER — Requires legal review before launch -->
-
 # Terms of Service
 
-*Last updated: [DATE]*
+*Last updated: March 21, 2026*
 
 ---
 
@@ -91,9 +89,7 @@ Our website may link to external sites (cited sources, third-party tools). We ar
 
 ## Governing Law
 
-These Terms are governed by the laws of [STATE/JURISDICTION]. Any disputes will be resolved in the courts of [STATE/JURISDICTION].
-
-*[Note: Governing law and jurisdiction need to be specified based on AAA's business registration location.]*
+These Terms are governed by the laws of Delaware. Any disputes will be resolved in the courts of Delaware.
 
 ---
 
@@ -107,5 +103,5 @@ We may update these Terms from time to time. Changes will be posted on this page
 
 For questions about these Terms:
 
-**Email:** [CONTACT_EMAIL]
+**Email:** hello@automationarchitecture.ai
 **Website:** `https://automationarchitecture.ai`
