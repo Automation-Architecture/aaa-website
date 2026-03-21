@@ -226,13 +226,13 @@ export default function HomePage() {
                   href="/blueprint"
                   event="cta_click"
                   eventParams={{ cta_location: "hero" }}
-                  className="inline-block rounded-full bg-brand-lime px-8 py-3 font-bold text-brand-black hover:opacity-90 transition-opacity uppercase tracking-wide text-sm"
+                  className="inline-block rounded-[10px] bg-brand-lime px-8 py-3.5 font-bold text-brand-black hover:bg-brand-cream transition-colors uppercase tracking-wide text-lg"
                 >
                   Get Your Free AI Blueprint
                 </TrackedLink>
                 <Link
                   href="/how-it-works"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-brand-teal px-8 py-3 font-semibold text-brand-teal hover:bg-brand-teal hover:text-brand-cream transition-colors text-sm uppercase tracking-wide"
+                  className="inline-flex items-center justify-center rounded-[10px] border border-brand-black px-8 py-3.5 font-bold text-brand-black hover:bg-brand-lime hover:border-brand-lime transition-colors text-lg uppercase tracking-wide"
                 >
                   See How It Works
                 </Link>
@@ -311,7 +311,7 @@ export default function HomePage() {
               <div className="mt-8">
                 <Link
                   href="/problem"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-teal px-6 py-3 text-sm font-bold text-brand-cream uppercase tracking-wide hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 rounded-[10px] bg-brand-teal px-6 py-3.5 text-lg font-bold text-brand-white uppercase tracking-wide hover:bg-brand-black transition-colors"
                 >
                   Read More
                   <svg
@@ -442,7 +442,7 @@ export default function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/solution"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-teal px-8 py-3 text-sm font-bold text-brand-cream uppercase tracking-wide hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 rounded-[10px] bg-brand-teal px-8 py-3.5 text-lg font-bold text-brand-white uppercase tracking-wide hover:bg-brand-black transition-colors"
             >
               See the Full Picture
             </Link>
@@ -457,17 +457,17 @@ export default function HomePage() {
             {useCaseCards.map((card) => (
               <div
                 key={card.title}
-                className="relative border border-brand-gray/20 rounded-lg p-6 bg-brand-white"
+                className="relative border border-brand-gray2 rounded-lg p-8 tablet:p-10 bg-brand-white transition-colors hover:border-brand-teal"
               >
                 {/* Corner brackets */}
-                <span className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-brand-teal/30" aria-hidden="true" />
-                <span className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-brand-teal/30" aria-hidden="true" />
-                <span className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-brand-teal/30" aria-hidden="true" />
-                <span className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-brand-teal/30" aria-hidden="true" />
+                <span className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-gray2" aria-hidden="true" />
+                <span className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-gray2" aria-hidden="true" />
+                <span className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2" aria-hidden="true" />
+                <span className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2" aria-hidden="true" />
 
-                <h3 className="font-bold text-lg">{card.title}</h3>
-                <p className="mt-3 font-semibold text-sm">{card.outcome}</p>
-                <p className="mt-4 text-sm text-brand-teal/70">{card.body}</p>
+                <h3 className="font-bold text-[22px] text-brand-black">{card.title}</h3>
+                <p className="mt-3 font-bold text-lg text-brand-teal">{card.outcome}</p>
+                <p className="mt-4 text-lg text-[#636363]">{card.body}</p>
               </div>
             ))}
           </div>
@@ -693,7 +693,7 @@ export default function HomePage() {
                   href="/blueprint"
                   event="cta_click"
                   eventParams={{ cta_location: "final_cta" }}
-                  className="inline-block rounded-full bg-brand-lime px-8 py-3 font-bold text-brand-black hover:opacity-90 transition-opacity uppercase tracking-wide text-sm"
+                  className="inline-block rounded-[10px] bg-brand-lime px-8 py-3.5 font-bold text-brand-black hover:bg-brand-cream transition-colors uppercase tracking-wide text-lg"
                 >
                   Get Your Free AI Blueprint
                 </TrackedLink>

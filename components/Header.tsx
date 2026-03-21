@@ -25,6 +25,30 @@ function GridIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+function NavBracketLink({
+  href,
+  children,
+  onClick,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      className="relative px-2.5 py-1.5 text-lg font-medium text-brand-cream hover:text-brand-lime transition-colors whitespace-nowrap group"
+      onClick={onClick}
+    >
+      {/* Top-left bracket */}
+      <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+      {/* Bottom-right bracket */}
+      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+      {children}
+    </Link>
+  );
+}
+
 function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -44,12 +68,14 @@ function DesktopDropdown({ item }: { item: NavItem }) {
         type="button"
         aria-expanded={open}
         aria-haspopup="true"
-        className="flex items-center gap-1 text-brand-cream hover:text-brand-lime transition-colors"
+        className="relative flex items-center gap-1 px-2.5 py-1.5 text-lg font-medium text-brand-cream hover:text-brand-lime transition-colors group"
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => {
           if (e.key === "Escape") setOpen(false);
         }}
       >
+        <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
         {item.label}
         <svg
           className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
@@ -96,7 +122,7 @@ function MobileDropdown({ item }: { item: NavItem }) {
       <button
         type="button"
         aria-expanded={open}
-        className="flex w-full items-center justify-between text-2xl text-brand-cream hover:text-brand-lime transition-colors"
+        className="flex w-full items-center justify-between text-lg font-medium text-brand-cream hover:text-brand-lime transition-colors py-2.5"
         onClick={() => setOpen(!open)}
       >
         {item.label}
@@ -122,7 +148,7 @@ function MobileDropdown({ item }: { item: NavItem }) {
             <li key={child.href}>
               <Link
                 href={child.href ?? "#"}
-                className="block text-xl text-brand-gray hover:text-brand-lime transition-colors"
+                className="block text-base text-brand-gray hover:text-brand-lime transition-colors"
                 onClick={() =>
                   trackEvent("nav_click", { nav_item: child.label })
                 }
@@ -217,16 +243,15 @@ export function Header() {
             item.children ? (
               <DesktopDropdown key={item.label} item={item} />
             ) : (
-              <Link
+              <NavBracketLink
                 key={item.href}
                 href={item.href ?? "#"}
-                className="text-brand-cream hover:text-brand-lime transition-colors whitespace-nowrap"
                 onClick={() =>
                   trackEvent("nav_click", { nav_item: item.label })
                 }
               >
                 {item.label}
-              </Link>
+              </NavBracketLink>
             ),
           )}
         </nav>
@@ -250,7 +275,7 @@ export function Header() {
 
           <Link
             href={CTA.href}
-            className="rounded-full bg-brand-lime px-6 py-2.5 text-sm font-bold text-brand-black hover:opacity-90 transition-opacity uppercase tracking-wide"
+            className="rounded-[10px] bg-brand-lime px-6 py-2.5 text-sm font-bold text-brand-black hover:bg-brand-cream transition-colors uppercase tracking-wide"
             onClick={() =>
               trackEvent("cta_click", { cta_location: "header" })
             }
@@ -259,31 +284,31 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Hamburger button */}
+        {/* Hamburger button — lime square with rounded corners per Figma spec */}
         <button
           ref={toggleRef}
           type="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
-          className="desktop:hidden flex flex-col justify-center gap-1.5 p-2 ml-auto mr-4"
+          className="desktop:hidden ml-auto mr-4 flex h-6 w-6 flex-col items-center justify-center gap-[3px] rounded-[10px] bg-brand-lime p-1"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
             className={cn(
-              "block h-0.5 w-6 bg-brand-cream transition-transform",
-              menuOpen && "translate-y-2 rotate-45",
+              "block h-0.5 w-3.5 bg-brand-black transition-transform",
+              menuOpen && "translate-y-[5px] rotate-45",
             )}
           />
           <span
             className={cn(
-              "block h-0.5 w-6 bg-brand-cream transition-opacity",
+              "block h-0.5 w-3.5 bg-brand-black transition-opacity",
               menuOpen && "opacity-0",
             )}
           />
           <span
             className={cn(
-              "block h-0.5 w-6 bg-brand-cream transition-transform",
-              menuOpen && "-translate-y-2 -rotate-45",
+              "block h-0.5 w-3.5 bg-brand-black transition-transform",
+              menuOpen && "-translate-y-[5px] -rotate-45",
             )}
           />
         </button>
@@ -309,7 +334,7 @@ export function Header() {
                   trackEvent("cta_click", { cta_location: "header_mobile" });
                   closeMenu();
                 }}
-                className="rounded-full bg-brand-lime px-5 py-2 text-sm font-bold text-brand-black uppercase tracking-wide"
+                className="rounded-[10px] bg-brand-lime px-5 py-2 text-sm font-bold text-brand-black hover:bg-brand-cream transition-colors uppercase tracking-wide"
               >
                 {CTA.label}
               </Link>
@@ -339,7 +364,7 @@ export function Header() {
 
           {/* Nav links */}
           <nav
-            className="flex-1 overflow-y-auto px-6 py-8 space-y-6"
+            className="flex-1 overflow-y-auto px-[30px] py-[30px] space-y-0"
             aria-label="Mobile navigation"
           >
             {/* Blueprint highlight link */}
@@ -349,7 +374,7 @@ export function Header() {
                 trackEvent("cta_click", { cta_location: "header_secondary_mobile" });
                 closeMenu();
               }}
-              className="inline-flex items-center gap-2 rounded-full bg-brand-lime px-5 py-2.5 text-sm font-bold text-brand-black"
+              className="inline-flex items-center gap-2 rounded-[5px] bg-brand-lime px-2.5 py-2.5 text-lg font-normal text-brand-black"
             >
               <GridIcon />
               {SECONDARY_CTA.label}
@@ -363,7 +388,7 @@ export function Header() {
                   key={item.href}
                   href={item.href ?? "#"}
                   onClick={closeMenu}
-                  className="block text-2xl text-brand-cream hover:text-brand-lime transition-colors"
+                  className="block text-lg text-brand-cream font-medium hover:text-brand-lime transition-colors py-2.5"
                 >
                   {item.label}
                 </Link>

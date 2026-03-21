@@ -12,7 +12,7 @@ export function GhostButton({ href, children, className }: GhostButtonProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center justify-center min-h-[48px] px-6 py-3 border-2 border-brand-teal text-brand-teal font-semibold rounded-lg transition-colors duration-150 hover:bg-brand-lime hover:border-brand-lime hover:text-brand-teal focus:outline-2 focus:outline-offset-2 focus:outline-brand-lime",
+        "inline-flex items-center justify-center min-h-[50px] px-8 py-3.5 border border-brand-black text-brand-black font-bold text-lg rounded-[10px] transition-colors duration-150 hover:bg-brand-lime hover:border-brand-lime hover:text-brand-black focus:outline-2 focus:outline-offset-2 focus:outline-brand-lime uppercase tracking-wide",
         className,
       )}
     >
