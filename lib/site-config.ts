@@ -55,7 +55,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Comparisons",
     links: [
-      { label: "AIOS vs. chat GPT", href: "/aios-vs-chatgpt" },
+      { label: "AIOS vs. ChatGPT", href: "/aios-vs-chatgpt" },
       { label: "AIOS vs. Zapier", href: "/aios-vs-zapier" },
       { label: "AIOS vs. DIY", href: "/aios-vs-diy" },
     ],
@@ -64,7 +64,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Resources",
     links: [
       { label: "Problem", href: "/problem" },
-      { label: "About Philosophy", href: "/about" },
+      { label: "Philosophy", href: "/about" },
       { label: "Glossary", href: "/glossary" },
       { label: "FAQ", href: "/faq" },
     ],

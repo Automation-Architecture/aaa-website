@@ -19,9 +19,6 @@ const jura = Jura({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://automationarchitecture.ai"),
-  title: "AI Operating System for Small Business -- AIOS by AAA",
-  description:
-    "60-70% of recurring tasks automated in weeks, not months. We build full AI operating systems for small businesses and startups. Get your free Blueprint.",
   openGraph: {
     siteName: "Automation Architecture AI",
     locale: "en_US",
@@ -51,8 +48,11 @@ export default function RootLayout({
         <CookieYesScript />
         <JsonLd data={ORGANIZATION_SCHEMA} />
         <JsonLd data={WEBSITE_SCHEMA} />
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-brand-lime focus:px-4 focus:py-2 focus:text-brand-black focus:font-bold">
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <SocialSidebar />
         <MobileCTABar />

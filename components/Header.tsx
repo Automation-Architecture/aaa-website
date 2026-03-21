@@ -345,21 +345,13 @@ export function Header() {
             {/* Blueprint highlight link */}
             <Link
               href={SECONDARY_CTA.href}
-              onClick={closeMenu}
+              onClick={() => {
+                trackEvent("cta_click", { cta_location: "header_secondary_mobile" });
+                closeMenu();
+              }}
               className="inline-flex items-center gap-2 rounded-full bg-brand-lime px-5 py-2.5 text-sm font-bold text-brand-black"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <rect x="0" y="0" width="7" height="7" rx="1.5" />
-                <rect x="9" y="0" width="7" height="7" rx="1.5" />
-                <rect x="0" y="9" width="7" height="7" rx="1.5" />
-                <rect x="9" y="9" width="7" height="7" rx="1.5" />
-              </svg>
+              <GridIcon />
               {SECONDARY_CTA.label}
             </Link>
 

@@ -10,11 +10,11 @@ export const webPageSchema = {
     "AI automation agency building full AIOS infrastructure for small businesses and startups. Get your free AI Blueprint with industry-specific automation recommendations.",
   url: SITE_URL,
   datePublished: "2026-01-01",
-  dateModified: "2026-03-09",
+  dateModified: "2026-03-21",
   publisher: PUBLISHER_SCHEMA,
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: [".hero-headline", ".hero-scene", ".pillar-summary"],
+    cssSelector: [".hero-headline"],
   },
   mainEntity: {
     "@type": "Service",

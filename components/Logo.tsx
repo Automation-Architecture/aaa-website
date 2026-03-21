@@ -18,7 +18,7 @@ export function Logo({
         alt="Automation Architecture AI"
         width={137}
         height={29}
-        preload
+        priority
       />
     </Link>
   );
