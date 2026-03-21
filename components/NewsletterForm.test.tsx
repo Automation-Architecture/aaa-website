@@ -2,12 +2,17 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NewsletterForm } from "./NewsletterForm";
 
+const originalFetch = globalThis.fetch;
 const mockFetch = vi.fn<typeof fetch>();
 
 beforeEach(() => {
   globalThis.fetch = mockFetch;
   mockFetch.mockReset();
   window.dataLayer = [];
+});
+
+afterAll(() => {
+  globalThis.fetch = originalFetch;
 });
 
 describe("NewsletterForm", () => {
