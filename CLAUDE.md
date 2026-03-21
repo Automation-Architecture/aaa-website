@@ -39,3 +39,16 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 ## Illustrations
 
 SVG illustrations in `public/images/` are recreations from Figma screenshots. Replace with actual Figma exports when API rate limits allow. Reference screenshots archived in `reference-screenshots/`.
+
+## Figma-to-Code Workflow
+
+- When given a Figma spec (YAML from Specs plugin), follow the implementation instructions in the spec header exactly.
+- Use `get_screenshot` from the Figma MCP server to capture the design. Save to `.figma/` and reference it — don't re-fetch.
+- Read the YAML `chunks` for anatomy (structure), layout (flex/grid), and repeats (deduplicated instances).
+- Use `resolved_tokens` to map design token names to actual values (hex, font names).
+- Match `instance_of` names to your icon library (Phosphor, Lucide, etc.) — check `package.json`.
+- **Placeholders**: If you cannot find a matching icon, SVG, image, or vector asset, use a placeholder (`https://placehold.co/{width}x{height}`) sized to the element's `w` and `h` from specs. Do NOT stop or ask — keep building.
+- Detect the framework from `package.json` and build accordingly.
+- After building, screenshot your output and compare with the `.figma/*.png` reference. Fix differences.
+- Keep implementations minimal — only build what the spec describes.
+- **Summary**: After completing the build, list: what was built and file location, any placeholder images/icons used (with the original `instance_of` or element name so the user can replace them), and any assumptions or deviations.

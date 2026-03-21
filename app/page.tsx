@@ -54,19 +54,19 @@ const checklist = [
 function CheckCircleIcon() {
   return (
     <svg
-      className="w-6 h-6 text-brand-teal shrink-0 mt-1"
+      className="w-7 h-7 shrink-0 mt-0.5"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
       aria-hidden="true"
     >
+      <circle cx="12" cy="12" r="11" fill="#004D43" />
       <path
+        d="M7 12.5l3 3 7-7"
+        stroke="white"
+        strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 12l2 2 4-4"
       />
-      <circle cx="12" cy="12" r="10" strokeWidth={2} />
     </svg>
   );
 }
@@ -114,35 +114,36 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — checklist card */}
+            {/* Right — checklist card + lime tags */}
             <div>
-              <div className="bg-brand-white rounded-xl p-6 text-brand-black">
-                <p className="font-bold uppercase text-sm tracking-wide mb-4">
-                  Four things happened while you slept. Your day is planned:
-                </p>
-                <ul className="space-y-3">
-                  {checklist.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg
-                        className="w-5 h-5 text-brand-teal shrink-0 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex gap-4 items-start">
+                <div className="bg-brand-white rounded-xl p-6 text-brand-black flex-1">
+                  <p className="font-bold uppercase text-sm tracking-wide mb-4">
+                    Four things happened while you slept. Your day is planned:
+                  </p>
+                  <ul className="space-y-3">
+                    {checklist.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded bg-brand-lime flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                          <svg className="w-3.5 h-3.5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="hidden desktop:flex flex-col gap-2 shrink-0 pt-4">
+                  <span className="rounded-full bg-brand-lime px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
+                    Ninety seconds
+                  </span>
+                  <span className="rounded-full bg-brand-lime px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
+                    Before breakfast
+                  </span>
+                </div>
               </div>
-              <div className="mt-6 text-right">
+              <div className="desktop:hidden mt-4 text-right">
                 <p className="text-brand-lime text-lg font-semibold">
                   Ninety seconds
                 </p>
@@ -247,16 +248,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 desktop:grid-cols-2 gap-12">
             {/* Left — quote + text */}
             <div>
-              <blockquote className="text-lg italic text-brand-teal/80">
+              <p className="text-lg font-semibold">
                 &ldquo;I need to get focused. AI is changing so rapidly that I
                 feel overwhelmed and catch myself chasing the next shiny
                 object.&rdquo;
-              </blockquote>
-              <p className="mt-8 text-sm text-brand-gray">
+              </p>
+              <p className="mt-8 text-sm text-brand-gray font-semibold">
                 There&rsquo;s a name for what you&rsquo;re feeling:
               </p>
               <h3 className="mt-2 font-bold">The Operator Trap</h3>
-              <p className="mt-4">
+              <p className="mt-4 text-brand-gray font-semibold">
                 Eighty percent of your bandwidth goes to keeping the business
                 running — admin, meetings, scheduling, putting out fires. That
                 leaves maybe twenty percent for the work that actually grows the
@@ -269,7 +270,7 @@ export default function HomePage() {
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {/* ChatGPT */}
                 <div className="text-center">
-                  <p className="text-sm text-brand-teal/70">You&rsquo;ve tried ChatGPT</p>
+                  <p className="text-sm font-semibold">You&rsquo;ve tried ChatGPT</p>
                   <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
                     <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
@@ -278,7 +279,7 @@ export default function HomePage() {
                 </div>
                 {/* Zapier */}
                 <div className="text-center">
-                  <p className="text-sm text-brand-teal/70">You&rsquo;ve tried Zapier</p>
+                  <p className="text-sm font-semibold">You&rsquo;ve tried Zapier</p>
                   <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
                     <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M15.557 12.004a4.737 4.737 0 0 1-.327 1.553h-3.226v3.226a4.737 4.737 0 0 1-1.553.327 4.737 4.737 0 0 1-1.554-.327v-3.226H5.671a4.737 4.737 0 0 1-.327-1.553c0-.54.117-1.063.327-1.554h3.226V7.224A4.737 4.737 0 0 1 10.45 6.897c.54 0 1.064.117 1.554.327v3.226h3.226c.21.491.327 1.014.327 1.554zM21.1 10.45h-4.96l3.507-3.507a10.222 10.222 0 0 0-1.69-2.003 9.387 9.387 0 0 0-1.993-1.68L12.457 6.767V1.807A10.9 10.9 0 0 0 10.45 1.6c-.705 0-1.38.076-2.007.207v4.96L4.936 3.26a10.222 10.222 0 0 0-2.003 1.69 9.387 9.387 0 0 0-1.68 1.993l3.507 3.507H-.2c-.131.627-.207 1.302-.207 2.007 0 .705.076 1.38.207 2.007h4.96L1.253 17.97a10.222 10.222 0 0 0 1.69 2.003 9.387 9.387 0 0 0 1.993 1.68l3.507-3.507v4.96c.627.131 1.302.207 2.007.207.705 0 1.38-.076 2.007-.207v-4.96l3.507 3.507a10.222 10.222 0 0 0 2.003-1.69 9.387 9.387 0 0 0 1.68-1.993l-3.507-3.507h4.96c.131-.627.207-1.302.207-2.007 0-.705-.076-1.38-.207-2.007z"/>
@@ -287,7 +288,7 @@ export default function HomePage() {
                 </div>
                 {/* Browser Extensions */}
                 <div className="text-center">
-                  <p className="text-sm text-brand-teal/70">You&rsquo;ve tried a dozen browser extensions</p>
+                  <p className="text-sm font-semibold">You&rsquo;ve tried a dozen browser extensions</p>
                   <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
                     <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                       <rect x="3" y="3" width="18" height="18" rx="3"/>
@@ -386,7 +387,7 @@ export default function HomePage() {
 
             {/* Center card — AIOS */}
             <div className="rounded-2xl border border-brand-gray/20 bg-brand-white p-8 flex items-center justify-center">
-              <span className="text-6xl tablet:text-7xl desktop:text-8xl font-bold text-brand-teal/80 tracking-tight">
+              <span className="text-6xl tablet:text-7xl desktop:text-8xl font-normal text-brand-teal/80 tracking-tight">
                 AIOS
               </span>
             </div>
@@ -603,7 +604,7 @@ export default function HomePage() {
         </div>
 
         {/* Do it with us */}
-        <div className="bg-brand-black text-brand-cream px-8 tablet:px-16 py-16 tablet:py-24">
+        <div className="bg-brand-black text-brand-cream px-8 tablet:px-16 py-16 tablet:py-24 relative">
           <div className="flex items-center gap-4 mb-8">
             <Image
               src="/images/cube-triple.svg"
@@ -623,6 +624,17 @@ export default function HomePage() {
             your operations. First working system live within weeks. Ongoing
             support as your business grows.
           </p>
+          <div className="flex justify-end mt-8">
+            <Link
+              href="/blueprint"
+              className="w-12 h-12 rounded-lg bg-brand-cream/10 flex items-center justify-center hover:bg-brand-cream/20 transition-colors"
+              aria-label="Get started with us"
+            >
+              <svg className="w-6 h-6 text-brand-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
