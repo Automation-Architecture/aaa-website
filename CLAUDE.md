@@ -38,7 +38,7 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Illustrations
 
-SVG illustrations in `public/images/` are recreations from Figma screenshots. Replace with actual Figma exports when API rate limits allow. Reference screenshots archived in `reference-screenshots/`.
+SVG illustrations in `public/images/` are recreations from Figma screenshots. Replace with actual Figma exports when API rate limits allow.
 
 ## Figma-to-Code Workflow
 
@@ -55,13 +55,6 @@ SVG illustrations in `public/images/` are recreations from Figma screenshots. Re
 
 ## Remaining tasks
 
-### Done
-- [x] **Privacy policy** (`/privacy`) — full content live
-- [x] **Terms of service** (`/terms`) — full content live
-- [x] **SEO infrastructure** — `robots.ts`, `sitemap.ts`, OG default image all in place
-- [x] **Vercel deployment config** — `vercel.json` with security + cache headers
-
-### Remaining
-- [ ] **Production deployment** — environment variables, domain setup, DNS
-- [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports when API rate limits allow
-- [ ] **Testing** — no test suite yet (unit, integration, or E2E)
+- [ ] **Production deployment** — env vars, domain, DNS
+- [ ] **Figma illustration exports** — replace SVG recreations with actual exports
+- [ ] **Testing** — no test suite yet
