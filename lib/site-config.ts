@@ -64,7 +64,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Resources",
     links: [
       { label: "Problem", href: "/problem" },
-      { label: "About Philosophy", href: "/about" },
+      { label: "Philosophy", href: "/about" },
       { label: "Glossary", href: "/glossary" },
       { label: "FAQ", href: "/faq" },
     ],

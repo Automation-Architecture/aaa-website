@@ -6,7 +6,7 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Sitemap
 
-```
+```text
 /                           Homepage (Figma design, 17 sections)
 /blueprint                  Typeform intake → free AI Blueprint
 /problem                    Problem awareness content

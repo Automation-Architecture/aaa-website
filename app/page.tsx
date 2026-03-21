@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description:
       "60-70% of recurring tasks automated in weeks, not months. We build full AI operating systems for small businesses and startups. Get your free Blueprint.",
     type: "website",
+    siteName: "Automation Architecture AI",
+    locale: "en_US",
+    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
 };
 
