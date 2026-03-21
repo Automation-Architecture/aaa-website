@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useState } from "react";
 
 export function NewsletterForm() {
@@ -7,7 +8,7 @@ export function NewsletterForm() {
   const [submitted, setSubmitted] = useState(false);
 
   // TODO: Wire to newsletter API endpoint
-  function handleSubscribe(e: React.FormEvent) {
+  function handleSubscribe(e: FormEvent) {
     e.preventDefault();
     if (!email) return;
     setSubmitted(true);

@@ -3,8 +3,8 @@ import { SITE_URL } from "./site-config";
 export const LOGO_SCHEMA = {
   "@type": "ImageObject",
   url: `${SITE_URL}/images/logo-full.svg`,
-  width: 600,
-  height: 60,
+  width: 137,
+  height: 29,
 };
 
 export const ORGANIZATION_SCHEMA = {

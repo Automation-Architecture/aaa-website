@@ -68,9 +68,9 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       </button>
 
       {open && item.children && (
-        <ul role="menu" className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
+        <ul className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
           {item.children.map((child) => (
-            <li key={child.href} role="menuitem">
+            <li key={child.href}>
               <Link
                 href={child.href ?? "#"}
                 className="block px-4 py-2 text-sm text-brand-cream hover:text-brand-lime hover:bg-brand-white/5 transition-colors"

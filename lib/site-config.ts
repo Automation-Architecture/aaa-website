@@ -55,7 +55,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Comparisons",
     links: [
-      { label: "AIOS vs. chat GPT", href: "/aios-vs-chatgpt" },
+      { label: "AIOS vs. ChatGPT", href: "/aios-vs-chatgpt" },
       { label: "AIOS vs. Zapier", href: "/aios-vs-zapier" },
       { label: "AIOS vs. DIY", href: "/aios-vs-diy" },
     ],
