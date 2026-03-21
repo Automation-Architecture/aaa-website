@@ -218,6 +218,7 @@ export default function HomePage() {
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <TrackedLink
+                  id="hero-cta"
                   href="/blueprint"
                   event="cta_click"
                   eventParams={{ cta_location: "hero" }}
@@ -476,7 +477,7 @@ export default function HomePage() {
             We measure three things for every client:
           </h2>
         </div>
-        <div className="bg-brand-white" />
+        <div className="hidden desktop:block bg-brand-white" />
       </section>
 
       {/* ─── Metrics Block ─── */}
@@ -666,7 +667,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── Final Banner CTA ─── */}
-      <section className="bg-brand-black text-brand-cream">
+      <section id="footer-cta" className="bg-brand-black text-brand-cream">
         <div className="mx-auto max-w-7xl px-4 tablet:px-6 py-16 tablet:py-24 desktop:py-32">
           <div className="grid grid-cols-1 desktop:grid-cols-2 gap-8 desktop:gap-12">
             {/* Left column */}

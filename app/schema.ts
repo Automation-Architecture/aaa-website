@@ -14,7 +14,7 @@ export const webPageSchema = {
   publisher: PUBLISHER_SCHEMA,
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: [".hero-headline", ".hero-scene", ".pillar-summary"],
+    cssSelector: [".hero-headline"],
   },
   mainEntity: {
     "@type": "Service",
