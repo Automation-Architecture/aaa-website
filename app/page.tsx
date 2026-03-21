@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { TrackedLink } from "@/components/TrackedLink";
+import { QuotableStatement } from "@/components/QuotableStatement";
 import { webPageSchema, breadcrumbSchema } from "./schema";
 
 export const metadata: Metadata = {
@@ -300,9 +301,12 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <p className="font-semibold">
-                The instinct was right. The infrastructure wasn&rsquo;t.
-              </p>
+              <QuotableStatement text="You've tried ChatGPT. You've tried Zapier. The instinct was right — the infrastructure wasn't.">
+                <p>
+                  You&rsquo;ve tried ChatGPT. You&rsquo;ve tried Zapier. The
+                  instinct was right — the infrastructure wasn&rsquo;t.
+                </p>
+              </QuotableStatement>
               <p className="mt-4">
                 Over 46,700 AI tools exist today (per theresanaiforthat.com),
                 and none of them talk to each other. Tools without architecture
@@ -372,6 +376,10 @@ export default function HomePage() {
             </span>
           </div>
 
+          <QuotableStatement text="Not a chatbot. Not a wrapper. An operating system.">
+            <p>Not a chatbot. Not a wrapper. An operating system.</p>
+          </QuotableStatement>
+
           {/* Three column cards */}
           <div className="grid grid-cols-1 desktop:grid-cols-3 gap-6">
             {/* Left card */}
@@ -400,19 +408,19 @@ export default function HomePage() {
               </p>
               <div className="mt-6 space-y-4">
                 <div>
-                  <p className="font-bold">Business Context Data Engine</p>
+                  <h3 className="text-base font-bold">Business Context Data Engine</h3>
                   <p className="text-sm text-brand-teal/70">
                     Your AI knows your business the way a co-founder would
                   </p>
                 </div>
                 <div>
-                  <p className="font-bold">Dashboard Intelligence</p>
+                  <h3 className="text-base font-bold">Dashboard Intelligence</h3>
                   <p className="text-sm text-brand-teal/70">
                     A morning brief, delivered before you open your laptop
                   </p>
                 </div>
                 <div>
-                  <p className="font-bold">Automated Task Management</p>
+                  <h3 className="text-base font-bold">Automated Task Management</h3>
                   <p className="text-sm text-brand-teal/70">
                     60-70% of your recurring tasks, handled — a number McKinsey
                     backs up
@@ -704,9 +712,11 @@ export default function HomePage() {
               <h2 className="uppercase text-brand-lime">
                 You fill it with the business you actually want to run
               </h2>
-              <p className="mt-4 text-brand-cream/60 text-lg">
-                A business that serves you, not the other way around
-              </p>
+              <QuotableStatement text="A business that serves you, not the other way around.">
+                <p className="mt-4 text-brand-cream/60 text-lg">
+                  A business that serves you, not the other way around.
+                </p>
+              </QuotableStatement>
             </div>
           </div>
         </div>

@@ -58,6 +58,8 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Remaining tasks
 
+- [ ] **Newsletter API** — wire `NewsletterForm.tsx` to HubSpot (currently shows "coming soon" on submit)
 - [ ] **Production deployment** — env vars, domain, DNS
 - [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports
+- [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific images when ready
 - [ ] **Testing** — no test suite yet

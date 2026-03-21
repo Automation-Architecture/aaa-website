@@ -37,7 +37,7 @@ const articleSchema = {
   },
   image: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/images/problem-og.jpg`,
+    url: `${SITE_URL}/og-default.png`,
     width: 1200,
     height: 630,
   },
@@ -220,7 +220,7 @@ export default function ProblemPage() {
             extensions — the instinct to adopt AI was correct. The problem is
             that none of it was connected to a system.{" "}
           </p>
-          <QuotableStatement>
+          <QuotableStatement text="Tools without architecture don't compound. They accumulate.">
             <p>
               Tools without architecture don&rsquo;t compound. They accumulate.
             </p>
@@ -239,7 +239,7 @@ export default function ProblemPage() {
           <p className="mt-6">
             Most founders hit this wall around the same point.{" "}
           </p>
-          <QuotableStatement>
+          <QuotableStatement text="Chatbots get you maybe fifty percent of the way there. With full business context, output quality jumps to ninety percent.">
             <p>
               Chatbots get you maybe fifty percent of the way there. You paste
               in context every session. You repeat yourself. You get output

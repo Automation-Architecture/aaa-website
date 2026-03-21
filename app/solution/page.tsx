@@ -270,7 +270,7 @@ export default function SolutionPage() {
             daily use, the system knows the business deeply. After a year,
             it&rsquo;s institutional memory that can&rsquo;t walk out the door.
           </p>
-          <QuotableStatement>
+          <QuotableStatement text="This isn't a subscription you pay for. It's an asset you build.">
             <p>
               This isn&rsquo;t a subscription you pay for. It&rsquo;s an asset
               you build. The longer it runs, the more valuable it becomes.

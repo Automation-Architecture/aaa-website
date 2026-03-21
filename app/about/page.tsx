@@ -36,7 +36,7 @@ export default function AboutPage() {
           publisher: PUBLISHER_SCHEMA,
           datePublished: "2026-01-01",
           dateModified: "2026-03-09",
-          image: `${SITE_URL}/images/about-og.jpg`,
+          image: `${SITE_URL}/og-default.png`,
           mainEntityOfPage: `${SITE_URL}/about`,
         }}
       />
@@ -130,7 +130,7 @@ export default function AboutPage() {
           time or inclination to become an AI engineer.
         </p>
 
-        <QuotableStatement>
+        <QuotableStatement text="We exist for founders who want the system, not the degree.">
           <p>We exist for founders who want the system, not the degree.</p>
         </QuotableStatement>
 

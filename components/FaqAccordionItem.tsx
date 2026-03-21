@@ -18,7 +18,7 @@ export function FaqAccordionItem({ id, question, children }: FaqAccordionItemPro
   const answerId = `answer-${id}`;
 
   return (
-    <article key={id} id={id} className="py-2">
+    <div id={id} className="py-2">
       <h2>
         <button
           id={buttonId}
@@ -51,6 +51,6 @@ export function FaqAccordionItem({ id, question, children }: FaqAccordionItemPro
           <div className="pb-4 text-brand-teal/80">{children}</div>
         </div>
       </div>
-    </article>
+    </div>
   );
 }

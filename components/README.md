@@ -30,12 +30,10 @@ Shared UI components. All custom — no component library.
 |-----------|-------------|
 | `PageCTA.tsx` | Full-width CTA banner (lime bg, black text). Used at bottom of content pages. |
 | `GhostButton.tsx` | Outline button (`rounded-[10px]`, lime hover fill). |
-| `CardGrid.tsx` | Grid of cards with optional link wrapping. |
 | `ResponsiveTable.tsx` | Desktop table + mobile card layout. String-only cells. |
 | `RelatedLinks.tsx` | "Related" link list for bottom of content pages. |
 | `KeyTakeaway.tsx` | Highlighted takeaway box with lime left border. |
-| `QuotableStatement.tsx` | Italic quotable statement with lime left border. |
-| `SocialProofStrip.tsx` | Horizontal strip of social proof items. |
+| `QuotableStatement.tsx` | Quotable statement with Quotation JSON-LD and `data-cite="true"`. |
 
 ## Scripts & Tracking
 

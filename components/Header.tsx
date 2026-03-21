@@ -53,6 +53,10 @@ function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
+
   function enter() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setOpen(true);
@@ -67,7 +71,8 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       <button
         type="button"
         aria-expanded={open}
-        aria-haspopup="true"
+        aria-haspopup="menu"
+        aria-controls={`menu-${item.label.toLowerCase()}`}
         className="relative flex items-center gap-1 px-2.5 py-1.5 text-lg font-medium text-brand-cream hover:text-brand-lime transition-colors group"
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => {
@@ -94,10 +99,11 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       </button>
 
       {open && item.children && (
-        <ul className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
+        <ul id={`menu-${item.label.toLowerCase()}`} role="menu" className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
           {item.children.map((child) => (
-            <li key={child.href}>
+            <li key={child.href} role="none">
               <Link
+                role="menuitem"
                 href={child.href ?? "#"}
                 className="block px-4 py-2 text-sm text-brand-cream hover:text-brand-lime hover:bg-brand-white/5 transition-colors"
                 onClick={() =>
