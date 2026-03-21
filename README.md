@@ -40,6 +40,9 @@ NEXT_PUBLIC_GA4_MEASUREMENT_ID=
 NEXT_PUBLIC_GTM_CONTAINER_ID=
 NEXT_PUBLIC_TYPEFORM_ID=
 NEXT_PUBLIC_COOKIEYES_ID=
+
+# Server-side (not exposed to browser)
+HUBSPOT_ACCESS_TOKEN=        # Private app token (pat-na*) for newsletter form
 ```
 
 ## Scripts
