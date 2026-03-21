@@ -31,7 +31,7 @@ const articleSchema = {
   publisher: PUBLISHER_SCHEMA,
   datePublished: "2026-01-01",
   dateModified: "2026-03-09",
-  image: `${SITE_URL}/images/aios-vs-zapier-og.jpg`,
+  image: `${SITE_URL}/og-default.png`,
   mainEntityOfPage: `${SITE_URL}/aios-vs-zapier`,
 };
 

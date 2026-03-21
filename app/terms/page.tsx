@@ -3,13 +3,11 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { generateBreadcrumbSchema } from "@/lib/breadcrumbs";
-import { SITE_URL } from "@/lib/site-config";
-
 export const metadata: Metadata = {
   title: "Terms of Service — Automation Architecture AI",
   description:
     "Terms of service governing your use of the Automation Architecture AI website, AI Blueprint, and related content.",
-  alternates: { canonical: `${SITE_URL}/terms` },
+  alternates: { canonical: "/terms" },
   openGraph: {
     title: "Terms of Service — Automation Architecture AI",
     description:

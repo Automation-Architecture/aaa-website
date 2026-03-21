@@ -16,7 +16,7 @@ export const articleSchema = {
   },
   image: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/images/solution-og.jpg`,
+    url: `${SITE_URL}/og-default.png`,
     width: 1200,
     height: 630,
   },

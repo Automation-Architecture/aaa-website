@@ -28,6 +28,7 @@ export const ORGANIZATION_SCHEMA = {
     "@type": "Place",
     name: "Worldwide",
   },
+  privacyPolicy: `${SITE_URL}/privacy`,
 };
 
 export const WEBSITE_SCHEMA = {

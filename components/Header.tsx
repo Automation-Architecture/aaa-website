@@ -53,6 +53,10 @@ function DesktopDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
+
   function enter() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setOpen(true);
@@ -68,6 +72,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
         type="button"
         aria-expanded={open}
         aria-haspopup="true"
+        aria-controls={`dropdown-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
         className="relative flex items-center gap-1 px-2.5 py-1.5 text-lg font-medium text-brand-cream hover:text-brand-lime transition-colors group"
         onClick={() => setOpen(!open)}
         onKeyDown={(e) => {
@@ -94,7 +99,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       </button>
 
       {open && item.children && (
-        <ul className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
+        <ul id={`dropdown-${item.label.toLowerCase().replace(/\s+/g, "-")}`} className="absolute top-full left-0 mt-2 w-48 rounded-md bg-brand-black border border-brand-gray/20 py-2 shadow-lg">
           {item.children.map((child) => (
             <li key={child.href}>
               <Link

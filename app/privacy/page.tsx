@@ -4,13 +4,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { ResponsiveTable } from "@/components/ResponsiveTable";
 import { generateBreadcrumbSchema } from "@/lib/breadcrumbs";
-import { SITE_URL } from "@/lib/site-config";
-
 export const metadata: Metadata = {
   title: "Privacy Policy — Automation Architecture AI",
   description:
     "How Automation Architecture AI collects, uses, and protects your information. Covers Typeform, Google Analytics, CookieYes, and your data rights.",
-  alternates: { canonical: `${SITE_URL}/privacy` },
+  alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy — Automation Architecture AI",
     description:
