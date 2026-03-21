@@ -2,25 +2,40 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
-
-// TODO: Wire to newsletter API endpoint (HubSpot, Mailchimp, etc.)
-// Currently displays the form but shows "coming soon" on submit
-// until a backend endpoint is connected.
+import { trackEvent } from "@/lib/analytics";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  function handleSubscribe(e: FormEvent) {
+  async function handleSubscribe(e: FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || status === "loading") return;
+
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        trackEvent("newsletter_subscribe", { method: "footer_form" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <p role="status" aria-live="polite" className="text-sm font-medium text-brand-teal">
-        Thanks! Newsletter coming soon &mdash; we&rsquo;ll notify you.
+        Thanks! You&rsquo;re subscribed.
       </p>
     );
   }
@@ -39,13 +54,20 @@ export function NewsletterForm() {
         placeholder="Your E-mail"
         className="flex-1 border-b border-brand-gray/40 bg-transparent px-2 py-2 text-sm outline-none focus:border-brand-teal placeholder:text-brand-gray"
         required
+        disabled={status === "loading"}
       />
       <button
         type="submit"
-        className="rounded-[10px] bg-brand-teal px-6 py-2.5 text-sm font-bold text-brand-cream uppercase tracking-wide hover:bg-brand-black transition-colors"
+        disabled={status === "loading"}
+        className="rounded-[10px] bg-brand-teal px-6 py-2.5 text-sm font-bold text-brand-cream uppercase tracking-wide hover:bg-brand-black transition-colors disabled:opacity-60"
       >
-        Subscribe
+        {status === "loading" ? "..." : "Subscribe"}
       </button>
+      {status === "error" && (
+        <p role="alert" className="text-sm text-red-600 self-center">
+          Failed — try again.
+        </p>
+      )}
     </form>
   );
 }

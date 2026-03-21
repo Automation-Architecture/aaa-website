@@ -58,8 +58,8 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Remaining tasks
 
-- [ ] **Newsletter API** — wire `NewsletterForm.tsx` to HubSpot (currently shows "coming soon" on submit)
-- [ ] **Production deployment** — env vars, domain, DNS
+- [x] ~~Newsletter API~~ — wired to HubSpot via `POST /api/subscribe`
+- [x] ~~Production deployment~~ — live on Vercel (`automation-architecture/aaa-website`), GitHub auto-deploy connected
 - [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports
 - [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific images when ready
 - [ ] **Testing** — no test suite yet

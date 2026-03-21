@@ -9,7 +9,8 @@ export type AnalyticsEvent =
   | "form_start"
   | "form_load_error"
   | "generate_lead"
-  | "social_click";
+  | "social_click"
+  | "newsletter_subscribe";
 
 /**
  * Push a custom event to the GTM dataLayer.
@@ -22,6 +23,7 @@ export type AnalyticsEvent =
  *  - form_load_error (no params)
  *  - generate_lead   (no params)
  *  - social_click    { platform }
+ *  - newsletter_subscribe { method }
  */
 export function trackEvent(
   event: AnalyticsEvent,

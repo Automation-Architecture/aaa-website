@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment Variables
 
-Copy `.env.local.example` to `.env.local` and fill in values:
+Create a `.env.local` file with:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
