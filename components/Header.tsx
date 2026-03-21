@@ -41,9 +41,9 @@ function NavBracketLink({
       onClick={onClick}
     >
       {/* Top-left bracket */}
-      <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+      <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true" />
       {/* Bottom-right bracket */}
-      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true" />
       {children}
     </Link>
   );
@@ -74,8 +74,8 @@ function DesktopDropdown({ item }: { item: NavItem }) {
           if (e.key === "Escape") setOpen(false);
         }}
       >
-        <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
-        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+        <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-brand-lime opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true" />
+        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-brand-lime opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" aria-hidden="true" />
         {item.label}
         <svg
           className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
@@ -114,7 +114,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
   );
 }
 
-function MobileDropdown({ item }: { item: NavItem }) {
+function MobileDropdown({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -149,9 +149,10 @@ function MobileDropdown({ item }: { item: NavItem }) {
               <Link
                 href={child.href ?? "#"}
                 className="block text-base text-brand-gray hover:text-brand-lime transition-colors"
-                onClick={() =>
-                  trackEvent("nav_click", { nav_item: child.label })
-                }
+                onClick={() => {
+                  trackEvent("nav_click", { nav_item: child.label });
+                  onNavigate();
+                }}
               >
                 {child.label}
               </Link>
@@ -382,7 +383,7 @@ export function Header() {
 
             {NAV_ITEMS.map((item) =>
               item.children ? (
-                <MobileDropdown key={item.label} item={item} />
+                <MobileDropdown key={item.label} item={item} onNavigate={closeMenu} />
               ) : (
                 <Link
                   key={item.href}

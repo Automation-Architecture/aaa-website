@@ -457,17 +457,17 @@ export default function HomePage() {
             {useCaseCards.map((card) => (
               <div
                 key={card.title}
-                className="relative border border-brand-gray2 rounded-lg p-8 tablet:p-10 bg-brand-white transition-colors hover:border-brand-teal"
+                className="group relative border border-brand-gray2 rounded-lg p-8 tablet:p-10 bg-brand-white transition-colors hover:border-brand-teal"
               >
                 {/* Corner brackets */}
-                <span className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-gray2" aria-hidden="true" />
-                <span className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-gray2" aria-hidden="true" />
-                <span className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2" aria-hidden="true" />
-                <span className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2" aria-hidden="true" />
+                <span className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
+                <span className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
+                <span className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
+                <span className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
 
                 <h3 className="font-bold text-[22px] text-brand-black">{card.title}</h3>
                 <p className="mt-3 font-bold text-lg text-brand-teal">{card.outcome}</p>
-                <p className="mt-4 text-lg text-[#636363]">{card.body}</p>
+                <p className="mt-4 text-lg text-brand-body">{card.body}</p>
               </div>
             ))}
           </div>
