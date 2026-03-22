@@ -44,6 +44,18 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 - `id="footer-cta"` is shared between `PageCTA.tsx` and homepage — `MobileCTABar` depends on it via IntersectionObserver.
 - `.hero-headline` class on homepage H1 is a `SpeakableSpecification` schema selector — do not remove.
 
+## Figma layouts
+
+Source file: `https://www.figma.com/design/0AT0J9OTCDI4lkjnnr7Ke7/New-Site-Local` (file key: `0AT0J9OTCDI4lkjnnr7Ke7`)
+
+These are the only layouts being coded so far — other pages will be added when ready for dev.
+
+| Layout | Node ID | Figma URL |
+|--------|---------|-----------|
+| Desktop | `2029:5811` | [dev-desktop](https://www.figma.com/design/0AT0J9OTCDI4lkjnnr7Ke7/New-Site-Local?node-id=2029-5811&m=dev) |
+| Mobile | `2392:1137` | [dev-mobile](https://www.figma.com/design/0AT0J9OTCDI4lkjnnr7Ke7/New-Site-Local?node-id=2392-1137&m=dev) |
+| Burger menu | `2526:3672` | [dev-burger](https://www.figma.com/design/0AT0J9OTCDI4lkjnnr7Ke7/New-Site-Local?node-id=2526-3672&m=dev) |
+
 ## Figma specs
 
 - `dev-burger-specs.md` — mobile burger menu (implemented and aligned in `Header.tsx`)

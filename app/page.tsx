@@ -90,94 +90,87 @@ export default function HomePage() {
       <JsonLd data={breadcrumbSchema} />
 
       {/* ─── Hero ─── */}
-      <section className="px-4 tablet:px-6 pt-6">
-        <div className="bg-brand-lime rounded-2xl px-8 py-16 tablet:px-16 tablet:py-24 desktop:py-32">
+      <section>
+        <div className="bg-brand-lime rounded-tr-[20px] px-8 py-16 tablet:px-16 tablet:py-24 desktop:py-32 desktop:max-w-[75%]">
           <h1 className="hero-headline uppercase text-brand-black max-w-5xl">
             How to prepare your business for the agent-to-agent economy
           </h1>
-          <p className="mt-6 text-brand-black/70 max-w-3xl text-lg">
-            Automation Architecture AI builds AI operating system infrastructure
-            for small businesses and startups — a done-for-you system that
-            handles operations so founders can focus on growth. We serve the
-            founder who wants the result without becoming the engineer.
-          </p>
         </div>
       </section>
 
       {/* ─── Scene (Block2) ─── */}
-      <section className="bg-brand-black text-brand-cream mt-6">
+      <section className="bg-brand-cream text-brand-black">
         <div className="mx-auto max-w-7xl px-4 tablet:px-6 py-16 tablet:py-24">
-          <div className="grid grid-cols-1 desktop:grid-cols-2 gap-12 items-start">
-            {/* Left — intro text + device mockup */}
+          <div className="grid grid-cols-1 desktop:grid-cols-[1fr_3fr] gap-12 items-start">
+            {/* Left — intro text (narrow column) */}
+            <div className="flex flex-col justify-between desktop:min-h-[500px]">
+              <p className="text-lg">
+                Automation Architecture AI builds AI operating system
+                infrastructure for small businesses and startups — a
+                done-for-you system that handles operations so founders can
+                focus on growth. We serve the founder who wants the result
+                without becoming the engineer.
+              </p>
+              <p className="mt-12 text-sm text-brand-body">
+                That&rsquo;s not a pitch.
+                <br />
+                That&rsquo;s a Tuesday — when your business runs on the right
+                infrastructure.
+              </p>
+            </div>
+
+            {/* Right — dashboard animation area (wide column) */}
             <div>
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex items-center gap-2 text-sm mb-4">
                 <span className="inline-block w-2 h-2 rounded-full bg-brand-lime" />
-                <span className="text-brand-lime font-medium uppercase tracking-wider text-xs">
+                <span className="text-brand-black font-medium uppercase tracking-wider text-xs">
                   Morning 7:02am
                 </span>
-                <span className="inline-block w-2 h-2 rounded-full bg-brand-lime" />
-                <span className="text-brand-cream/70">
+                <span className="inline-block w-2 h-2 rounded-full bg-brand-teal" />
+                <span className="text-brand-body">
                   You haven&rsquo;t opened your laptop
                 </span>
               </div>
-              <div className="mt-8">
+              <div className="bg-brand-white rounded-xl p-6 text-brand-black">
+                <p className="font-bold uppercase text-sm tracking-wide mb-4">
+                  Four things happened while you slept. Your day is planned:
+                </p>
+                <ul className="space-y-3">
+                  {checklist.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded bg-brand-lime flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                        <svg className="w-3.5 h-3.5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex gap-2 mt-4 justify-end">
+                <span className="rounded-full border border-brand-gray/30 px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
+                  Four tasks
+                </span>
+                <span className="rounded-full bg-brand-black px-4 py-1.5 text-sm font-semibold text-brand-cream whitespace-nowrap">
+                  Ninety seconds
+                </span>
+                <span className="rounded-full border border-brand-gray/30 px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
+                  Before breakfast
+                </span>
+              </div>
+              <div className="mt-6">
                 <Image
                   src="/images/device-mockup.png"
                   alt="Laptop and phone showing AIOS dashboard"
                   width={520}
                   height={360}
-                  className="w-full max-w-md"
+                  className="w-full max-w-md ml-auto"
                   priority
                 />
               </div>
             </div>
-
-            {/* Right — checklist card + lime tags */}
-            <div>
-              <div className="flex gap-4 items-start">
-                <div className="bg-brand-white rounded-xl p-6 text-brand-black flex-1">
-                  <p className="font-bold uppercase text-sm tracking-wide mb-4">
-                    Four things happened while you slept. Your day is planned:
-                  </p>
-                  <ul className="space-y-3">
-                    {checklist.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded bg-brand-lime flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
-                          <svg className="w-3.5 h-3.5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="hidden desktop:flex flex-col gap-2 shrink-0 pt-4">
-                  <span className="rounded-full bg-brand-lime px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
-                    Ninety seconds
-                  </span>
-                  <span className="rounded-full bg-brand-lime px-4 py-1.5 text-sm font-semibold text-brand-black whitespace-nowrap">
-                    Before breakfast
-                  </span>
-                </div>
-              </div>
-              <div className="desktop:hidden mt-4 text-right">
-                <p className="text-brand-lime text-lg font-semibold">
-                  Ninety seconds
-                </p>
-                <p className="text-brand-lime text-lg font-semibold">
-                  Before breakfast
-                </p>
-              </div>
-            </div>
           </div>
-
-          <p className="mt-12 text-sm text-brand-cream/60 max-w-md">
-            That&rsquo;s not a pitch.
-            <br />
-            That&rsquo;s a Tuesday — when your business runs on the right
-            infrastructure.
-          </p>
         </div>
       </section>
 
@@ -289,39 +282,28 @@ export default function HomePage() {
                 {/* ChatGPT */}
                 <div className="text-center">
                   <p className="text-sm font-semibold">You&rsquo;ve tried ChatGPT</p>
-                  <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
-                    </svg>
+                  <div className="mt-3 mx-auto">
+                    <Image src="/images/icon-chatgpt.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
                   </div>
                 </div>
                 {/* Zapier */}
                 <div className="text-center">
                   <p className="text-sm font-semibold">You&rsquo;ve tried Zapier</p>
-                  <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M15.557 12.004a4.737 4.737 0 0 1-.327 1.553h-3.226v3.226a4.737 4.737 0 0 1-1.553.327 4.737 4.737 0 0 1-1.554-.327v-3.226H5.671a4.737 4.737 0 0 1-.327-1.553c0-.54.117-1.063.327-1.554h3.226V7.224A4.737 4.737 0 0 1 10.45 6.897c.54 0 1.064.117 1.554.327v3.226h3.226c.21.491.327 1.014.327 1.554zM21.1 10.45h-4.96l3.507-3.507a10.222 10.222 0 0 0-1.69-2.003 9.387 9.387 0 0 0-1.993-1.68L12.457 6.767V1.807A10.9 10.9 0 0 0 10.45 1.6c-.705 0-1.38.076-2.007.207v4.96L4.936 3.26a10.222 10.222 0 0 0-2.003 1.69 9.387 9.387 0 0 0-1.68 1.993l3.507 3.507H-.2c-.131.627-.207 1.302-.207 2.007 0 .705.076 1.38.207 2.007h4.96L1.253 17.97a10.222 10.222 0 0 0 1.69 2.003 9.387 9.387 0 0 0 1.993 1.68l3.507-3.507v4.96c.627.131 1.302.207 2.007.207.705 0 1.38-.076 2.007-.207v-4.96l3.507 3.507a10.222 10.222 0 0 0 2.003-1.69 9.387 9.387 0 0 0 1.68-1.993l-3.507-3.507h4.96c.131-.627.207-1.302.207-2.007 0-.705-.076-1.38-.207-2.007z"/>
-                    </svg>
+                  <div className="mt-3 mx-auto">
+                    <Image src="/images/icon-zapier.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
                   </div>
                 </div>
                 {/* Browser Extensions */}
                 <div className="text-center">
                   <p className="text-sm font-semibold">You&rsquo;ve tried a dozen browser extensions</p>
-                  <div className="mt-3 mx-auto w-14 h-14 bg-brand-gray/10 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-brand-teal/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="3"/>
-                      <path d="M3 8h18"/>
-                      <circle cx="6" cy="5.5" r="1" fill="currentColor" stroke="none"/>
-                      <circle cx="9" cy="5.5" r="1" fill="currentColor" stroke="none"/>
-                      <path d="M14 13.5a2.5 2.5 0 0 1 0-5v0a2 2 0 0 1 2 2h1.5a2 2 0 0 1 0 4H16a2 2 0 0 1-2-2v0" strokeLinecap="round"/>
-                    </svg>
+                  <div className="mt-3 mx-auto">
+                    <Image src="/images/icon-browser.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
                   </div>
                 </div>
               </div>
               <QuotableStatement text="You've tried ChatGPT. You've tried Zapier. The instinct was right — the infrastructure wasn't.">
                 <p>
-                  You&rsquo;ve tried ChatGPT. You&rsquo;ve tried Zapier. The
-                  instinct was right — the infrastructure wasn&rsquo;t.
+                  The instinct was right. The infrastructure wasn&rsquo;t.
                 </p>
               </QuotableStatement>
               <p className="mt-4">
@@ -329,26 +311,19 @@ export default function HomePage() {
                 and none of them talk to each other. Tools without architecture
                 don&rsquo;t compound. They accumulate.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 flex justify-end">
                 <Link
                   href="/problem"
-                  className="inline-flex items-center gap-2 rounded-[10px] bg-brand-teal px-6 py-3.5 text-lg font-bold text-brand-white uppercase tracking-wide hover:bg-brand-black transition-colors"
+                  className="inline-flex items-center gap-0 hover:opacity-90 transition-opacity"
                 >
-                  Read More
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <span className="bg-brand-teal text-brand-white px-8 py-3.5 text-lg font-bold uppercase tracking-wide rounded-l-[10px]">
+                    Read more
+                  </span>
+                  <span className="bg-brand-teal w-[55px] h-[55px] flex items-center justify-center rounded-r-[10px] border-l border-brand-white/20">
+                    <svg className="w-3 h-4 text-brand-white" fill="none" viewBox="0 0 11 16" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path d="M1 1l8 7-8 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </Link>
               </div>
             </div>
@@ -356,19 +331,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── "WHAT WE ACTUALLY BUILD" banner ─── */}
-      <section className="px-4 tablet:px-6">
-        <div className="bg-brand-lime rounded-2xl px-8 py-16 tablet:py-24 text-center">
+      {/* ─── "WHAT WE ACTUALLY BUILD" heading ─── */}
+      <section className="bg-brand-cream">
+        <div className="mx-auto max-w-7xl px-4 tablet:px-6 py-16 tablet:py-24 text-center">
           <h2 className="uppercase text-brand-black">What We Actually Build</h2>
-          <Link
-            href="/solution"
-            className="mt-4 inline-flex items-center gap-2 text-brand-black/70 hover:text-brand-black transition-colors font-medium"
-          >
-            See the full picture
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
         </div>
       </section>
 
@@ -613,8 +579,8 @@ export default function HomePage() {
       {/* ─── Disclaimer ─── */}
       <section className="bg-brand-cream">
         <div className="mx-auto max-w-7xl px-4 tablet:px-6 py-12">
-          <div className="border-l-4 border-brand-lime pl-6 max-w-3xl">
-            <p className="text-sm text-brand-teal/70">
+          <div className="max-w-3xl">
+            <p className="text-sm text-brand-body">
               These are methodology targets based on AIOS architecture — derived
               from time-per-task comparisons before and after AIOS deployment —
               and supported by industry research (McKinsey, 2023; Leng et al.,
@@ -624,10 +590,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── "YOU HAVE TWO PATHS FROM HERE" banner ─── */}
-      <section className="px-4 tablet:px-6">
-        <div className="bg-brand-lime rounded-2xl px-8 py-16 tablet:py-24 text-center">
-          <h2 className="uppercase text-brand-black">You Have Two Paths From Here</h2>
+      {/* ─── "YOU HAVE TWO PATHS FROM HERE" heading ─── */}
+      <section className="grid grid-cols-1 desktop:grid-cols-2 bg-brand-cream">
+        <div className="hidden desktop:block" />
+        <div className="px-8 tablet:px-16 py-16 tablet:py-24 flex items-center">
+          <h2 className="uppercase text-brand-black">You have two paths from here.</h2>
         </div>
       </section>
 
@@ -693,44 +660,39 @@ export default function HomePage() {
 
       {/* ─── Guarantees ─── */}
       <section className="bg-brand-cream">
-        <div className="mx-auto max-w-3xl px-4 tablet:px-6 py-16 tablet:py-24">
-          <ul className="space-y-6">
-            <li className="flex items-start gap-4">
-              <CheckCircleIcon />
+        <div className="mx-auto max-w-7xl px-4 tablet:px-6">
+          <div className="divide-y divide-brand-divider">
+            <div className="py-10 desktop:py-12 desktop:grid desktop:grid-cols-[auto_1fr] desktop:gap-8 desktop:items-start">
+              <div className="hidden desktop:block w-px" />
               <div>
-                <p className="font-bold">
+                <p className="font-bold text-2xl tablet:text-3xl">
                   Get a personalized AI Blueprint before any commitment.
                 </p>
-                <p className="mt-1 text-brand-teal/70">
+                <p className="mt-2 text-brand-body">
                   You see exactly what&rsquo;s possible for your business —
-                  free, before any engagement begins.
+                  free, before any engagement begins
                 </p>
               </div>
-            </li>
-            <li className="flex items-start gap-4">
-              <CheckCircleIcon />
-              <div>
-                <p className="font-bold">
-                  You&rsquo;ll never be stuck alone.
-                </p>
-                <p className="mt-1 text-brand-teal/70">
-                  We don&rsquo;t build and disappear. Ongoing partnership means
-                  the system evolves with you.
-                </p>
-              </div>
-            </li>
-            <li className="flex items-start gap-4">
-              <CheckCircleIcon />
-              <div>
-                <p className="font-bold">
-                  You don&rsquo;t need to be technical.
-                </p>
-                <p className="mt-1 text-brand-teal/70">
-                  We build it. We configure it. We maintain it. You use it.
-                </p>
-              </div>
-            </li>
-          </ul>
+            </div>
+            <div className="py-10 desktop:py-12">
+              <p className="font-bold text-2xl tablet:text-3xl">
+                You&rsquo;ll never be stuck alone.
+              </p>
+              <p className="mt-2 text-brand-body">
+                You see exactly what&rsquo;s possible for your business —
+                free, before any engagement begins
+              </p>
+            </div>
+            <div className="py-10 desktop:py-12">
+              <p className="font-bold text-2xl tablet:text-3xl">
+                You don&rsquo;t need to be technical.
+              </p>
+              <p className="mt-2 text-brand-body">
+                You see exactly what&rsquo;s possible for your business —
+                free, before any engagement begins
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

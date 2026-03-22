@@ -7,6 +7,77 @@ import { CTA, SECONDARY_CTA, NAV_ITEMS, type NavItem } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
 import { Logo } from "@/components/Logo";
 
+/* Decorative diagonal-cut edge pieces from Figma */
+function HeaderEdgeLeft() {
+  return (
+    <>
+      {/* Desktop: 30×100 */}
+      <svg
+        width="30"
+        height="100"
+        viewBox="0 0 30 100"
+        fill="none"
+        className="hidden desktop:block shrink-0 h-full"
+        aria-hidden="true"
+      >
+        <rect width="30" height="101" fill="#010101" />
+        <mask id="mask-edge-l" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="70" width="31" height="30">
+          <path d="M0 70V100H31L0 70Z" fill="black" />
+        </mask>
+        <g mask="url(#mask-edge-l)">
+          <rect x="-2" y="68.83" width="33" height="33" fill="#9E9E9E" />
+        </g>
+      </svg>
+      {/* Mobile: 20×70 */}
+      <svg
+        width="20"
+        height="70"
+        viewBox="0 0 20 70"
+        fill="none"
+        className="desktop:hidden shrink-0 h-full"
+        aria-hidden="true"
+      >
+        <path d="M0 0H20V70L0 56.4851V0Z" fill="#010101" />
+      </svg>
+    </>
+  );
+}
+
+function HeaderEdgeRight() {
+  return (
+    <>
+      {/* Desktop: 30×100 mirrored */}
+      <svg
+        width="30"
+        height="100"
+        viewBox="0 0 30 100"
+        fill="none"
+        className="hidden desktop:block shrink-0 h-full"
+        aria-hidden="true"
+      >
+        <rect width="30" height="101" transform="matrix(-1 0 0 1 30 0)" fill="#010101" />
+        <mask id="mask-edge-r" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="-1" y="70" width="31" height="30">
+          <path d="M30 70V100H-1L30 70Z" fill="black" />
+        </mask>
+        <g mask="url(#mask-edge-r)">
+          <rect width="33" height="33" transform="matrix(-1 0 0 1 32 68.83)" fill="#9E9E9E" />
+        </g>
+      </svg>
+      {/* Mobile: 20×70 mirrored */}
+      <svg
+        width="20"
+        height="70"
+        viewBox="0 0 20 70"
+        fill="none"
+        className="desktop:hidden shrink-0 h-full"
+        aria-hidden="true"
+      >
+        <path d="M20 0H0V70L20 56.4851V0Z" fill="#010101" />
+      </svg>
+    </>
+  );
+}
+
 function GridIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -232,6 +303,9 @@ export function Header() {
       style={{ zIndex: "var(--z-header)" }}
     >
       <div className="mx-auto flex max-w-[1920px] items-center h-[70px] desktop:h-[100px]">
+        {/* Left edge decoration */}
+        <HeaderEdgeLeft />
+
         {/* Logo zone */}
         <div className="flex items-center px-4 tablet:px-6 desktop:px-8 shrink-0">
           <Logo variant="light" />
@@ -314,6 +388,9 @@ export function Header() {
             <span className="block h-0.5 w-5 bg-brand-cream" />
           </button>
         </div>
+
+        {/* Right edge decoration */}
+        <HeaderEdgeRight />
       </div>
 
       {/* Mobile overlay */}
