@@ -343,11 +343,11 @@ export function Header() {
               <button
                 type="button"
                 aria-label="Close menu"
-                className="relative w-[30px] h-[30px]"
+                className="relative w-[30px] h-[30px] group"
                 onClick={closeMenu}
               >
-                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime rounded-[10px] rotate-45 -translate-y-1/2" aria-hidden="true" />
-                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime rounded-[10px] -rotate-45 -translate-y-1/2" aria-hidden="true" />
+                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime group-hover:bg-brand-cream rounded-[10px] rotate-45 -translate-y-1/2 transition-colors" aria-hidden="true" />
+                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime group-hover:bg-brand-cream rounded-[10px] -rotate-45 -translate-y-1/2 transition-colors" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -364,7 +364,7 @@ export function Header() {
                 trackEvent("cta_click", { cta_location: "header_secondary_mobile" });
                 closeMenu();
               }}
-              className="inline-flex items-center gap-2 rounded-[10px] bg-brand-lime px-2.5 py-2.5 text-lg font-normal text-brand-black"
+              className="inline-flex items-center gap-2 rounded-[10px] bg-brand-lime px-2.5 py-2.5 text-lg font-normal text-brand-black hover:bg-brand-cream transition-colors"
             >
               <GridIcon />
               {SECONDARY_CTA.label}
