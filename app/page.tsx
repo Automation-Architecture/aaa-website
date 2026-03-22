@@ -548,7 +548,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Away-from-Desk Autonomy</h3>
-                  <p className="mt-2 text-brand-teal/70">Run your business from your phone. Full days without a laptop — nothing falls apart.</p>
+                  <p className="mt-2 text-brand-teal/80">Run your business from your phone. Full days without a laptop — nothing falls apart.</p>
                 </div>
               </div>
               <div className="py-8 flex items-start gap-4">
@@ -559,7 +559,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Task Automation</h3>
-                  <p className="mt-2 text-brand-teal/70">60-70% of recurring operational tasks, automated or heavily augmented</p>
+                  <p className="mt-2 text-brand-teal/80">60-70% of recurring operational tasks, automated or heavily augmented</p>
                 </div>
               </div>
               <div className="py-8 last:pb-0 flex items-start gap-4">
@@ -570,7 +570,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Revenue per Person</h3>
-                  <p className="mt-2 text-brand-teal/70">More output, same team. The real advantage isn&rsquo;t headcount — it&rsquo;s what each person produces.</p>
+                  <p className="mt-2 text-brand-teal/80">More output, same team. The real advantage isn&rsquo;t headcount — it&rsquo;s what each person produces.</p>
                 </div>
               </div>
             </div>
