@@ -290,34 +290,30 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Hamburger button — lime square with rounded corners per Figma spec */}
-        <button
-          ref={toggleRef}
-          type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          className="desktop:hidden ml-auto mr-4 flex h-6 w-6 flex-col items-center justify-center gap-[3px] rounded-[10px] bg-brand-lime p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span
-            className={cn(
-              "block h-0.5 w-3.5 bg-brand-black transition-transform",
-              menuOpen && "translate-y-[5px] rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "block h-0.5 w-3.5 bg-brand-black transition-opacity",
-              menuOpen && "opacity-0",
-            )}
-          />
-          <span
-            className={cn(
-              "block h-0.5 w-3.5 bg-brand-black transition-transform",
-              menuOpen && "-translate-y-[5px] -rotate-45",
-            )}
-          />
-        </button>
+        {/* Mobile CTA + hamburger */}
+        <div className="desktop:hidden ml-auto mr-4 flex items-center gap-3">
+          <Link
+            href={CTA.href}
+            onClick={() =>
+              trackEvent("cta_click", { cta_location: "header_mobile" })
+            }
+            className="rounded-[10px] bg-brand-lime px-5 py-2 text-sm font-bold text-brand-black hover:bg-brand-cream transition-colors uppercase tracking-wide"
+          >
+            {CTA.label}
+          </Link>
+          <button
+            ref={toggleRef}
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="flex h-8 w-8 flex-col items-center justify-center gap-[5px]"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="block h-0.5 w-5 bg-brand-cream" />
+            <span className="block h-0.5 w-5 bg-brand-cream" />
+            <span className="block h-0.5 w-5 bg-brand-cream" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}
@@ -331,7 +327,7 @@ export function Header() {
           style={{ zIndex: "var(--z-hamburger)" }}
         >
           {/* Overlay header */}
-          <div className="flex items-center justify-between px-4 py-4">
+          <div className="flex items-center justify-between h-[70px] px-4">
             <Logo variant="light" />
             <div className="flex items-center gap-3">
               <Link
@@ -347,30 +343,18 @@ export function Header() {
               <button
                 type="button"
                 aria-label="Close menu"
-                className="p-2"
+                className="relative w-[30px] h-[30px] group"
                 onClick={closeMenu}
               >
-                <svg
-                  className="h-6 w-6 text-brand-cream"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime group-hover:bg-brand-cream rounded-[10px] rotate-45 -translate-y-1/2 transition-colors" aria-hidden="true" />
+                <span className="absolute top-1/2 left-0 w-[30px] h-[4px] bg-brand-lime group-hover:bg-brand-cream rounded-[10px] -rotate-45 -translate-y-1/2 transition-colors" aria-hidden="true" />
               </button>
             </div>
           </div>
 
           {/* Nav links */}
           <nav
-            className="flex-1 overflow-y-auto px-[30px] py-[30px] space-y-0"
+            className="flex-1 overflow-y-auto px-[20px] py-[30px] space-y-0"
             aria-label="Mobile navigation"
           >
             {/* Blueprint highlight link */}
@@ -380,7 +364,7 @@ export function Header() {
                 trackEvent("cta_click", { cta_location: "header_secondary_mobile" });
                 closeMenu();
               }}
-              className="inline-flex items-center gap-2 rounded-[5px] bg-brand-lime px-2.5 py-2.5 text-lg font-normal text-brand-black"
+              className="inline-flex items-center gap-2 rounded-[10px] bg-brand-lime px-2.5 py-2.5 text-lg font-normal text-brand-black hover:bg-brand-cream transition-colors"
             >
               <GridIcon />
               {SECONDARY_CTA.label}

@@ -35,6 +35,8 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 - Breakpoints: `tablet` (768px), `desktop` (1024px), `wide` (1280px).
 - Buttons use `rounded-[10px]`, not `rounded-full`. Hover states use color transitions (cream, black, or lime fills) — never `opacity` dim.
 - Desktop nav links have corner-bracket hover decorations (lime, 2px) via `NavBracketLink` in `Header.tsx`.
+- Mobile header shows "Apply Now" lime button + hamburger (cream bars). Mobile nav overlay uses lime X close icon (two 30px bars rotated ±45°).
+- Mobile nav overlay header uses `h-[70px]` to match the closed-state header height.
 - Footer is a server component. Newsletter form state lives in `components/NewsletterForm.tsx`.
 - Integrations: Typeform (Blueprint form), GTM/GA4 (analytics), CookieYes (consent), HubSpot (CRM + newsletter).
 - Newsletter form posts to `POST /api/subscribe` → creates HubSpot contacts. Rate-limited (5/min per IP), 10s timeout.
@@ -44,7 +46,7 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Figma specs
 
-- `dev-burger-specs.md` — mobile burger menu (implemented in `Header.tsx`)
+- `dev-burger-specs.md` — mobile burger menu (implemented and aligned in `Header.tsx`)
 - `dev-kit-specs.md` — design system reference (audited, components aligned)
 
 ## Figma-to-Code Workflow
@@ -62,7 +64,7 @@ Next.js 16 + React 19 + Tailwind CSS v4. No component library — all components
 
 ## Remaining tasks
 
-- [ ] **Figma illustration exports** — SVGs in `public/images/` are recreations; replace with actual Figma exports
+- [ ] **Figma illustration exports** — remaining SVGs (`agent-network`, `cube-single`, `cube-triple`, `pyramid-blocks`, `logo-full`, `logo-full-dark`) are recreations; `device-mockup` replaced with Figma PNG
 - [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific 1200x630 images
 - [x] **Testing** — Vitest + React Testing Library (56 tests across 8 files)
 - [ ] **Custom domain** — `automationarchitecture.ai` DNS not yet pointed to Vercel
