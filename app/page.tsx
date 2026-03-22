@@ -22,26 +22,37 @@ export const metadata: Metadata = {
   },
 };
 
-const useCaseCards = [
+interface UseCaseCard {
+  title: string;
+  outcome: string;
+  body: string;
+  icon: string;
+}
+
+const useCaseCards: UseCaseCard[] = [
   {
     title: "The Morning Brief",
     outcome: "74 calls analyzed overnight. One brief by 7am.",
     body: "Because the system knows the business fully — team, revenue, priorities, every active project — it can synthesize 74 calls across multiple streams into one brief that actually makes sense. Complete with a SWOT review. The founder becomes the most informed person in the organization before breakfast.",
+    icon: "M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z",
   },
   {
     title: "Lead Pipeline — Built in One Week",
     outcome: "15 hours a week on lead gen. Then zero.",
     body: "A service business owner spending 15 hours a week on research, outreach, and follow-ups. With an AIOS, the entire flow is automated in one week: scoring, drafting, nurturing, and project handoff with full context intact. That bandwidth goes straight back into client delivery.",
+    icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605",
   },
   {
     title: "Landing Page From a Phone",
     outcome: "Voice note in. Live page out. Before he got home.",
     body: "A founder needs a lead magnet page for a YouTube video. He opens Telegram from his car, explains what he needs via voice note. The system matches his site's design and copy, builds the page, and deploys it — all before he pulls into the driveway.",
+    icon: "M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3",
   },
   {
     title: "Content Pipeline",
     outcome: "Idea to publish-ready — from a voice note.",
     body: "A founder captures a content idea via Telegram while walking. The system pulls the last 7 days of content context, aligns to brand positioning, and produces a LinkedIn post in his voice plus a 7-slide carousel — saved to the project folder, ready to publish.",
+    icon: "M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z",
   },
 ];
 
@@ -84,6 +95,12 @@ export default function HomePage() {
           <h1 className="hero-headline uppercase text-brand-black max-w-5xl">
             How to prepare your business for the agent-to-agent economy
           </h1>
+          <p className="mt-6 text-brand-black/70 max-w-3xl text-lg">
+            Automation Architecture AI builds AI operating system infrastructure
+            for small businesses and startups — a done-for-you system that
+            handles operations so founders can focus on growth. We serve the
+            founder who wants the result without becoming the engineer.
+          </p>
         </div>
       </section>
 
@@ -105,7 +122,7 @@ export default function HomePage() {
               </div>
               <div className="mt-8">
                 <Image
-                  src="/images/device-mockup.svg"
+                  src="/images/device-mockup.png"
                   alt="Laptop and phone showing AIOS dashboard"
                   width={520}
                   height={360}
@@ -343,6 +360,15 @@ export default function HomePage() {
       <section className="px-4 tablet:px-6">
         <div className="bg-brand-lime rounded-2xl px-8 py-16 tablet:py-24 text-center">
           <h2 className="uppercase text-brand-black">What We Actually Build</h2>
+          <Link
+            href="/solution"
+            className="mt-4 inline-flex items-center gap-2 text-brand-black/70 hover:text-brand-black transition-colors font-medium"
+          >
+            See the full picture
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </section>
 
@@ -473,6 +499,11 @@ export default function HomePage() {
                 <span className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
                 <span className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
 
+                <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-5">
+                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
+                  </svg>
+                </div>
                 <h3 className="font-bold text-[22px] text-brand-black">{card.title}</h3>
                 <p className="mt-3 font-bold text-lg text-brand-teal">{card.outcome}</p>
                 <p className="mt-4 text-lg text-brand-body">{card.body}</p>
@@ -509,25 +540,39 @@ export default function HomePage() {
 
             {/* Right — three metrics */}
             <div className="space-y-0 divide-y divide-brand-gray/20">
-              {[
-                {
-                  title: "Away-from-Desk Autonomy",
-                  desc: "Run your business from your phone. Full days without a laptop — nothing falls apart.",
-                },
-                {
-                  title: "Task Automation",
-                  desc: "60-70% of recurring operational tasks, automated or heavily augmented",
-                },
-                {
-                  title: "Revenue per Person",
-                  desc: "More output, same team. The real advantage isn't headcount — it's what each person produces.",
-                },
-              ].map((metric) => (
-                <div key={metric.title} className="py-8 first:pt-0 last:pb-0">
-                  <h3 className="font-bold text-xl">{metric.title}</h3>
-                  <p className="mt-2 text-brand-teal/70">{metric.desc}</p>
+              <div className="py-8 first:pt-0 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                  </svg>
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-bold text-xl">Away-from-Desk Autonomy</h3>
+                  <p className="mt-2 text-brand-teal/80">Run your business from your phone. Full days without a laptop — nothing falls apart.</p>
+                </div>
+              </div>
+              <div className="py-8 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl">Task Automation</h3>
+                  <p className="mt-2 text-brand-teal/80">60-70% of recurring operational tasks, automated or heavily augmented</p>
+                </div>
+              </div>
+              <div className="py-8 last:pb-0 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl">Revenue per Person</h3>
+                  <p className="mt-2 text-brand-teal/80">More output, same team. The real advantage isn&rsquo;t headcount — it&rsquo;s what each person produces.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
