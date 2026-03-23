@@ -76,7 +76,7 @@ These are the only layouts being coded so far — other pages will be added when
 
 ## Remaining tasks
 
-- [ ] **Figma illustration exports** — remaining SVGs (`agent-network`, `cube-single`, `cube-triple`, `pyramid-blocks`, `logo-full`, `logo-full-dark`) are recreations; `device-mockup` replaced with Figma PNG
+- [x] **Figma illustration exports** — all SVGs are direct Figma exports; `device-mockup` replaced with Figma PNG
 - [ ] **OG images per page** — all schemas use `/og-default.png`; create page-specific 1200x630 images
 - [x] **Testing** — Vitest + React Testing Library (56 tests across 8 files)
 - [ ] **Custom domain** — `automationarchitecture.ai` DNS not yet pointed to Vercel
