@@ -1,5 +1,12 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Agent entry point
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+When someone clones this repo and tags **this file** (`@AGENT.md`) with a request to build an app, you are the agent. They usually only say they want to build an app and list the features they want. Follow this flow in order.
+
+---
+
+## 1. Understand the request
+
+## 2. Follow the CONVENTION
+
+- Follow the CONVENTION in the `docs/CONVENTION.md` file.
+- Follow the BRAND in the `docs/BRAND.md` file.

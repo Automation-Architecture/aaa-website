@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* shadcn-compatible color tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* AAA brand tokens */
+  --color-brand-lime: #e6ff2b;
+  --color-brand-teal: #004d43;
+  --color-brand-cream: #f9f7f2;
+  --color-brand-offwhite: #f9f9f9;
+  --color-brand-gray: #898a8d;
+  --color-brand-gray2: #9e9e9e;
+  --color-brand-divider: #d8d8d8;
+  --color-brand-body: #636363;
+  --color-brand-black: #010101;
+  --color-brand-white: #ffffff;
+
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1280px;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Core shadcn semantic tokens (mapped from current brand system) */
+  --background: #f9f7f2;
+  --foreground: #010101;
+  --card: #ffffff;
+  --card-foreground: #010101;
+  --popover: #ffffff;
+  --popover-foreground: #010101;
+  --primary: #e6ff2b;
+  --primary-foreground: #010101;
+  --secondary: #004d43;
+  --secondary-foreground: #ffffff;
+  --muted: #f1f0ec;
+  --muted-foreground: #636363;
+  --accent: #e6ff2b;
+  --accent-foreground: #010101;
+  --destructive: #d93025;
+  --border: #d8d8d8;
+  --input: #d8d8d8;
+  --ring: #004d43;
+
+  /* Extended semantic status tokens */
+  --success: #0f766e;
+  --success-foreground: #ffffff;
+  --warning: #e6ff2b;
+  --warning-foreground: #010101;
+  --info: #004d43;
+  --info-foreground: #ffffff;
+}
+
+.dark {
+  --background: #010101;
+  --foreground: #f9f7f2;
+  --card: #121212;
+  --card-foreground: #f9f7f2;
+  --popover: #121212;
+  --popover-foreground: #f9f7f2;
+  --primary: #e6ff2b;
+  --primary-foreground: #010101;
+  --secondary: #0f3f39;
+  --secondary-foreground: #ffffff;
+  --muted: #1b1b1b;
+  --muted-foreground: #b3b3b3;
+  --accent: #e6ff2b;
+  --accent-foreground: #010101;
+  --destructive: #ef4444;
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #e6ff2b;
+  --success: #14b8a6;
+  --success-foreground: #010101;
+  --warning: #e6ff2b;
+  --warning-foreground: #010101;
+  --info: #22d3ee;
+  --info-foreground: #010101;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-sans),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

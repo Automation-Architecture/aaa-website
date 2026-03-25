@@ -1,0 +1,59 @@
+# Automation Architecture AI (AAA)
+
+> Done-for-you AI Operating System (AIOS) infrastructure for small businesses and startups — so founders can stop running their business and start growing it.
+
+Last-Updated: 2026-03-09
+Version: 1.0
+Contact: https://automationarchitecture.ai/blueprint
+
+## About
+
+AAA is an AI automation agency that builds full AIOS infrastructure for small businesses and startups. We serve founders stuck in the day-to-day — operationally constrained by bandwidth, not ambition. Our model is done-for-you: we build the system so you don't have to become the engineer. Two service tiers exist: AI Automation (~1 week, single workflow) and Full AIOS (~3 weeks, complete system). A free AI Blueprint and consultation determine which tier fits.
+
+## AIOS — AI Operating System
+
+An AIOS (AI Operating System) is an autonomous infrastructure layer that wraps around an entire business — operations, data, intelligence, and communications — and runs whether the founder is at their desk or not. It is built on three pillars:
+
+- Business Context Data Engine: Structured knowledge layer giving AI full business-specific intelligence — your team, products, financials, priorities, and decisions. The foundation that makes AI output relevant instead of generic.
+- Dashboard Intelligence: Real-time, AI-powered visibility into operations. A Daily Brief synthesizes revenue, calls, meetings, content performance, and a SWOT analysis — delivered before breakfast. One read replaces seven platform logins.
+- Automated Task Management: AI-driven task orchestration targeting 60-70% of recurring operational work. Each task is categorized as automate, augment, or manual — and the manual category shrinks over time as the system learns.
+
+## How It Works
+
+Seven phases from first contact to running system:
+
+1. IDEA — Fill out an intake form, receive a free AI Blueprint with industry-specific automation recommendations.
+2. CONSULT — 30-45 minute call to review the Blueprint, assess fit, and scope the engagement.
+3. DESIGN — Kickoff, context capture, and architectural design document for your review.
+4. BUILD — We build using proven, pre-built modules customized to your business. Weekly Loom updates and project board access throughout.
+5. TEST — Internal QA followed by a Loom demo walkthrough. Nothing goes live until you're satisfied.
+6. DEPLOY — System goes live in your environment with full documentation.
+7. ONGOING PARTNERSHIP — Maintenance, updates, new automations, and system evolution as your business grows.
+
+Two tiers: AI Automation (~1 week, single workflow) and Full AIOS (~3 weeks, complete system).
+
+## Key Concepts
+
+- Operator Trap: The pattern where 80% of a founder's working hours go to operational maintenance — admin, firefighting, meetings, keeping the lights on — leaving only 20% for growth work. The Alternative Board found that small business owners spend 68% of their time on day-to-day operational tasks rather than strategic growth.
+- Margin Pressure: McKinsey estimates that generative AI could automate 60 to 70% of the tasks employees spend their time on today. AI is compressing costs across every industry — businesses without infrastructure to adapt will face margin erosion.
+- Compound Intelligence: The principle that an AIOS accumulates knowledge over time — every decision logged, every skill refined, every automation tuned — becoming an appreciating asset rather than a recurring cost.
+- Bandwidth Inversion: The shift from 80% maintenance / 20% growth to 20-30% maintenance / 70-80% growth. The freed bandwidth goes to new channels, new products, new markets — or running the business from your phone.
+- Agent-to-Agent Economy: The emerging economic model where AI agents transact with other AI agents on behalf of businesses. Gartner predicts 33% of enterprise software applications will include agentic AI by 2028, up from less than 1% in 2024 (Gartner, 2024). Businesses with AIOS infrastructure will be positioned to participate.
+
+## Links
+
+- Solution: /solution
+- How It Works: /how-it-works
+- Use Cases: /use-cases
+- FAQ: /faq
+- About: /about
+- Glossary: /glossary
+- AIOS vs Zapier: /aios-vs-zapier
+- AIOS vs DIY: /aios-vs-diy
+- AIOS vs ChatGPT: /aios-vs-chatgpt
+- Industries — Agencies: /industries/agencies
+- Industries — Coaching: /industries/coaching
+- Industries — Ecommerce: /industries/ecommerce
+- Industries — SaaS: /industries/saas
+- Value: /value
+- Get Your Free AI Blueprint: /blueprint
