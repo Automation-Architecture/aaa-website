@@ -1,5 +1,41 @@
-import { RoutePlaceholderView } from "@/feature/landing/views/RoutePlaceholderView";
+import { PageCTA } from "@/components/common/PageCTA";
+import { TypeformEmbed } from "@/components/common/TypeformEmbed";
 
 export function BlueprintView() {
-  return <RoutePlaceholderView title="Blueprint" />;
+  return (
+    <>
+      <article className="mx-auto max-w-3xl px-4 py-16">
+        <h1 className="text-3xl font-bold tracking-tight text-brand-teal tablet:text-4xl">
+          Get Your Free AI Blueprint
+        </h1>
+
+        <div className="mt-10">
+          <TypeformEmbed />
+        </div>
+
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold text-brand-teal">What to Expect</h2>
+          <ol className="mt-6 space-y-4 text-brand-teal/80">
+            <li>
+              <strong>1. Fill out the intake form</strong> — Takes about 5
+              minutes. We ask about your business, current tools, and biggest
+              bottlenecks.
+            </li>
+            <li>
+              <strong>2. Receive your Blueprint</strong> — A personalized
+              document with AI automation recommendations tailored to your
+              industry and operations.
+            </li>
+            <li>
+              <strong>3. Book a consultation</strong> — Walk through the
+              Blueprint with us, ask questions, and decide if AIOS is the right
+              fit.
+            </li>
+          </ol>
+        </section>
+      </article>
+
+      <PageCTA />
+    </>
+  );
 }

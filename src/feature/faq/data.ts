@@ -1,6 +1,3 @@
-import { generateBreadcrumbSchema } from "@/lib/breadcrumbs";
-
-// Plain text versions for schema
 export const faqSchemaItems = [
   { q: "Is this just ChatGPT?", a: "No. An AIOS is a full business operating system — not a chatbot. ChatGPT gets you maybe fifty percent of the way there. You paste in context every session, you repeat yourself, and you get generic output that doesn't know your business. An AIOS fully knows your business — your team, your products, your financials, your priorities. It doesn't just answer questions — it researches, creates, schedules, checks in, and reports back. It acts on your behalf, across your entire operation." },
   { q: "Can I build this myself?", a: "Yes, with the right tools, technical skills, and months of ongoing iteration. Over 46,700 AI tools exist. Context architecture, integration complexity, developer cost ($75-$300/hour), and architecture failure are all challenges. We exist for founders who want the system, not the degree." },
@@ -42,7 +39,11 @@ export const faqPageSchema = {
   })),
 };
 
-export const faqBreadcrumbSchema = generateBreadcrumbSchema([
-  { name: "Home", path: "/" },
-  { name: "FAQ", path: "/faq" },
-]);
+export const faqBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://automationarchitecture.ai/" },
+    { "@type": "ListItem", position: 2, name: "FAQ", item: "https://automationarchitecture.ai/faq" },
+  ],
+};
