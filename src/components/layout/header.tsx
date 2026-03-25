@@ -158,7 +158,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 overflow-visible border-brand-gray bg-brand-black text-brand-cream">
+    <header className="sticky top-0 z-99 overflow-visible border-brand-gray bg-brand-black text-brand-cream">
       <div className="mx-auto grid h-[70px] max-w-[1920px] grid-cols-[auto_1fr_auto] items-center px-2.5 tablet:px-3 min-[1025px]:h-[100px] min-[1025px]:px-[50px]">
         <div className="flex items-center">
           <Logo

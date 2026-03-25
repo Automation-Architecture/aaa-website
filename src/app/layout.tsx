@@ -41,10 +41,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background text-foreground">
         <Header />
-        <div className="mx-auto mb-10 w-full max-w-11/12">
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

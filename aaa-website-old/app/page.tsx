@@ -138,9 +138,22 @@ export default function HomePage() {
                 <ul className="space-y-3">
                   {checklist.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded bg-brand-lime flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
-                        <svg className="w-3.5 h-3.5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      <span
+                        className="w-5 h-5 rounded bg-brand-lime flex items-center justify-center shrink-0 mt-0.5"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          className="w-3.5 h-3.5 text-brand-black"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       </span>
                       <span className="text-sm">{item}</span>
@@ -177,9 +190,7 @@ export default function HomePage() {
       {/* ─── The Gap (split) ─── */}
       <section className="grid grid-cols-1 desktop:grid-cols-2">
         <div className="bg-brand-black text-brand-cream px-8 tablet:px-16 py-16 tablet:py-24 flex items-center">
-          <h2 className="uppercase">
-            Now think about your actual morning
-          </h2>
+          <h2 className="uppercase">Now think about your actual morning</h2>
         </div>
         <div className="bg-brand-cream text-brand-black px-8 tablet:px-16 py-16 tablet:py-24 flex items-center">
           <div className="space-y-2">
@@ -281,30 +292,55 @@ export default function HomePage() {
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {/* ChatGPT */}
                 <div className="text-center">
-                  <p className="text-sm font-semibold">You&rsquo;ve tried ChatGPT</p>
+                  <p className="text-sm font-semibold">
+                    You&rsquo;ve tried ChatGPT
+                  </p>
                   <div className="mt-3 mx-auto">
-                    <Image src="/images/icon-chatgpt.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
+                    <Image
+                      src="/images/icon-chatgpt.svg"
+                      alt=""
+                      width={145}
+                      height={148}
+                      className="w-[145px] h-[148px]"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
                 {/* Zapier */}
                 <div className="text-center">
-                  <p className="text-sm font-semibold">You&rsquo;ve tried Zapier</p>
+                  <p className="text-sm font-semibold">
+                    You&rsquo;ve tried Zapier
+                  </p>
                   <div className="mt-3 mx-auto">
-                    <Image src="/images/icon-zapier.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
+                    <Image
+                      src="/images/icon-zapier.svg"
+                      alt=""
+                      width={145}
+                      height={148}
+                      className="w-[145px] h-[148px]"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
                 {/* Browser Extensions */}
                 <div className="text-center">
-                  <p className="text-sm font-semibold">You&rsquo;ve tried a dozen browser extensions</p>
+                  <p className="text-sm font-semibold">
+                    You&rsquo;ve tried a dozen browser extensions
+                  </p>
                   <div className="mt-3 mx-auto">
-                    <Image src="/images/icon-browser.svg" alt="" width={145} height={148} className="w-[145px] h-[148px]" aria-hidden="true" />
+                    <Image
+                      src="/images/icon-browser.svg"
+                      alt=""
+                      width={145}
+                      height={148}
+                      className="w-[145px] h-[148px]"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </div>
               <QuotableStatement text="You've tried ChatGPT. You've tried Zapier. The instinct was right — the infrastructure wasn't.">
-                <p>
-                  The instinct was right. The infrastructure wasn&rsquo;t.
-                </p>
+                <p>The instinct was right. The infrastructure wasn&rsquo;t.</p>
               </QuotableStatement>
               <p className="mt-4">
                 Over 46,700 AI tools exist today (per theresanaiforthat.com),
@@ -320,8 +356,19 @@ export default function HomePage() {
                     Read more
                   </span>
                   <span className="bg-brand-teal w-[55px] h-[55px] flex items-center justify-center rounded-r-[10px] border-l border-brand-white/20">
-                    <svg className="w-3 h-4 text-brand-white" fill="none" viewBox="0 0 11 16" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path d="M1 1l8 7-8 7" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg
+                      className="w-3 h-4 text-brand-white"
+                      fill="none"
+                      viewBox="0 0 11 16"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 1l8 7-8 7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </span>
                 </Link>
@@ -331,7 +378,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── "WHAT WE ACTUALLY BUILD" heading ─── */}
       <section className="bg-brand-cream">
         <div className="mx-auto max-w-7xl px-4 tablet:px-6 py-16 tablet:py-24 text-center">
           <h2 className="uppercase text-brand-black">What We Actually Build</h2>
@@ -400,19 +446,25 @@ export default function HomePage() {
               </p>
               <div className="mt-6 space-y-4">
                 <div>
-                  <h3 className="text-base font-bold">Business Context Data Engine</h3>
+                  <h3 className="text-base font-bold">
+                    Business Context Data Engine
+                  </h3>
                   <p className="text-sm text-brand-teal/70">
                     Your AI knows your business the way a co-founder would
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold">Dashboard Intelligence</h3>
+                  <h3 className="text-base font-bold">
+                    Dashboard Intelligence
+                  </h3>
                   <p className="text-sm text-brand-teal/70">
                     A morning brief, delivered before you open your laptop
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold">Automated Task Management</h3>
+                  <h3 className="text-base font-bold">
+                    Automated Task Management
+                  </h3>
                   <p className="text-sm text-brand-teal/70">
                     60-70% of your recurring tasks, handled — a number McKinsey
                     backs up
@@ -460,18 +512,45 @@ export default function HomePage() {
                 className="group relative border border-brand-gray2 rounded-lg p-8 tablet:p-10 bg-brand-white transition-colors hover:border-brand-teal"
               >
                 {/* Corner brackets */}
-                <span className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
-                <span className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
-                <span className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
-                <span className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal" aria-hidden="true" />
+                <span
+                  className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal"
+                  aria-hidden="true"
+                />
+                <span
+                  className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal"
+                  aria-hidden="true"
+                />
+                <span
+                  className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-brand-gray2 transition-colors group-hover:border-brand-teal"
+                  aria-hidden="true"
+                />
+                <span
+                  className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-brand-gray2 transition-colors group-hover:border-brand-teal"
+                  aria-hidden="true"
+                />
 
                 <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-5">
-                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
+                  <svg
+                    className="w-5 h-5 text-brand-teal"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={card.icon}
+                    />
                   </svg>
                 </div>
-                <h3 className="font-bold text-[22px] text-brand-black">{card.title}</h3>
-                <p className="mt-3 font-bold text-lg text-brand-teal">{card.outcome}</p>
+                <h3 className="font-bold text-[22px] text-brand-black">
+                  {card.title}
+                </h3>
+                <p className="mt-3 font-bold text-lg text-brand-teal">
+                  {card.outcome}
+                </p>
                 <p className="mt-4 text-lg text-brand-body">{card.body}</p>
               </div>
             ))}
@@ -508,35 +587,77 @@ export default function HomePage() {
             <div className="space-y-0 divide-y divide-brand-gray/20">
               <div className="py-8 first:pt-0 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                  <svg
+                    className="w-5 h-5 text-brand-teal"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                    />
                   </svg>
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Away-from-Desk Autonomy</h3>
-                  <p className="mt-2 text-brand-teal/80">Run your business from your phone. Full days without a laptop — nothing falls apart.</p>
+                  <p className="mt-2 text-brand-teal/80">
+                    Run your business from your phone. Full days without a
+                    laptop — nothing falls apart.
+                  </p>
                 </div>
               </div>
               <div className="py-8 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-5 h-5 text-brand-teal"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Task Automation</h3>
-                  <p className="mt-2 text-brand-teal/80">60-70% of recurring operational tasks, automated or heavily augmented</p>
+                  <p className="mt-2 text-brand-teal/80">
+                    60-70% of recurring operational tasks, automated or heavily
+                    augmented
+                  </p>
                 </div>
               </div>
               <div className="py-8 last:pb-0 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" />
+                  <svg
+                    className="w-5 h-5 text-brand-teal"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941"
+                    />
                   </svg>
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Revenue per Person</h3>
-                  <p className="mt-2 text-brand-teal/80">More output, same team. The real advantage isn&rsquo;t headcount — it&rsquo;s what each person produces.</p>
+                  <p className="mt-2 text-brand-teal/80">
+                    More output, same team. The real advantage isn&rsquo;t
+                    headcount — it&rsquo;s what each person produces.
+                  </p>
                 </div>
               </div>
             </div>
@@ -594,7 +715,9 @@ export default function HomePage() {
       <section className="grid grid-cols-1 desktop:grid-cols-2 bg-brand-cream">
         <div className="hidden desktop:block" />
         <div className="px-8 tablet:px-16 py-16 tablet:py-24 flex items-center">
-          <h2 className="uppercase text-brand-black">You have two paths from here.</h2>
+          <h2 className="uppercase text-brand-black">
+            You have two paths from here.
+          </h2>
         </div>
       </section>
 
@@ -611,9 +734,7 @@ export default function HomePage() {
               className="w-16 h-16"
               aria-hidden="true"
             />
-            <h3 className="text-2xl tablet:text-3xl font-bold">
-              Do it alone:
-            </h3>
+            <h3 className="text-2xl tablet:text-3xl font-bold">Do it alone:</h3>
           </div>
           <p className="text-brand-teal/80">
             Evaluate 46,700 AI tools. Learn the architecture. Navigate context
@@ -650,8 +771,19 @@ export default function HomePage() {
               className="w-12 h-12 rounded-lg bg-brand-cream/10 flex items-center justify-center hover:bg-brand-cream/20 transition-colors"
               aria-label="Get started with us"
             >
-              <svg className="w-6 h-6 text-brand-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6 text-brand-cream"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Link>
           </div>
@@ -679,8 +811,8 @@ export default function HomePage() {
                 You&rsquo;ll never be stuck alone.
               </p>
               <p className="mt-2 text-brand-body">
-                You see exactly what&rsquo;s possible for your business —
-                free, before any engagement begins
+                You see exactly what&rsquo;s possible for your business — free,
+                before any engagement begins
               </p>
             </div>
             <div className="py-10 desktop:py-12">
@@ -688,8 +820,8 @@ export default function HomePage() {
                 You don&rsquo;t need to be technical.
               </p>
               <p className="mt-2 text-brand-body">
-                You see exactly what&rsquo;s possible for your business —
-                free, before any engagement begins
+                You see exactly what&rsquo;s possible for your business — free,
+                before any engagement begins
               </p>
             </div>
           </div>
@@ -702,7 +834,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 desktop:grid-cols-2 gap-8 desktop:gap-12">
             {/* Left column */}
             <div>
-              <h2 className="uppercase text-brand-white">We build the bottle</h2>
+              <h2 className="uppercase text-brand-white">
+                We build the bottle
+              </h2>
               <div className="mt-10">
                 <TrackedLink
                   href="/blueprint"
