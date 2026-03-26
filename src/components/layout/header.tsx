@@ -6,7 +6,7 @@ import Image from "next/image";
 import { CTA, NAV_ITEMS, type NavItem, RouteNames } from "@/constants";
 import { Logo } from "@/components/common/logo";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, isExternalHref } from "@/lib/utils";
 
 function NavCorners({ label, open }: { label: string; open?: boolean }) {
   const show = !!open;
@@ -142,6 +142,8 @@ function IndustriesDropdown({ item }: { item: NavItem }) {
             <Link
               key={child.href}
               href={child.href ?? RouteNames.Home}
+              target={isExternalHref(child.href) ? "_blank" : undefined}
+              rel={isExternalHref(child.href) ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
               className="block cursor-pointer rounded-[10px] px-3 py-2 text-[1rem] font-normal text-brand-white hover:bg-transparent hover:text-brand-lime focus:bg-transparent focus:text-brand-lime"
             >
@@ -288,12 +290,29 @@ export function Header() {
 
           {NAV_ITEMS.map((item) =>
             item.children ? (
-              <p
-                key={item.label}
-                className="text-[1rem] font-normal text-brand-cream"
-              >
-                {item.label}
-              </p>
+              <div key={item.label} className="space-y-2">
+                <p className="text-[1rem] font-normal text-brand-cream">
+                  {item.label}
+                </p>
+                <div className="pl-3 space-y-2">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href ?? RouteNames.Home}
+                      target={isExternalHref(child.href) ? "_blank" : undefined}
+                      rel={
+                        isExternalHref(child.href)
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="block text-[1rem] font-normal text-brand-cream hover:text-brand-lime"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ) : (
               <Link
                 key={item.href}

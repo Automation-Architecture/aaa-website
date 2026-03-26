@@ -13,6 +13,9 @@ export const RouteNames = {
   IndustryCoaching: "/industries/coaching",
   IndustryEcommerce: "/industries/ecommerce",
   IndustrySaas: "/industries/saas",
+  SoftwarePipelineIQ: "https://www.pipelineiq.app/",
+  SoftwareYoutubeIQ: "https://youtubeiq.app",
+  SoftwareJiraIQ: "https://jiraiq.app",
   AiosVsChatgpt: "/aios-vs-chatgpt",
   AiosVsDiy: "/aios-vs-diy",
   AiosVsZapier: "/aios-vs-zapier",
@@ -30,12 +33,11 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Philosophy", href: RouteNames.About },
   { label: "How It Works", href: RouteNames.HowItWorks },
   {
-    label: "Industries",
+    label: "Software",
     children: [
-      { label: "Agencies", href: RouteNames.IndustryAgencies },
-      { label: "Coaching", href: RouteNames.IndustryCoaching },
-      { label: "Ecommerce", href: RouteNames.IndustryEcommerce },
-      { label: "SaaS", href: RouteNames.IndustrySaas },
+      { label: "PipelineIQ", href: RouteNames.SoftwarePipelineIQ },
+      { label: "YoutubeIQ", href: RouteNames.SoftwareYoutubeIQ },
+      { label: "JIRAIQ", href: RouteNames.SoftwareJiraIQ },
     ],
   },
   { label: "Solution", href: RouteNames.Solution },
@@ -81,12 +83,11 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    title: "Industries",
+    title: "Software",
     links: [
-      { label: "Agencies", href: RouteNames.IndustryAgencies },
-      { label: "SaaS", href: RouteNames.IndustrySaas },
-      { label: "Ecommerce", href: RouteNames.IndustryEcommerce },
-      { label: "Coaching", href: RouteNames.IndustryCoaching },
+      { label: "PipelineIQ", href: RouteNames.SoftwarePipelineIQ },
+      { label: "YoutubeIQ", href: RouteNames.SoftwareYoutubeIQ },
+      { label: "JIRAIQ", href: RouteNames.SoftwareJiraIQ },
     ],
   },
 ];

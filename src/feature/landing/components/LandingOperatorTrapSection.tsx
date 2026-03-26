@@ -84,23 +84,22 @@ export function LandingOperatorTrapSection() {
             </div>
           </div>
 
-          {/* READ MORE — absolute bottom-right on desktop, bottom full-width on mobile */}
           <Link
             href={RouteNames.Problem}
-            className="absolute bottom-0 right-0 flex h-13.75 w-screen overflow-hidden rounded-tl-[1.25rem] min-[1025px]:w-109.5"
+            className="group absolute bottom-0 right-0 flex h-13.75 w-screen overflow-hidden rounded-tl-[1.25rem] bg-brand-teal transition-colors duration-300 hover:bg-brand-black min-[1025px]:w-109.5"
           >
-            <div className="flex flex-1 items-center justify-center bg-brand-teal transition-opacity hover:opacity-90">
+            <div className="flex flex-1 items-center justify-center bg-brand-teal transition-colors duration-300 group-hover:bg-brand-black">
               <span className="text-[1rem] font-normal uppercase text-brand-white">
                 READ MORE
               </span>
             </div>
-            <div className="flex h-full w-13.75 shrink-0 items-center justify-center border-l border-brand-divider bg-brand-teal">
+            <div className="flex h-full w-13.75 shrink-0 items-center justify-center border-l border-brand-divider bg-brand-teal transition-colors duration-300 group-hover:bg-brand-black">
               <Image
-                src="/images/landing-operator-trap-read-more-icon.svg"
+                src="/icons/right-arrow.svg"
                 alt=""
-                width={55}
-                height={55}
-                className="h-full w-full"
+                width="11"
+                height="16"
+                className="h-4 w-2.75"
               />
             </div>
           </Link>

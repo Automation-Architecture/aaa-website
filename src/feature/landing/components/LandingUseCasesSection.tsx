@@ -30,22 +30,22 @@ function SeeAllBtn({ className }: { className?: string }) {
     <Link
       href={RouteNames.UseCases}
       className={[
-        "flex h-13.75 items-stretch overflow-hidden rounded-bl-[1.25rem]",
+        "group flex h-13.75 items-stretch overflow-hidden rounded-bl-[1.25rem] bg-brand-teal transition-colors duration-300 hover:bg-brand-black",
         className ?? "",
       ].join(" ")}
     >
-      <div className="flex flex-1 items-center justify-center bg-brand-teal transition-opacity hover:opacity-90">
+      <div className="flex flex-1 items-center justify-center bg-brand-teal transition-colors duration-300 group-hover:bg-brand-black">
         <span className="text-[1rem] font-normal uppercase text-brand-white">
           See all use cases
         </span>
       </div>
-      <div className="flex w-13.75 shrink-0 items-center justify-center border-l border-brand-gray2 bg-brand-teal">
+      <div className="flex w-13.75 shrink-0 items-center justify-center border-l border-brand-gray2 bg-brand-teal transition-colors duration-300 group-hover:bg-brand-black">
         <Image
-          src="/images/landing-operator-trap-read-more-icon.svg"
+          src="/icons/right-arrow.svg"
           alt=""
-          width={55}
-          height={55}
-          className="h-full w-full"
+          width={11}
+          height={16}
+          className="h-4 w-2.75"
         />
       </div>
     </Link>

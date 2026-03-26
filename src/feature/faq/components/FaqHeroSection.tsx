@@ -1,23 +1,30 @@
-import { KeyTakeaway } from "@/components/common/KeyTakeaway";
-
 export function FaqHeroSection() {
   return (
-    <div className="mb-8">
-      <h1 className="text-3xl font-bold tracking-tight text-brand-teal tablet:text-4xl">
-        Frequently Asked Questions About AIOS and AI Automation
+    <section className="relative overflow-visible border border-brand-gray2 bg-brand-surface px-[1.5rem] pb-[2rem] pt-[1.5rem] tablet:px-[2.5rem] tablet:pb-[2.5rem] tablet:pt-[2.25rem] desktop:min-h-[23.5625rem] desktop:px-[2.5rem] desktop:pt-[3rem] min-[1440px]:px-[4.375rem] min-[1440px]:pt-[4.9375rem]">
+      <div className="inline-flex items-center gap-[0.625rem] rounded-[0.375rem] bg-brand-lime px-[0.9375rem] py-[0.625rem]">
+        <span className="inline-block size-[0.875rem] rounded-[0.1875rem] bg-brand-black" aria-hidden="true" />
+        <span className="text-[0.875rem] font-semibold leading-none text-brand-black">
+          Your Questions, Answered
+        </span>
+      </div>
+
+      <h1 className="mt-[1rem] max-w-[47.5625rem] text-[2rem] font-semibold uppercase leading-[1.05] tracking-[-0.04em] text-brand-heading tablet:text-[3rem] desktop:max-w-[52%] desktop:text-[clamp(3rem,4.3vw,4.5625rem)]">
+        Frequently Asked <span className="text-brand-teal">Questions</span>
       </h1>
 
-      <KeyTakeaway>
-        AAA builds done-for-you AI Operating Systems (AIOS) for small
-        businesses and startups. We don&apos;t sell software subscriptions or
-        DIY courses — we build, deploy, and maintain the full system.
-        Engagements start with a free AI Blueprint tailored to your industry,
-        followed by a consultation to determine scope and fit. Below are the 25
-        most common questions we hear from founders evaluating AIOS
-        infrastructure.
-      </KeyTakeaway>
-
-      <p className="mt-4 text-sm text-brand-gray">Last updated: March 2026</p>
-    </div>
+      <aside className="mt-[1.5rem] rounded-[0.625rem] bg-brand-black px-6 py-[1.5rem] tablet:px-[2rem] tablet:py-[1.75rem] desktop:absolute desktop:bottom-[-2.5rem] desktop:right-0 desktop:z-20 desktop:mt-0 desktop:w-[min(56.25rem,52%)] desktop:rounded-l-[0.625rem] desktop:rounded-r-none desktop:px-[2.5rem] desktop:py-[2rem] min-[1440px]:bottom-[-3rem] min-[1440px]:px-[6.25rem] min-[1440px]:py-[3.75rem]">
+        <h2 className="text-[1.5rem] font-medium leading-tight tracking-[-0.03em] text-brand-lime tablet:text-[2rem] desktop:text-[clamp(1.75rem,2.4vw,2.5rem)]">
+          Key Takeaway:
+        </h2>
+        <p className="mt-[1rem] max-w-[42.625rem] text-[1rem] leading-[1.4] text-brand-divider tablet:text-[1.0625rem] desktop:text-[clamp(0.9375rem,1.2vw,1.25rem)]">
+          AAA builds done-for-you AI Operating Systems (AIOS) for small businesses
+          and startups. We don&apos;t sell software subscriptions or DIY courses -
+          we build, deploy, and maintain the full system. Engagements start with a
+          free AI Blueprint tailored to your industry, followed by a consultation to
+          determine scope and fit. Below are the 25 most common questions we hear
+          from founders evaluating AIOS infrastructure.
+        </p>
+      </aside>
+    </section>
   );
 }

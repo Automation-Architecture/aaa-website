@@ -35,7 +35,7 @@ export function FaqAccordion({ children }: FaqAccordionProps) {
 
   return (
     <FaqAccordionContext.Provider value={{ openId, toggle }}>
-      <div className="divide-y divide-brand-gray/20">
+      <div className="grid grid-cols-1 gap-[0.9375rem] tablet:grid-cols-2 desktop:grid-cols-3">
         {children}
       </div>
     </FaqAccordionContext.Provider>

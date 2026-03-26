@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_COLUMNS, RouteNames } from "@/constants";
+import { isExternalHref } from "@/lib/utils";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -16,8 +17,8 @@ export function Footer() {
   return (
     <footer className="bg-brand-white text-brand-gray mx-auto max-w-11/12 mt-20">
       <div className="border border-brand-gray2">
-        <div className="grid grid-cols-1 min-[1025px]:grid-cols-[auto_1fr_auto]">
-          <div className="flex items-center justify-center border-b border-brand-gray2 px-5 py-10 min-[1025px]:justify-start min-[1025px]:border-b-0 min-[1025px]:border-r min-[1025px]:px-15 min-[1025px]:py-12.5">
+        <div className="grid grid-cols-1 min-[1025px]:grid-cols-[1fr_2fr_1fr]">
+          <div className="flex items-center justify-center border-b border-brand-gray2 px-5 py-10 min-[1025px]:border-b-0 min-[1025px]:border-r min-[1025px]:px-10 min-[1025px]:py-12.5">
             <Image
               src="/images/logo-footer.png"
               alt="Automation Architecture AI"
@@ -47,7 +48,7 @@ export function Footer() {
             </form>
           </div>
 
-          <div className="flex items-center justify-center px-5 py-8 min-[1025px]:px-15 min-[1025px]:py-12.5">
+          <div className="flex items-center justify-center px-5 py-8 min-[1025px]:px-10 min-[1025px]:py-12.5">
             <button
               type="submit"
               form=""
@@ -56,7 +57,7 @@ export function Footer() {
                   preventDefault: () => {},
                 } as React.FormEvent<HTMLFormElement>)
               }
-              className="w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-[1rem] bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-opacity hover:opacity-90 min-[1025px]:w-[20.9375rem]"
+              className="cursor-pointer w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-2xl hover:bg-brand-black transition-colors duration-300 bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-opacity hover:opacity-90 min-[1025px]:w-[20.9375rem]"
             >
               SUBSCRIBE
             </button>
@@ -64,19 +65,14 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Nav columns ── */}
-      {/* Mobile: 2×2 grid | Desktop: 4-column grid */}
       <div className="grid grid-cols-2 border-x border-brand-gray2 min-[1025px]:grid-cols-4">
         {FOOTER_COLUMNS.map((column, idx) => (
           <div
             key={column.title}
             className={[
               "flex flex-col px-5 py-7.5 min-[1025px]:px-15 min-[1025px]:py-12.5",
-              /* horizontal divider: all mobile cells get bottom border */
               "border-b border-brand-gray2",
-              /* vertical divider between columns */
               idx % 2 === 0 ? "border-r border-brand-gray2" : "",
-              /* desktop: right border on all but last */
               idx < FOOTER_COLUMNS.length - 1
                 ? "min-[1025px]:border-r"
                 : "min-[1025px]:border-r-0",
@@ -92,6 +88,10 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    target={isExternalHref(link.href) ? "_blank" : undefined}
+                    rel={
+                      isExternalHref(link.href) ? "noopener noreferrer" : undefined
+                    }
                     className="text-[0.9375rem] font-normal text-brand-gray hover:text-brand-teal"
                   >
                     {link.label}
