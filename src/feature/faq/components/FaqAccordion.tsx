@@ -17,7 +17,11 @@ interface FaqAccordionProps {
 }
 
 export function FaqAccordion({ children }: FaqAccordionProps) {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const hash = window.location.hash.slice(1);
+    return hash || null;
+  });
 
   const toggle = useCallback((id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -25,12 +29,13 @@ export function FaqAccordion({ children }: FaqAccordionProps) {
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
-    if (hash) {
-      setOpenId(hash);
-      setTimeout(() => {
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
-    }
+    if (!hash) return;
+
+    const timer = window.setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (

@@ -39,9 +39,9 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="min-h-screen bg-background text-foreground">
+      <body className="min-h-screen text-foreground ">
         <Header />
-        <main>{children}</main>
+        <main className="bg-white">{children}</main>
         <Footer />
       </body>
     </html>
