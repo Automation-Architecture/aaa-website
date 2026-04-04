@@ -6,7 +6,7 @@ export function BlueprintView() {
     <>
       <article className="mx-auto max-w-3xl px-4 py-16">
         <h1 className="text-3xl font-bold tracking-tight text-brand-teal tablet:text-4xl">
-          Get Your Free AI Blueprint
+          Pipeline IQ: A Free AI Audit Built for Your Business.
         </h1>
 
         <div className="mt-10">

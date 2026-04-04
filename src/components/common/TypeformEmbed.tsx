@@ -3,7 +3,7 @@
 export function TypeformEmbed() {
   return (
     <div className="flex min-h-[500px] flex-col items-center justify-center gap-6 rounded-lg border-2 border-dashed border-brand-gray/30 p-8 text-center">
-      <p className="text-brand-gray">Fill out the AI Blueprint intake form:</p>
+      <p className="text-brand-gray">Not every automation belongs in every business. Pipeline IQ combines domain analysis, industry intelligence, and ICP-level insight to deliver a tailored blueprint of your highest-value AI opportunities — the kind of assessment that usually takes a strategy engagement. Yours free, in minutes.</p>
       <a
         href="https://pipelineiq.app/new-report"
         target="_blank"
