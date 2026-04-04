@@ -17,19 +17,16 @@ export function BlueprintView() {
           <h2 className="text-2xl font-bold text-brand-teal">What to Expect</h2>
           <ol className="mt-6 space-y-4 text-brand-teal/80">
             <li>
-              <strong>1. Fill out the intake form</strong> — Takes about 5
-              minutes. We ask about your business, current tools, and biggest
-              bottlenecks.
+              <strong>1. Fill out the intake form</strong> (5 minutes) answering
+              a few questions about your business.
             </li>
             <li>
-              <strong>2. Receive your Blueprint</strong> — A personalized
-              document with AI automation recommendations tailored to your
-              industry and operations.
+              <strong>2. Receive your Blueprint</strong> — A personal, sharable
+              report with your automation recommendations.
             </li>
             <li>
-              <strong>3. Book a consultation</strong> — Walk through the
-              Blueprint with us, ask questions, and decide if AIOS is the right
-              fit.
+              <strong>3. Book a consultation</strong> (optional) to walk through
+              your Blueprint together.
             </li>
           </ol>
         </section>
