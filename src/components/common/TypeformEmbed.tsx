@@ -10,7 +10,7 @@ export function TypeformEmbed() {
         rel="noopener noreferrer"
         className="inline-block rounded-[10px] bg-brand-lime px-8 py-3 font-bold text-brand-teal hover:opacity-90 transition-opacity"
       >
-        I&apos;m Ready!
+        Get My Pipeline IQ
       </a>
     </div>
   );
