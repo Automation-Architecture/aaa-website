@@ -12,15 +12,6 @@ export function TypeformEmbed() {
       >
         Open Blueprint Form
       </a>
-      <p className="text-sm text-brand-gray">
-        Or email us at{" "}
-        <a
-          href="mailto:hello@automationarchitecture.ai"
-          className="underline hover:text-brand-lime transition-colors"
-        >
-          hello@automationarchitecture.ai
-        </a>
-      </p>
     </div>
   );
 }
