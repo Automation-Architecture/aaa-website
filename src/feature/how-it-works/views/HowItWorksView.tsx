@@ -17,10 +17,8 @@ export function HowItWorksView() {
       <JsonLd data={howItWorksHowToSchema} />
       <article>
         <HowItWorksHeroSection />
-        <div className="space-y-7 border-x px-3 py-6 tablet:px-4 tablet:py-8 desktop:px-17.5 desktop:py-42.5">
-          <HowItWorksProcessSection />
-          <HowItWorksSummarySection />
-        </div>
+        <HowItWorksProcessSection />
+        <HowItWorksSummarySection />
       </article>
       <PageCTA />
     </div>

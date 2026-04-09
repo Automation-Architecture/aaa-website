@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function HowItWorksHeroSection() {
   return (
-    <section className="relative overflow-visible border-b border-brand-gray2 bg-brand-surface px-6 pb-8 pt-6 tablet:px-10 tablet:pb-10 tablet:pt-9 desktop:min-h-94.25 desktop:px-10 desktop:pt-12 min-[1440px]:px-17.5 min-[1440px]:pt-19.75">
+    <section className="border relative overflow-visible border-b border-brand-gray2 bg-brand-surface px-6 pb-8 pt-6 tablet:px-10 tablet:pb-10 tablet:pt-9 desktop:min-h-94.25 desktop:px-10 desktop:pt-12 min-[1440px]:px-17.5 min-[1440px]:pt-19.75">
       <div className="inline-flex items-center gap-2.5 rounded-[0.375rem] bg-brand-lime px-3.75 py-2.5">
         <Image
           src="/icons/grid.svg"

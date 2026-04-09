@@ -92,7 +92,6 @@ export function SolutionVideoBreakSection() {
             }
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="pointer-events-none absolute left-[calc(50%+38px)] top-[9.625rem] z-20 block h-[1.884rem] w-[1.684rem] [mask-image:url('/icons/top-left-cursor.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
-            aria-hidden
           />
 
           <motion.div
