@@ -54,10 +54,10 @@ export function Footer() {
               form=""
               onClick={() =>
                 handleSubmit({
-                  preventDefault: () => {},
+                  preventDefault: () => { },
                 } as React.FormEvent<HTMLFormElement>)
               }
-              className="cursor-pointer w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-2xl hover:bg-brand-black transition-colors duration-300 bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-opacity hover:opacity-90 min-[1025px]:w-[20.9375rem]"
+              className="cursor-pointer w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-2xl bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-colors duration-300 transition-opacity hover:bg-brand-black hover:opacity-90 min-[1025px]:max-w-[20.9375rem]"
             >
               SUBSCRIBE
             </button>
