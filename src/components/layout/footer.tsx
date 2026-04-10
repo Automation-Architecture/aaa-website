@@ -30,7 +30,13 @@ export function Footer() {
         setEmail("");
       } else {
         setStatus("error");
-        setMessage(data.error || "Something went wrong.");
+        const apiMessage =
+          typeof data?.message === "string"
+            ? data.message
+            : typeof data?.error === "string"
+              ? data.error
+              : null;
+        setMessage(apiMessage ?? "Something went wrong.");
       }
     } catch {
       setStatus("error");
