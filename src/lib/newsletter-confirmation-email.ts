@@ -48,7 +48,7 @@ export function buildNewsletterConfirmationEmailHtml({
           </tr>
           <tr>
             <td style="padding:8px 28px 32px;text-align:center;">
-              <a href="${safeSite}" style="display:inline-block;padding:14px 28px;background-color:${BRAND_TEAL};color:#ffffff;text-decoration:none;font-size:14px;font-weight:bold;letter-spacing:0.06em;text-transform:uppercase;border-radius:12px 4px 4px 16px;">
+              <a href="${safeSite}" style="display:inline-block;padding:14px 28px;background-color:${BRAND_TEAL};color:#ffffff;text-decoration:none;font-size:14px;font-weight:bold;letter-spacing:0.06em;text-transform:uppercase;border-radius:0.375rem;">
                 Back to website
               </a>
             </td>

@@ -4,7 +4,7 @@ export const brandConfig = {
     "Done-for-you AI automation agency: we build AI Operating Systems (AIOS) for small businesses and startups — owned operational infrastructure, not another subscription to rent.",
   VERSION: "0.1.0",
   AUTHOR: "Automation Architecture AI",
-  AUTHOR_EMAIL: "hello@automationarchitecture.ai",
+  AUTHOR_EMAIL: "brad@automationarchitecture.ai",
   AUTHOR_URL: "https://automationarchitecture.ai",
 } as const;
 
