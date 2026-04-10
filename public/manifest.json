@@ -1,6 +1,7 @@
 {
-  "name": "automationarchitecture.ai",
+  "name": "Automation Architecture AI",
   "short_name": "AAA",
+  "description": "Done-for-you AI automation agency building AI Operating Systems (AIOS) for small businesses and startups.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

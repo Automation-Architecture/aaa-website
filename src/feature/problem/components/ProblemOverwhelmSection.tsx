@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { ProblemOverwhelmToolsLayoutAnimation } from "./ProblemOverwhelmToolsLayoutAnimation";
+
 export function ProblemOverwhelmSection() {
   return (
     <section
@@ -44,35 +46,10 @@ export function ProblemOverwhelmSection() {
             that none of it was connected to a system.
           </p>
 
-          <div className="mt-6 flex items-center justify-center gap-10 py-5">
-            <div className="h-auto w-18.25">
-              <Image
-                src="/images/problem_overwhelm_openai.png"
-                alt="OpenAI tool"
-                width={160}
-                height={160}
-                className="h-auto w-full"
-              />
-            </div>
-            <div className="h-auto w-18.25">
-              <Image
-                src="/images/problem_overwhelm_zapier.png"
-                alt="Zapier tool"
-                width={160}
-                height={160}
-                className="h-auto w-full"
-              />
-            </div>
-            <div className="h-auto w-18.25">
-              <Image
-                src="/images/problem_overwhelm_browser.png"
-                alt="Browser tools"
-                width={160}
-                height={160}
-                className="h-auto w-full"
-              />
-            </div>
-          </div>
+          <ProblemOverwhelmToolsLayoutAnimation
+            className="mt-6"
+            direction="row"
+          />
 
           <p className="leading-[1.3] text-brand-gray">
             Tools without architecture don&apos;t compound. They accumulate.
@@ -132,29 +109,7 @@ export function ProblemOverwhelmSection() {
             </div>
 
             <aside className="w-full rounded-[1.25rem] border border-brand-divider px-7.5 py-10 min-[1200px]:flex min-[1200px]:w-92.5 min-[1200px]:min-h-161.5 min-[1200px]:items-center min-[1200px]:justify-center min-[1600px]:shrink-0">
-              <div className="flex flex-col items-center justify-center gap-7.5">
-                <Image
-                  src="/images/problem_overwhelm_openai.png"
-                  alt="OpenAI tool"
-                  width={160}
-                  height={160}
-                  className="mx-auto h-auto w-29"
-                />
-                <Image
-                  src="/images/problem_overwhelm_zapier.png"
-                  alt="Zapier tool"
-                  width={160}
-                  height={160}
-                  className="mx-auto h-auto w-29"
-                />
-                <Image
-                  src="/images/problem_overwhelm_browser.png"
-                  alt="Browser tools"
-                  width={160}
-                  height={160}
-                  className="mx-auto h-auto w-29"
-                />
-              </div>
+              <ProblemOverwhelmToolsLayoutAnimation direction="column" />
             </aside>
           </div>
         </div>

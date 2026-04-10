@@ -10,3 +10,4 @@ When someone clones this repo and tags **this file** (`@AGENT.md`) with a reques
 
 - Follow the CONVENTION in the `docs/CONVENTION.md` file.
 - Follow the BRAND in the `docs/BRAND.md` file.
+- **SEO (titles, descriptions, canonical, Open Graph, Twitter):** define per-route strings in `src/lib/page-metadata.ts` and re-export from each `src/app/**/page.tsx` — do not duplicate long metadata blocks inside route files.

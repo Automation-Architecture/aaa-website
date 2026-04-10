@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: brandConfig.NAME,
+    description: brandConfig.DESCRIPTION,
+    images: ["/og-default.png"],
+  },
 };
 
 export default function RootLayout({

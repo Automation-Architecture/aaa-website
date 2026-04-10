@@ -736,35 +736,15 @@ export function FaqQuestionsSection() {
         <p>
           Any industry where the founder is buried in recurring operational
           tasks — which is most of them. We&apos;ve seen AIOS infrastructure
-          deployed across{" "}
+          deployed across agencies, coaching businesses, ecommerce, SaaS,
+          professional services, and creative businesses. See{" "}
           <Link
-            href={RouteNames.IndustryAgencies}
+            href={RouteNames.UseCases}
             className="text-brand-teal underline underline-offset-2 transition-colors"
           >
-            agencies
-          </Link>
-          ,{" "}
-          <Link
-            href={RouteNames.IndustryCoaching}
-            className="text-brand-teal underline underline-offset-2 transition-colors"
-          >
-            coaching businesses
-          </Link>
-          ,{" "}
-          <Link
-            href={RouteNames.IndustryEcommerce}
-            className="text-brand-teal underline underline-offset-2 transition-colors"
-          >
-            ecommerce
-          </Link>
-          ,{" "}
-          <Link
-            href={RouteNames.IndustrySaas}
-            className="text-brand-teal underline underline-offset-2 transition-colors"
-          >
-            SaaS
-          </Link>
-          , professional services, and creative businesses.
+            use cases
+          </Link>{" "}
+          for concrete workflow examples.
         </p>
         <p className="mt-3">
           The common thread isn&apos;t the industry. It&apos;s the pattern: a

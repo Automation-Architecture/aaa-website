@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { TrajectoryLineCarousel } from "./TrajectoryLineCarousel";
+
 export function ProblemTrajectorySection() {
   return (
     <section id="section-the-trajectory" className="border-b border-brand-gray2">
@@ -21,13 +23,7 @@ export function ProblemTrajectorySection() {
           </p>
 
           <div className="mt-6 space-y-6">
-            <Image
-              src="/images/trajectory-line.png"
-              alt="Trajectory curve"
-              width={640}
-              height={320}
-              className="h-auto w-full"
-            />
+            <TrajectoryLineCarousel />
             <Image
               src="/images/trajectory-list.png"
               alt="Trajectory milestone list"
@@ -66,13 +62,7 @@ export function ProblemTrajectorySection() {
             </p>
 
             <div className="mt-10 grid items-start gap-8 min-[1200px]:grid-cols-[minmax(0,40rem)_minmax(20rem,1fr)]">
-              <Image
-                src="/images/trajectory-line.png"
-                alt="Trajectory curve"
-                width={640}
-                height={320}
-                className="h-auto w-full"
-              />
+              <TrajectoryLineCarousel />
               <Image
                 src="/images/trajectory-list.png"
                 alt="Trajectory milestone list"

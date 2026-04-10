@@ -191,9 +191,5 @@ The agent-to-agent economy is the emerging economic model where AI agents transa
 - AIOS vs Zapier: /aios-vs-zapier
 - AIOS vs DIY: /aios-vs-diy
 - AIOS vs ChatGPT: /aios-vs-chatgpt
-- Industries — Agencies: /industries/agencies
-- Industries — Coaching: /industries/coaching
-- Industries — Ecommerce: /industries/ecommerce
-- Industries — SaaS: /industries/saas
 - Value: /value
 - Get Your Free AI Blueprint: /blueprint

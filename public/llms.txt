@@ -51,9 +51,5 @@ Two tiers: AI Automation (~1 week, single workflow) and Full AIOS (~3 weeks, com
 - AIOS vs Zapier: /aios-vs-zapier
 - AIOS vs DIY: /aios-vs-diy
 - AIOS vs ChatGPT: /aios-vs-chatgpt
-- Industries — Agencies: /industries/agencies
-- Industries — Coaching: /industries/coaching
-- Industries — Ecommerce: /industries/ecommerce
-- Industries — SaaS: /industries/saas
 - Value: /value
 - Get Your Free AI Blueprint: /blueprint
