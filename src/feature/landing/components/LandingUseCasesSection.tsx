@@ -60,7 +60,7 @@ export function LandingUseCasesSection() {
           <div
             key={c.title}
             className={[
-              "border-brand-gray2",
+              "group border-[1px] border-brand-gray2 transition-[border-color] duration-300 ease-in-out hover:border-secondary",
               idx !== 0 ? "border-t min-[1025px]:border-t-0" : "",
               idx !== 0 ? "min-[1025px]:border-l" : "",
               "p-5 min-[1025px]:px-5 min-[1025px]:py-11.25",
@@ -71,10 +71,10 @@ export function LandingUseCasesSection() {
             {/* inner container with corner brackets */}
             <div className="relative flex flex-col gap-2.5 px-2.5 py-10">
               {/* corner brackets */}
-              <span className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-brand-gray2" />
-              <span className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-brand-gray2" />
-              <span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 border-brand-gray2" />
-              <span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-brand-gray2" />
+              <span className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-brand-gray2 transition-[border-color] duration-300 ease-in-out group-hover:border-secondary" />
+              <span className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-brand-gray2 transition-[border-color] duration-300 ease-in-out group-hover:border-secondary" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 border-brand-gray2 transition-[border-color] duration-300 ease-in-out group-hover:border-secondary" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-brand-gray2 transition-[border-color] duration-300 ease-in-out group-hover:border-secondary" />
 
               {/* title */}
               <p className="text-[1rem] font-bold leading-[1.4375rem] text-brand-black">
@@ -86,7 +86,7 @@ export function LandingUseCasesSection() {
                 <p className="whitespace-pre-line text-[1rem] font-bold leading-snug text-brand-teal">
                   {c.highlight}
                 </p>
-                <p className="text-[1rem] leading-[1.4375rem] text-brand-body">
+                <p className="text-[1rem] leading-5.75 text-brand-body">
                   {c.body}
                 </p>
               </div>

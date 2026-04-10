@@ -11,19 +11,20 @@ export function LandingHeroTaskCard() {
   return (
     <div className="z-20 w-full overflow-hidden rounded-2xl border border-brand-divider bg-brand-white shadow-sm min-[1536px]:absolute min-[1536px]:left-19.5 min-[1536px]:top-22.25 min-[1536px]:w-[clamp(22rem,33vw,40rem)]">
       <div className="bg-brand-black px-5 py-4 min-[1025px]:px-10 min-[1025px]:py-6">
-        <div className="flex flex-wrap items-center gap-2.5 min-[1025px]:gap-3.75">
-          <span className="h-3 w-[0.7125rem] rounded-[0.1875rem] bg-brand-lime" />
-          <span className="text-base font-normal uppercase tracking-wide text-brand-white">
-            MORNING
-          </span>
-          <span className="text-base font-normal text-brand-white">7:02am</span>
-        </div>
-
-        <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
-          <span className="h-3 w-[0.7125rem] rounded-[0.1875rem] bg-brand-lime" />
-          <span className="text-base font-normal text-brand-white">
-            You haven&apos;t opened your laptop
-          </span>
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5 min-[1025px]:gap-x-6">
+          <div className="flex flex-wrap items-center gap-2.5 min-[1025px]:gap-3.75">
+            <span className="h-3 w-[0.7125rem] shrink-0 rounded-[0.1875rem] bg-brand-lime" />
+            <span className="text-base font-normal uppercase tracking-wide text-brand-white">
+              MORNING
+            </span>
+            <span className="text-base font-normal text-brand-white">7:02am</span>
+          </div>
+          <div className="flex min-w-0 flex-wrap items-center gap-2.5 min-[1025px]:gap-3.75">
+            <span className="h-3 w-[0.7125rem] shrink-0 rounded-[0.1875rem] bg-brand-lime" />
+            <span className="text-base font-normal text-brand-white">
+              You haven&apos;t opened your laptop
+            </span>
+          </div>
         </div>
       </div>
 

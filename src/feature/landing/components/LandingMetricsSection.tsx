@@ -47,36 +47,40 @@ export function LandingMetricsSection() {
         </div>
       </div>
 
-      {/* ── Row 3: stat tiles ── */}
       <div className="border-b border-brand-gray2">
-        <div className="grid grid-cols-1 border-b border-brand-gray2 min-[1025px]:grid-cols-2">
-          <div className="group hover:bg-brand-black transition-colors duration-300 flex flex-col items-center gap-2.5 border-b border-brand-gray2 bg-brand-teal px-10 py-7.5 text-brand-white min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-7.5 min-[1025px]:border-b-0 min-[1025px]:border-r min-[1025px]:px-15 min-[1025px]:py-[4.375rem]">
-            <span className="group-hover:text-brand-white transition-colors duration-300 text-[3.375rem] font-normal uppercase leading-none tracking-[-0.1875rem] min-[1025px]:text-[5.1875rem]">
-              12-25x
+        {/* Figma order: full-width row first (50% → 90%), then 12-25x | 60-70% */}
+        <div className="group border-b border-brand-gray2 bg-brand-teal px-6 py-8 text-brand-white transition-colors duration-300 hover:bg-brand-black tablet:px-10 min-[1025px]:px-15 min-[1025px]:py-14 wide:py-17.5">
+          <div className="mx-auto flex flex-col items-center justify-center gap-2.5 tablet:flex-row tablet:gap-6 min-[1025px]:gap-7.5">
+            <span className="shrink-0 text-center font-normal uppercase leading-none tracking-tight text-[clamp(2rem,4.2vw+0.5rem,4.25rem)] font-features-['lnum'] transition-colors duration-300 group-hover:text-brand-white min-[1025px]:tracking-[-0.12rem] xl:text-[clamp(4.25rem,3.6vw+2rem,4.9375rem)]">
+              50% → 90%
             </span>
-            <span className="group-hover:text-brand-white transition-colors duration-300 text-center text-[1.5rem] font-normal text-brand-white min-[1025px]:text-left min-[1025px]:text-[3.75rem] min-[1025px]:leading-[3.5625rem]">
-              time
-              <br className="min-[1025px]:block hidden" /> leverage
-            </span>
-          </div>
-          <div className="group hover:bg-brand-black transition-colors duration-300 flex flex-col items-center gap-2.5 bg-brand-teal px-10 py-7.5 text-brand-white min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-7.5 min-[1025px]:px-15 min-[1025px]:py-[4.375rem]">
-            <span className="group-hover:text-brand-white transition-colors duration-300 text-[3.375rem] font-normal uppercase leading-none tracking-[-0.1875rem] min-[1025px]:text-[5.1875rem]">
-              60-70%
-            </span>
-            <span className="group-hover:text-brand-white transition-colors duration-300 text-center text-[1.5rem] font-normal text-brand-white min-[1025px]:text-left min-[1025px]:text-[3.75rem] min-[1025px]:leading-[3.5625rem]">
-              tasks
-              <br className="min-[1025px]:block hidden" /> automated
+            <span className="max-w-md text-center font-normal leading-snug text-[clamp(0.9375rem,1.65vw+0.35rem,2.5rem)] transition-colors duration-300 group-hover:text-brand-white tablet:max-w-none min-[1025px]:text-left min-[1025px]:leading-[1.12] xl:text-[clamp(2.5rem,2.2vw+1rem,3.375rem)] xl:leading-[1.06]">
+              output quality with full business context
             </span>
           </div>
         </div>
 
-        <div className="group hover:bg-brand-black transition-colors duration-300 flex flex-col items-center gap-2.5 bg-brand-teal px-10 py-7.5 text-brand-white min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-7.5 min-[1025px]:px-15 min-[1025px]:py-[4.375rem]">
-          <span className="group-hover:text-brand-white transition-colors duration-300 shrink-0 text-[3.375rem] font-normal uppercase leading-none tracking-[-0.1875rem] min-[1025px]:text-[5.1875rem]">
-            50% → 90%
-          </span>
-          <span className="group-hover:text-brand-white transition-colors duration-300 text-center text-[1.5rem] font-normal text-brand-white min-[1025px]:text-left min-[1025px]:text-[3.75rem] min-[1025px]:leading-[3.5625rem]">
-            output quality with full business context
-          </span>
+        <div className="grid grid-cols-1 min-[1025px]:grid-cols-2">
+          <div className="group flex flex-col items-center gap-2.5 border-b border-brand-gray2 bg-brand-teal px-6 py-8 text-brand-white transition-colors duration-300 hover:bg-brand-black tablet:px-10 min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-7.5 min-[1025px]:border-b-0 min-[1025px]:border-r min-[1025px]:px-15 min-[1025px]:py-14 wide:py-17.5">
+            <span className="text-center font-normal uppercase leading-none tracking-tight text-[clamp(2rem,4.2vw+0.5rem,4.25rem)] transition-colors duration-300 group-hover:text-brand-white min-[1025px]:text-left min-[1025px]:tracking-[-0.12rem] xl:text-[clamp(4.25rem,3.6vw+2rem,4.9375rem)]">
+              12-25x
+            </span>
+            <span className="text-center font-normal leading-snug text-[clamp(0.9375rem,1.65vw+0.35rem,2.5rem)] transition-colors duration-300 group-hover:text-brand-white min-[1025px]:text-left min-[1025px]:leading-[1.12] xl:text-[clamp(2.5rem,2.2vw+1rem,3.375rem)] xl:leading-[1.06]">
+              time{" "}
+              <br className="hidden min-[1025px]:block" aria-hidden="true" />
+              leverage
+            </span>
+          </div>
+          <div className="group flex flex-col items-center gap-2.5 bg-brand-teal px-6 py-8 text-brand-white transition-colors duration-300 hover:bg-brand-black min-[768px]:px-10 min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-7.5 min-[1025px]:px-15 min-[1025px]:py-14 min-[1280px]:py-[4.375rem]">
+            <span className="text-center font-normal uppercase leading-none tracking-tight text-[clamp(2rem,4.2vw+0.5rem,4.25rem)] transition-colors duration-300 group-hover:text-brand-white min-[1025px]:text-left min-[1025px]:tracking-[-0.12rem] xl:text-[clamp(4.25rem,3.6vw+2rem,4.9375rem)]">
+              60-70%
+            </span>
+            <span className="text-center font-normal leading-snug text-[clamp(0.9375rem,1.65vw+0.35rem,2.5rem)] transition-colors duration-300 group-hover:text-brand-white min-[1025px]:text-left min-[1025px]:leading-[1.12] xl:text-[clamp(2.5rem,2.2vw+1rem,3.375rem)] xl:leading-[1.06]">
+              tasks{" "}
+              <br className="hidden min-[1025px]:block" aria-hidden="true" />
+              automated
+            </span>
+          </div>
         </div>
       </div>
 
