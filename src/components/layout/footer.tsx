@@ -8,10 +8,34 @@ import { isExternalHref } from "@/lib/utils";
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email);
+    if (!email) return;
+
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setMessage(data.message);
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Something went wrong.");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -33,7 +57,7 @@ export function Footer() {
             <p className="text-[1rem] font-bold uppercase leading-[1.1] text-brand-black">
               Subscribe to be in touch
             </p>
-            <form className="mt-2.5" onSubmit={handleSubmit}>
+            <form id="newsletter-form" className="mt-2.5" onSubmit={handleSubmit}>
               <div className="flex items-center border-b border-brand-divider px-2.5 py-2.5">
                 <input
                   value={email}
@@ -43,23 +67,26 @@ export function Footer() {
                   type="email"
                   inputMode="email"
                   autoComplete="email"
+                  required
                 />
               </div>
+              {status === "success" && (
+                <p className="mt-2 text-sm text-green-600">{message}</p>
+              )}
+              {status === "error" && (
+                <p className="mt-2 text-sm text-red-600">{message}</p>
+              )}
             </form>
           </div>
 
           <div className="flex items-center justify-center px-5 py-8 min-[1025px]:px-10 min-[1025px]:py-12.5">
             <button
               type="submit"
-              form=""
-              onClick={() =>
-                handleSubmit({
-                  preventDefault: () => { },
-                } as React.FormEvent<HTMLFormElement>)
-              }
-              className="cursor-pointer w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-2xl bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-colors duration-300 transition-opacity hover:bg-brand-black hover:opacity-90 min-[1025px]:max-w-[20.9375rem]"
+              form="newsletter-form"
+              disabled={status === "loading"}
+              className="cursor-pointer w-full rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-bl-[0.1875rem] rounded-br-2xl bg-brand-teal py-[0.9375rem] text-[1rem] font-normal uppercase text-brand-white transition-colors duration-300 transition-opacity hover:bg-brand-black hover:opacity-90 min-[1025px]:max-w-[20.9375rem] disabled:opacity-50"
             >
-              SUBSCRIBE
+              {status === "loading" ? "SUBSCRIBING..." : "SUBSCRIBE"}
             </button>
           </div>
         </div>

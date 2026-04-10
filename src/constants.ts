@@ -42,7 +42,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const CTA = {
-  label: "APPLY NOW",
+  label: "FREE BLUEPRINT",
   href: RouteNames.Blueprint,
 } as const;
 

@@ -29,12 +29,14 @@ export function PageCTA() {
             Get AI automation recommendations tailored to your industry. Free,
             no obligation
           </p>
-          <Link
-            href={RouteNames.Blueprint}
+          <a
+            href="https://pipelineiq.app/new-report"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-5 inline-flex h-15 w-full items-center justify-center rounded-tl-[0.875rem] rounded-tr-[0.1875rem] rounded-br-2xl rounded-bl-[0.1875rem] bg-brand-lime px-7.5 text-center text-[1.25rem] font-bold uppercase text-brand-black transition-colors hover:bg-brand-teal hover:text-brand-white desktop:mt-6 desktop:w-106.25 desktop:text-[1.5rem]"
           >
             Get Your Free AI Blueprint
-          </Link>
+          </a>
         </div>
       </div>
     </section>
