@@ -15,7 +15,15 @@ const HERO_FRAMES = [
 const MOBILE_FRAME_SCALES = [1.3, 1.3, 1.3, 1.22];
 const DESKTOP_FRAME_SCALES = [1, 1, 1, 0.94];
 
-export function LandingHeroLaptopAnimation() {
+type LandingHeroLaptopAnimationProps = {
+  showBadges?: boolean;
+  layout?: "landing" | "center";
+};
+
+export function LandingHeroLaptopAnimation({
+  showBadges = true,
+  layout = "landing",
+}: LandingHeroLaptopAnimationProps) {
   const [frameIndex, setFrameIndex] = useState(0);
   const responsiveModule = useResponsiveModule();
   const isMode1 = responsiveModule === "laptop-large";
@@ -33,10 +41,14 @@ export function LandingHeroLaptopAnimation() {
   return (
     <>
       <MobileLaptop frameIndex={frameIndex} />
-      <DesktopLaptop frameIndex={frameIndex} isMode1={isMode1} />
+      <DesktopLaptop frameIndex={frameIndex} isMode1={isMode1} layout={layout} />
 
-      {!isDesktop && <MobileMode2Badges />}
-      {isDesktop && (isMode1 ? <DesktopMode1Badges /> : <DesktopMode2Badges />)}
+      {showBadges ? (
+        <>
+          {!isDesktop && <MobileMode2Badges />}
+          {isDesktop && (isMode1 ? <DesktopMode1Badges /> : <DesktopMode2Badges />)}
+        </>
+      ) : null}
     </>
   );
 }
@@ -60,17 +72,25 @@ function MobileLaptop({ frameIndex }: { frameIndex: number }) {
 function DesktopLaptop({
   frameIndex,
   isMode1,
+  layout,
 }: {
   frameIndex: number;
   isMode1: boolean;
+  layout: "landing" | "center";
 }) {
-  const wrapperClassName = isMode1
-    ? "hidden overflow-hidden min-[1025px]:absolute min-[1025px]:inset-x-0 min-[1025px]:bottom-0 min-[1025px]:z-40 min-[1025px]:flex min-[1025px]:justify-end min-[1025px]:pr-10 min-[1800px]:left-30 left-0"
-    : "hidden min-[1025px]:flex min-[1025px]:justify-center";
+  const wrapperClassName =
+    layout === "center"
+      ? "hidden min-[1025px]:flex min-[1025px]:justify-center"
+      : isMode1
+        ? "hidden overflow-hidden min-[1025px]:absolute min-[1025px]:inset-x-0 min-[1025px]:bottom-0 min-[1025px]:z-40 min-[1025px]:flex min-[1025px]:justify-end min-[1025px]:pr-10 min-[1800px]:left-30 left-0"
+        : "hidden min-[1025px]:flex min-[1025px]:justify-center";
 
-  const frameClassName = isMode1
-    ? "relative h-152 w-228 min-[1510px]:left-44 left-0"
-    : "relative h-120 w-180";
+  const frameClassName =
+    layout === "center"
+      ? "relative h-152 w-228"
+      : isMode1
+        ? "relative h-152 w-228 min-[1510px]:left-44 left-0"
+        : "relative h-120 w-180";
 
   return (
     <div className={wrapperClassName}>
