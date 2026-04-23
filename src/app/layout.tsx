@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jura } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { SocialMediaBadge } from "@/components/common/SocialMediaBadge";
 import { appConfig, brandConfig } from "@/config";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Header />
         <main className="bg-white">{children}</main>
         <Footer />
+        <SocialMediaBadge />
       </body>
     </html>
   );

@@ -46,6 +46,12 @@ export const CTA = {
   href: RouteNames.Blueprint,
 } as const;
 
+export const SOCIAL_LINKS = {
+  twitter: "https://x.com/automationarchitectureai",
+  medium: "https://medium.com/@automationarchitectureai",
+  linkedin: "https://www.linkedin.com/company/automation-architecture-ai",
+} as const;
+
 export interface FooterColumn {
   title: string;
   links: { label: string; href: string }[];
