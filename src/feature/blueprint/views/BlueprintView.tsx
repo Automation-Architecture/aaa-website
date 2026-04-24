@@ -74,7 +74,7 @@ export function BlueprintView() {
                 <div className="mt-8">
                   <Button
                     onClick={() => setShowForm(true)}
-                    className="h-[50px] rounded-[10px] px-[30px] text-[1rem] font-bold min-[1025px]:text-[1.125rem]"
+                    className="h-[50px] rounded-[10px] px-[30px] text-[1rem] font-bold min-[1025px]:text-[1.125rem] cursor-pointer"
                   >
                     GET MY PIPELINE IQ
                   </Button>
@@ -84,13 +84,12 @@ export function BlueprintView() {
           )}
         </div>
 
-        {/* ── RIGHT COLUMN: laptop animation ── */}
-        <div className="flex flex-1 items-end justify-center overflow-hidden px-2 pt-10 pb-2 tablet:px-4 tablet:pt-10 tablet:pb-2 min-[1025px]:px-4 min-[1025px]:pt-12 min-[1025px]:pb-4">
+        <div className="flex flex-1 items-end justify-center px-2 pt-10 pb-2 tablet:px-4 tablet:pt-10 tablet:pb-2 min-[1025px]:px-4 min-[1025px]:pt-12 min-[1025px]:pb-4">
           <div className="relative w-full">
             <div className="pointer-events-none absolute left-1/2 top-0 z-0 w-20 -translate-x-1/2 -translate-y-2/5 rotate-15 tablet:w-32 min-[1025px]:w-48 min-[1200px]:w-60">
               <Image
                 src="/images/blueprint/big_logo.png"
-                alt=""
+                alt="Logo of the company in the black"
                 aria-hidden="true"
                 width={400}
                 height={400}
@@ -98,7 +97,7 @@ export function BlueprintView() {
               />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 -mb-40">
               <BlueprintLaptopAnimation />
             </div>
           </div>
