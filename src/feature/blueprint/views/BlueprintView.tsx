@@ -84,7 +84,7 @@ export function BlueprintView() {
           )}
         </div>
 
-        <div className="flex flex-1 items-end justify-center px-2 pt-10 pb-2 tablet:px-4 tablet:pt-10 tablet:pb-2 min-[1025px]:px-4 min-[1025px]:pt-12 min-[1025px]:pb-4">
+        <div className="mt-40 flex flex-1 items-end justify-center px-2 pt-10 pb-2 tablet:px-4 tablet:pt-10 tablet:pb-2 min-[1025px]:px-4 min-[1025px]:pt-12 min-[1025px]:pb-4">
           <div className="relative w-full">
             <div className="pointer-events-none absolute left-1/2 top-0 z-0 w-20 -translate-x-1/2 -translate-y-2/5 rotate-15 tablet:w-32 min-[1025px]:w-48 min-[1200px]:w-60">
               <Image
