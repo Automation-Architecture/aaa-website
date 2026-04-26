@@ -1,3 +1,4 @@
 commit	score	fcp_ms	si_ms	tbt_ms	lcp_ms	cls	status	description
 ed1cac7	96.67	1211	1211	46	2649	0.000	keep	baseline
 d79224c	96.67	1211	1211	41	2548	0.000	keep	enable experimental.optimizeCss
+5da7e1c	97.33	1209	1209	43	2472	0.000	keep	optimizePackageImports lucide+radix+framer-motion
