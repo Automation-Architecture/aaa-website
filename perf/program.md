@@ -27,9 +27,17 @@ In-scope files for context:
 
 ## Metric
 
-The single scalar driving keep/revert is `score` — Lighthouse Performance score, 0-100 (higher is better). It's a weighted composite of FCP, SI, TBT, LCP, CLS — exactly the Google docs the user linked. Sub-metrics are also recorded for diagnosis.
+The driving metric is `score` — Lighthouse Performance score, 0-100 (higher is better). It's a weighted composite of FCP, SI, TBT, LCP, CLS — exactly the Google docs the user linked. Sub-metrics are also recorded for diagnosis.
 
 For each experiment we run Lighthouse on a fixed list of routes (mobile preset, 3 runs, median per metric per route, then mean of medians across routes for the aggregate `score`).
+
+## Decision rule (keep / revert)
+
+Keep an experiment if **either**:
+- `score` improves by ≥ 0.5, OR
+- a sub-metric outside its "good" threshold improves by ≥ 5% AND no other sub-metric regresses by more than the noise band (FCP/SI/LCP ±50ms, TBT ±10ms, CLS ±0.005).
+
+Otherwise revert. The score-only rule was insufficient when sub-metrics were already saturated (e.g. score=96 ceiling masks a real LCP improvement).
 
 ## Output format
 
