@@ -6,3 +6,4 @@ d79224c	96.67	1211	1211	41	2548	0.000	keep	enable experimental.optimizeCss
 3b3077b	98.00	1204	1204	2	2309	0.000	keep	combined: priority LCP image + lazy-load below-fold animations
 2f2d547	98.33	1204	1204	2	2232	0.000	keep	CSS transitions in hero (drop framer-motion from eager bundle) + lazy AgentEconomy
 51e820a	98.67	1205	1205	3	2182	0.000	keep	remove unnecessary priority preloads: footer logo + desktop-only header logo
+d57db8a	99.00	1204	1204	2	2157	0.000	keep	remove below-fold priority preload in HowItWorksStepOne
