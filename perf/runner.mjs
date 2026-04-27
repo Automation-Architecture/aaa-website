@@ -33,7 +33,9 @@ const RUNS_PER_ROUTE = 3;
 const PORT = 3000;
 const SERVER_BOOT_TIMEOUT_MS = 60_000;
 const LH_TIMEOUT_MS = 90_000;
-const CHROME_PATH = join(REPO_ROOT, 'perf/.chrome/chrome/linux-130.0.6723.116/chrome-linux64/chrome');
+// Chrome resolution order: $CHROME_PATH env var → pinned bundle in perf/.chrome → chrome-launcher auto-detect
+const PINNED_CHROME = join(REPO_ROOT, 'perf/.chrome/chrome/linux-130.0.6723.116/chrome-linux64/chrome');
+const CHROME_PATH = process.env.CHROME_PATH || (existsSync(PINNED_CHROME) ? PINNED_CHROME : undefined);
 
 const TSV_PATH = join(REPO_ROOT, 'perf/results.tsv');
 const JSON_PATH = join(REPO_ROOT, 'perf/results.json');
@@ -81,42 +83,52 @@ const waitForServer = (port, timeoutMs) =>
 
 // ---- core experiment -------------------------------------------------------
 
-async function runExperiment({ description, status: forcedStatus }) {
+async function runExperiment({ description, status: forcedStatus, baseUrl }) {
   const commit = sh('git rev-parse --short HEAD');
-  console.log(`[runner] commit=${commit} desc=${JSON.stringify(description)}`);
+  const targetLabel = baseUrl ? `prod=${baseUrl}` : `local=:${PORT}`;
+  console.log(`[runner] commit=${commit} target=${targetLabel} desc=${JSON.stringify(description)}`);
 
-  // 1. Build
-  console.log('[runner] next build...');
-  try {
-    execSync('npm run build', { cwd: REPO_ROOT, stdio: 'inherit' });
-  } catch (e) {
-    return recordCrash(commit, description, 'build failed');
+  let server = null;
+
+  if (!baseUrl) {
+    // Local: build and start next start.
+    console.log('[runner] next build...');
+    try {
+      execSync('npm run build', { cwd: REPO_ROOT, stdio: 'inherit' });
+    } catch (e) {
+      return recordCrash(commit, description, 'build failed');
+    }
+
+    console.log(`[runner] next start on :${PORT}...`);
+    server = spawn('npm', ['run', 'start', '--', '-p', String(PORT)], {
+      cwd: REPO_ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env: { ...process.env, NODE_ENV: 'production' },
+    });
+    let serverDied = false;
+    let serverLog = '';
+    server.stdout.on('data', (d) => { serverLog += d.toString(); });
+    server.stderr.on('data', (d) => { serverLog += d.toString(); });
+    server.once('exit', () => { serverDied = true; });
+
+    try {
+      await waitForServer(PORT, SERVER_BOOT_TIMEOUT_MS);
+    } catch (e) {
+      server.kill('SIGTERM');
+      console.error('[runner] server boot failed:\n' + serverLog.slice(-2000));
+      return recordCrash(commit, description, 'server boot failed');
+    }
+    if (serverDied) {
+      console.error('[runner] server died early:\n' + serverLog.slice(-2000));
+      return recordCrash(commit, description, 'server died early');
+    }
+  } else {
+    console.log(`[runner] skipping local build/start, measuring against ${baseUrl}`);
   }
 
-  // 2. Start server
-  console.log(`[runner] next start on :${PORT}...`);
-  const server = spawn('npm', ['run', 'start', '--', '-p', String(PORT)], {
-    cwd: REPO_ROOT,
-    stdio: ['ignore', 'pipe', 'pipe'],
-    env: { ...process.env, NODE_ENV: 'production' },
-  });
-  let serverDied = false;
-  let serverLog = '';
-  server.stdout.on('data', (d) => { serverLog += d.toString(); });
-  server.stderr.on('data', (d) => { serverLog += d.toString(); });
-  server.once('exit', () => { serverDied = true; });
-
-  try {
-    await waitForServer(PORT, SERVER_BOOT_TIMEOUT_MS);
-  } catch (e) {
-    server.kill('SIGTERM');
-    console.error('[runner] server boot failed:\n' + serverLog.slice(-2000));
-    return recordCrash(commit, description, 'server boot failed');
-  }
-  if (serverDied) {
-    console.error('[runner] server died early:\n' + serverLog.slice(-2000));
-    return recordCrash(commit, description, 'server died early');
-  }
+  const urlFor = (route) => baseUrl
+    ? new URL(route, baseUrl).toString()
+    : `http://127.0.0.1:${PORT}${route}`;
 
   // 3. Lighthouse loop
   const reportsDir = join(RUNS_DIR, commit);
@@ -127,18 +139,19 @@ async function runExperiment({ description, status: forcedStatus }) {
   try {
     for (const route of ROUTES) {
       console.log(`[runner] route ${route}`);
-      const url = `http://127.0.0.1:${PORT}${route}`;
+      const url = urlFor(route);
       const runs = [];
       for (let i = 0; i < RUNS_PER_ROUTE; i++) {
-        const chrome = await launchChrome({
-          chromePath: CHROME_PATH,
+        const launchOpts = {
           chromeFlags: [
             '--headless=new',
             '--no-sandbox',
             '--disable-gpu',
             '--disable-dev-shm-usage',
           ],
-        });
+        };
+        if (CHROME_PATH) launchOpts.chromePath = CHROME_PATH;
+        const chrome = await launchChrome(launchOpts);
         try {
           const result = await Promise.race([
             lighthouse(url, {
@@ -185,9 +198,11 @@ async function runExperiment({ description, status: forcedStatus }) {
     console.error('[runner] lighthouse error:', e.message);
     crashed = true;
   } finally {
-    server.kill('SIGTERM');
-    await new Promise((r) => setTimeout(r, 500));
-    if (!server.killed) server.kill('SIGKILL');
+    if (server) {
+      server.kill('SIGTERM');
+      await new Promise((r) => setTimeout(r, 500));
+      if (!server.killed) server.kill('SIGKILL');
+    }
   }
 
   if (crashed || Object.keys(perRoute).length === 0) {
@@ -293,11 +308,12 @@ const cmd = args._[0];
 if (cmd === 'run') {
   const description = args.description || 'unlabeled';
   const status = args.status; // optional: pre-set keep/discard
-  runExperiment({ description, status }).then(
+  const baseUrl = args.url; // optional: skip local build, measure remote URL
+  runExperiment({ description, status, baseUrl }).then(
     (r) => { process.exit(r.status === 'crash' ? 1 : 0); },
     (e) => { console.error(e); process.exit(2); },
   );
 } else {
-  console.error('usage: node perf/runner.mjs run --description "<text>" [--status keep|discard]');
+  console.error('usage: node perf/runner.mjs run --description "<text>" [--status keep|discard] [--url https://example.com]');
   process.exit(64);
 }
