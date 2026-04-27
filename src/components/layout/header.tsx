@@ -171,6 +171,7 @@ export function Header() {
           <Logo
             variant="dark"
             className="hidden min-[1600px]:block h-[49px] w-auto"
+            priority={false}
           />
 
           <div
