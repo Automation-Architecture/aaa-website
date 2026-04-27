@@ -58,13 +58,13 @@ function readRows(filterStatus = null) {
     .filter(r => !filterStatus || r.status === filterStatus);
 }
 
-// Keep rule from program.md:
-//   KEEP if score improves ≥ 0.5
+// Keep rule (lowered threshold per operator request — high-score territory):
+//   KEEP if score improves ≥ 0.1
 //   OR a sub-metric outside its "good" threshold improves ≥ 5%
 //      with no other sub-metric regressing beyond the noise band
 function shouldKeep(prev, curr) {
   const scoreDelta = curr.score - prev.score;
-  if (scoreDelta >= 0.5) {
+  if (scoreDelta >= 0.1) {
     return {
       keep: true,
       reason: `score +${scoreDelta.toFixed(2)} (${prev.score.toFixed(2)} → ${curr.score.toFixed(2)})`,

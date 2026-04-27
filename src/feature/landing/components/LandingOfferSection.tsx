@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LandingOfferThreeBlockAnimation } from "@/feature/landing/components/LandingOfferThreeBlockAnimation";
+import { LandingOfferThreeBlockAnimationLazy as LandingOfferThreeBlockAnimation } from "@/feature/landing/components/LazyAnimations";
 import { RouteNames } from "@/constants";
 
 const commitments = [

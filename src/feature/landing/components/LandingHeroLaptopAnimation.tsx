@@ -147,6 +147,7 @@ function AnimatedFrames({
             height={608}
             className={`h-full w-full ${containerClassName}`}
             style={{ objectPosition }}
+            priority={index === 0}
           />
         </motion.div>
       ))}
