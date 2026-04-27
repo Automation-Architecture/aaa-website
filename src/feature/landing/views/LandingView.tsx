@@ -1,4 +1,4 @@
-import { LandingAgentEconomySection } from "@/feature/landing/components/LandingAgentEconomySection";
+import { LandingAgentEconomySectionLazy as LandingAgentEconomySection } from "@/feature/landing/components/LazyAnimations";
 import { LandingBuildSection } from "@/feature/landing/components/LandingBuildSection";
 import { LandingFinalCtaSection } from "@/feature/landing/components/LandingFinalCtaSection";
 import { LandingHeroSection } from "@/feature/landing/components/LandingHeroSection";

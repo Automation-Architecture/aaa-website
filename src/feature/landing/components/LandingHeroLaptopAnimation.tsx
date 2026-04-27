@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useResponsiveModule } from "@/lib/responsive-module";
 
 const HERO_FRAMES = [
@@ -121,21 +120,14 @@ function AnimatedFrames({
   return (
     <>
       {HERO_FRAMES.map((src, index) => (
-        <motion.div
+        <div
           key={src}
           className="absolute inset-0"
-          initial={false}
-          animate={{
-            opacity: frameIndex === index ? 1 : 0,
-            scale: scales[index],
-            filter: frameIndex === index ? "blur(0px)" : "blur(1px)",
-          }}
-          transition={{
-            opacity: { duration: 0.45, ease: "easeInOut" },
-            scale: { duration: 0.55, ease: "easeInOut" },
-            filter: { duration: 0.35, ease: "easeInOut" },
-          }}
           style={{
+            opacity: frameIndex === index ? 1 : 0,
+            transform: `scale(${scales[index]})`,
+            filter: frameIndex === index ? "blur(0px)" : "blur(1px)",
+            transition: "opacity 0.45s ease-in-out, filter 0.35s ease-in-out",
             transformOrigin,
             pointerEvents: "none",
           }}
@@ -149,7 +141,7 @@ function AnimatedFrames({
             style={{ objectPosition }}
             priority={index === 0}
           />
-        </motion.div>
+        </div>
       ))}
     </>
   );

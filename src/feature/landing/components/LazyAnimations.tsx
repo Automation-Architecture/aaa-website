@@ -20,3 +20,11 @@ export const LandingOfferThreeBlockAnimationLazy = dynamic(
     })),
   { ssr: false },
 );
+
+export const LandingAgentEconomySectionLazy = dynamic(
+  () =>
+    import("./LandingAgentEconomySection").then((m) => ({
+      default: m.LandingAgentEconomySection,
+    })),
+  { ssr: false },
+);
