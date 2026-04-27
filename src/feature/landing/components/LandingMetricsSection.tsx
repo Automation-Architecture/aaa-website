@@ -1,4 +1,4 @@
-import { LandingMetricsPyramidAnimation } from "@/feature/landing/components/LandingMetricsPyramidAnimation";
+import { LandingMetricsPyramidAnimationLazy as LandingMetricsPyramidAnimation } from "@/feature/landing/components/LazyAnimations";
 
 const featureItems = [
   {

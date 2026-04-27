@@ -7,9 +7,10 @@ interface LogoProps {
   variant?: "light" | "dark";
   className?: string;
   iconOnly?: boolean;
+  priority?: boolean;
 }
 
-export function Logo({ variant = "light", className, iconOnly = false }: LogoProps) {
+export function Logo({ variant = "light", className, iconOnly = false, priority = true }: LogoProps) {
   const src = iconOnly
     ? "/images/logo-icon.svg"
     : variant === "light"
@@ -27,7 +28,7 @@ export function Logo({ variant = "light", className, iconOnly = false }: LogoPro
         alt="Automation Architecture AI"
         width={iconOnly ? 49 : 255}
         height={49}
-        priority
+        priority={priority}
         className={finalClassName}
       />
     </Link>

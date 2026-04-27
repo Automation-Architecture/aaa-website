@@ -149,7 +149,6 @@ export function HowItWorksStepOne() {
                   width={517}
                   height={453}
                   className="h-auto w-full object-contain"
-                  priority
                 />
               </div>
             </div>

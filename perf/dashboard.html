@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AAA perf dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root { color-scheme: light dark; --fg:#111; --muted:#666; --bg:#fafafa; --card:#fff; --border:#e5e5e5; --good:#0a7f3f; --bad:#b03030; --neutral:#666; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#eee; --muted:#aaa; --bg:#0e0e10; --card:#181a1d; --border:#2a2d31; --good:#4fd28a; --bad:#ff7d7d; --neutral:#aaa; }
+  }
+  * { box-sizing: border-box; }
+  body { font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; margin: 0; padding: 24px; background: var(--bg); color: var(--fg); }
+  h1 { margin: 0 0 4px; font-size: 20px; }
+  h2 { margin: 24px 0 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .sub { color: var(--muted); margin-bottom: 16px; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .metric-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .metric-value { font-size: 22px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .delta { font-size: 12px; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .delta.good { color: var(--good); }
+  .delta.bad { color: var(--bad); }
+  .delta.neutral { color: var(--neutral); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  th { background: rgba(127,127,127,0.06); font-weight: 600; color: var(--muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em; }
+  tr:last-child td { border-bottom: none; }
+  td.num { text-align: right; }
+  .status { font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .status.keep { background: rgba(10,127,63,0.15); color: var(--good); }
+  .status.discard { background: rgba(127,127,127,0.15); color: var(--neutral); }
+  .status.crash { background: rgba(176,48,48,0.15); color: var(--bad); }
+  .status.pending { background: rgba(255,180,0,0.15); color: #b07a00; }
+  svg { display: block; width: 100%; height: 200px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+  .axis { stroke: var(--border); stroke-width: 1; }
+  .axis-text { font-size: 10px; fill: var(--muted); }
+  .line { fill: none; stroke-width: 2; }
+  .dot { r: 3; }
+  .crash-dot { fill: var(--bad); }
+  .targets { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .empty { color: var(--muted); font-style: italic; padding: 24px; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>AAA website — perf experiments</h1>
+<div class="sub">Live dashboard. Refresh to update. Source: <code>perf/results.json</code> + <code>perf/results.tsv</code>.</div>
+
+<div id="latest"></div>
+
+<h2>Score over time</h2>
+<svg id="chart-score" viewBox="0 0 800 200" preserveAspectRatio="none"></svg>
+<div class="targets">target: ≥ 90</div>
+
+<h2>FCP / SI / TBT over time (ms)</h2>
+<svg id="chart-fcp" viewBox="0 0 800 200" preserveAspectRatio="none"></svg>
+<div class="targets">FCP target &lt; 1800ms · SI target &lt; 3400ms · TBT target &lt; 200ms</div>
+
+<h2>All experiments</h2>
+<div id="table"></div>
+
+<script>
+const STROKES = { score: '#4fd28a', fcp_ms: '#ff8a3d', si_ms: '#3da0ff', tbt_ms: '#c084fc' };
+const fmt = (n, d = 0) => Number(n).toFixed(d);
+
+async function load() {
+  const r = await fetch('results.json?_=' + Date.now()).catch(() => null);
+  if (!r || !r.ok) { document.getElementById('latest').innerHTML = '<div class="empty">No results yet — run <code>node perf/runner.mjs run --description "baseline"</code></div>'; return; }
+  const data = await r.json();
+  if (!data.length) { document.getElementById('latest').innerHTML = '<div class="empty">No experiments recorded.</div>'; return; }
+  render(data);
+}
+
+function render(data) {
+  const successful = data.filter((d) => d.aggregate);
+  const latest = successful[successful.length - 1];
+  const baseline = successful[0];
+
+  // Latest aggregate cards
+  if (latest) {
+    const a = latest.aggregate;
+    const b = baseline ? baseline.aggregate : null;
+    const card = (label, key, unit, higherIsBetter, decimals = 0) => {
+      const v = a[key];
+      const bv = b ? b[key] : null;
+      let deltaHtml = '';
+      if (b && b !== latest) {
+        const d = v - bv;
+        const better = higherIsBetter ? d > 0 : d < 0;
+        const cls = Math.abs(d) < 0.01 ? 'neutral' : (better ? 'good' : 'bad');
+        const sign = d > 0 ? '+' : '';
+        deltaHtml = `<div class="delta ${cls}">${sign}${fmt(d, decimals)}${unit} vs baseline</div>`;
+      }
+      return `<div class="card"><div class="metric-label">${label}</div><div class="metric-value">${fmt(v, decimals)}${unit}</div>${deltaHtml}</div>`;
+    };
+    document.getElementById('latest').innerHTML = `
+      <div class="grid">
+        ${card('Score', 'score', '', true, 1)}
+        ${card('FCP', 'fcp_ms', 'ms', false)}
+        ${card('Speed Index', 'si_ms', 'ms', false)}
+        ${card('TBT', 'tbt_ms', 'ms', false)}
+        ${card('LCP', 'lcp_ms', 'ms', false)}
+        ${card('CLS', 'cls', '', false, 3)}
+      </div>
+      <div class="sub">latest: <code>${latest.commit}</code> &middot; ${latest.description} &middot; ${new Date(latest.timestamp).toLocaleString()}</div>
+    `;
+  }
+
+  // Score chart
+  drawChart('chart-score', data, ['score'], { yMax: 100, yMin: 0 });
+  // Timing chart
+  drawChart('chart-fcp', data, ['fcp_ms', 'si_ms', 'tbt_ms'], {});
+
+  // Table
+  const rows = [...data].reverse().map((d) => {
+    const a = d.aggregate || {};
+    const status = d.status || 'pending';
+    return `<tr>
+      <td><code>${d.commit}</code></td>
+      <td>${d.description || ''}</td>
+      <td><span class="status ${status}">${status}</span></td>
+      <td class="num">${a.score != null ? fmt(a.score, 1) : '—'}</td>
+      <td class="num">${a.fcp_ms != null ? fmt(a.fcp_ms) : '—'}</td>
+      <td class="num">${a.si_ms != null ? fmt(a.si_ms) : '—'}</td>
+      <td class="num">${a.tbt_ms != null ? fmt(a.tbt_ms) : '—'}</td>
+      <td class="num">${a.lcp_ms != null ? fmt(a.lcp_ms) : '—'}</td>
+      <td class="num">${a.cls != null ? fmt(a.cls, 3) : '—'}</td>
+      <td>${new Date(d.timestamp).toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('table').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Commit</th><th>Description</th><th>Status</th>
+        <th class="num">Score</th><th class="num">FCP</th><th class="num">SI</th><th class="num">TBT</th><th class="num">LCP</th><th class="num">CLS</th>
+        <th>When</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function drawChart(svgId, data, keys, { yMin, yMax }) {
+  const svg = document.getElementById(svgId);
+  svg.innerHTML = '';
+  const W = 800, H = 200, pad = { l: 40, r: 80, t: 16, b: 24 };
+  const successful = data.filter((d) => d.aggregate);
+  if (successful.length < 1) return;
+  const xs = successful.map((_, i) => i);
+  const allVals = keys.flatMap((k) => successful.map((d) => d.aggregate[k]).filter((v) => v != null));
+  const dataMin = Math.min(...allVals);
+  const dataMax = Math.max(...allVals);
+  const ymin = yMin != null ? yMin : Math.max(0, dataMin - (dataMax - dataMin) * 0.1);
+  const ymax = yMax != null ? yMax : dataMax + (dataMax - dataMin) * 0.1 || dataMax + 1;
+  const xScale = (i) => pad.l + (xs.length <= 1 ? (W - pad.l - pad.r) / 2 : (i / (xs.length - 1)) * (W - pad.l - pad.r));
+  const yScale = (v) => pad.t + (1 - (v - ymin) / (ymax - ymin || 1)) * (H - pad.t - pad.b);
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const make = (tag, attrs) => {
+    const el = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    return el;
+  };
+  // axes
+  svg.appendChild(make('line', { class: 'axis', x1: pad.l, y1: H - pad.b, x2: W - pad.r, y2: H - pad.b }));
+  svg.appendChild(make('line', { class: 'axis', x1: pad.l, y1: pad.t, x2: pad.l, y2: H - pad.b }));
+  for (let t = 0; t <= 4; t++) {
+    const yv = ymin + (t / 4) * (ymax - ymin);
+    const yp = yScale(yv);
+    const lab = make('text', { class: 'axis-text', x: pad.l - 6, y: yp + 3, 'text-anchor': 'end' });
+    lab.textContent = fmt(yv, ymax > 100 ? 0 : 1);
+    svg.appendChild(lab);
+  }
+
+  // lines
+  keys.forEach((k) => {
+    const stroke = STROKES[k] || '#888';
+    const pts = successful.map((d, i) => `${xScale(i)},${yScale(d.aggregate[k])}`).join(' ');
+    if (successful.length > 1) {
+      svg.appendChild(make('polyline', { class: 'line', stroke, points: pts }));
+    }
+    successful.forEach((d, i) => {
+      const status = d.status || 'pending';
+      const dot = make('circle', { class: 'dot', cx: xScale(i), cy: yScale(d.aggregate[k]), fill: status === 'discard' ? 'transparent' : stroke, stroke, 'stroke-width': 1.5 });
+      svg.appendChild(dot);
+    });
+    // legend
+    const li = keys.indexOf(k);
+    const legY = pad.t + 14 + li * 16;
+    svg.appendChild(make('line', { x1: W - pad.r + 8, y1: legY, x2: W - pad.r + 22, y2: legY, stroke, 'stroke-width': 2 }));
+    const legText = make('text', { class: 'axis-text', x: W - pad.r + 26, y: legY + 3 });
+    legText.textContent = k;
+    svg.appendChild(legText);
+  });
+
+  // crashes
+  data.forEach((d, idx) => {
+    if (d.status !== 'crash') return;
+    const i = successful.length; // place crashes at end if no aggregate
+    // approximate x by index in the original array, scaled
+    const xp = pad.l + (data.length <= 1 ? 0 : (idx / Math.max(1, data.length - 1)) * (W - pad.l - pad.r));
+    svg.appendChild(make('circle', { class: 'crash-dot', cx: xp, cy: H - pad.b - 4, r: 3 }));
+  });
+}
+
+load();
+setInterval(load, 30_000);
+</script>
+</body>
+</html>

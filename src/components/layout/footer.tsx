@@ -55,7 +55,6 @@ export function Footer() {
               alt="Automation Architecture AI"
               width={311}
               height={60}
-              priority
               className="h-[3.3rem] w-auto"
             />
           </div>
